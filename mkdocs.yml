@@ -61,8 +61,12 @@ nav:
   - Uruguay:
       - uruguay/index.md
       - Configuración: uruguay/configuracion.md
+      - Cuentas e impuestos: uruguay/cuentas.md
       - Uso: uruguay/uso.md
+      - Conciliación DGI: uruguay/conciliacion.md
   - Paraguay:
       - paraguay/index.md
       - Configuración: paraguay/configuracion.md
+      - Cuentas e impuestos: paraguay/cuentas.md
       - Uso: paraguay/uso.md
+      - Compras: paraguay/compras.md

@@ -1,22 +1,51 @@
 # Paraguay
 
-Localización fiscal Paraguay sobre Odoo 19: **SIFEN** (DNIT), plan de cuentas, impuestos, KuDE y documentos electrónicos recibidos.
+Localización fiscal Paraguay sobre Odoo 19: **SIFEN** (DNIT), plan de cuentas, KuDE y documentos electrónicos recibidos.
 
-## En esta sección
+<div class="grid cards" markdown>
 
-| Página | Para qué |
-|--------|----------|
-| [Configuración](configuracion.md) | Compañía, SIFEN, cuentas, diarios, impuestos, timbrado |
-| [Uso](uso.md) | Emitir DE, KuDE, correo, DE recibidos, factura papel |
+-   **[Configuración](configuracion.md)**
 
-## Alcance
+    ---
 
-- Chart genérico Paraguay, RUC, emisión SIFEN, PDF KuDE, DE recibidos, tipo de cambio DNIT, reportes (RG90 / formularios).
-- No cubre el plan de cuentas de un cliente puntual ni certificados de producción.
-- No sustituye la documentación nativa de Odoo Accounting.
+    Compañía, SIFEN, timbrado, establecimiento y punto.
 
-!!! warning "No producción en desarrollo"
-    Ambiente SIFEN = **test** en local. Emisión real a producción no se documenta ni se prueba desde el entorno de desarrollo.
+-   **[Cuentas, diarios e impuestos](cuentas.md)**
 
-!!! note
-    Pasos con captura: páginas Configuración y Uso.
+    ---
+
+    Chart genérico, IVA 10/5/exento, RG90.
+
+-   **[Uso](uso.md)**
+
+    ---
+
+    Emitir DE, KuDE, correo, NC.
+
+-   **[Compras](compras.md)**
+
+    ---
+
+    Papel, XML recibido y consulta RUC.
+
+</div>
+
+## Qué cubre esta localización
+
+| Tema | Módulo (orientativo) |
+|------|----------------------|
+| Plan de cuentas y geo/RUC base | `l10n_py` |
+| Masters SIFEN en compañía y factura | `l10n_py_einvoice_base` |
+| Conector mTLS / SOAP DNIT | `l10n_py_einvoice_sifen` |
+| KuDE + correo al aprobar | `l10n_py_einvoice_document` |
+| DE recibidos | `l10n_py_de_received` |
+| Consulta RUC | `l10n_py_ruc_query` |
+| TC DNIT | `l10n_py_currency_rate` |
+| RG90 / Form 120 / EEFF | `l10n_py_tax_reports` |
+| Diferencia de cambio | `l10n_py_exchange_difference` |
+
+!!! warning "SIFEN Test"
+    En implementación y en local: **Modalidad de conexión = Testing**. No se documenta ni se prueba emisión a producción desde un entorno de desarrollo.
+
+!!! note "Capturas"
+    Pasos escritos. Las fotos serán de compañía **demo**, sin RUC real.
