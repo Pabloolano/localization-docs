@@ -28,6 +28,18 @@ Localización fiscal Uruguay sobre Odoo 19: **CFE** ante DGI, impuestos, diarios
 
     Cruzar Odoo contra el listado DGI.
 
+-   **[Reportes DGI](reportes.md)**
+
+    ---
+
+    Formularios 2181, 1146 y 1376.
+
+-   **[Diferencia de cambio](diferencia-cambio.md)**
+
+    ---
+
+    Gravada IVA y revalúos IRAE.
+
 </div>
 
 ## Qué cubre esta localización

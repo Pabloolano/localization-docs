@@ -22,6 +22,14 @@ Odoo 19 Enterprise. Textos genéricos: compañía demo, placeholders, sin datos 
 
     [Abrir Paraguay](paraguay/index.md)
 
+-   **Común**
+
+    ---
+
+    Tablero analítico, validar analítica y color de barra.
+
+    [Abrir común](comun/index.md)
+
 </div>
 
 ## Cómo leer estas guías

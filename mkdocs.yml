@@ -64,9 +64,17 @@ nav:
       - Cuentas e impuestos: uruguay/cuentas.md
       - Uso: uruguay/uso.md
       - Conciliación DGI: uruguay/conciliacion.md
+      - Reportes DGI: uruguay/reportes.md
+      - Diferencia de cambio: uruguay/diferencia-cambio.md
   - Paraguay:
       - paraguay/index.md
       - Configuración: paraguay/configuracion.md
       - Cuentas e impuestos: paraguay/cuentas.md
       - Uso: paraguay/uso.md
       - Compras: paraguay/compras.md
+      - Reportes DNIT: paraguay/reportes.md
+      - Tipo de cambio: paraguay/tipo-cambio.md
+  - Común:
+      - comun/index.md
+      - Analítica: comun/analitica.md
+      - Empresa: comun/empresa.md

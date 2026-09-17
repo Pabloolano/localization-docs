@@ -76,14 +76,7 @@ En el contacto: tipo RUT + número → **Consulta RUT**. Sirve antes de facturar
 
 ## Reportes DGI
 
-`Contabilidad → Uruguay` (menú de la localización):
-
-![Menú Uruguay: diferencia de cambio y reportes DGI](img/odoo-menu-uruguay.jpg)
-
-- Reportes de **detalle** (2181 / 1146): leen líneas de impuesto / cuentas. El filtro de diarios es opcional.
-- **Liquidación / anticipos** (1376): diseño contable de la empresa; no se resuelve “eligiendo un diario”.
-
-![Lista de reportes DGI (2181 / 1146)](img/odoo-reportes-dgi.jpg)
+El circuito completo (calcular, aprobar, TXT / 1376) está en [Reportes DGI](reportes.md). El menú: `Contabilidad → Uruguay`.
 
 ---
 
@@ -91,3 +84,5 @@ En el contacto: tipo RUT + número → **Consulta RUT**. Sirve antes de facturar
 
 - [Configuración](configuracion.md)
 - [Conciliación DGI](conciliacion.md)
+- [Reportes DGI](reportes.md)
+- [Diferencia de cambio](diferencia-cambio.md)

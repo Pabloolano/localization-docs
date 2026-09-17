@@ -28,6 +28,18 @@ Localización fiscal Paraguay sobre Odoo 19: **SIFEN** (DNIT), plan de cuentas, 
 
     Papel, XML recibido y consulta RUC.
 
+-   **[Reportes DNIT](reportes.md)**
+
+    ---
+
+    RG90, Form 120, EEFF y retención IVA.
+
+-   **[Tipo de cambio](tipo-cambio.md)**
+
+    ---
+
+    Cotización DNIT y diferencia IRE.
+
 </div>
 
 ## Qué cubre esta localización

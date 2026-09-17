@@ -65,9 +65,7 @@ Catálogo global + **cuáles están activos en esta compañía** (pestaña de ti
 
 Sirven para el combo de comprobante en facturas **papel**. Con FE activa, la factura de **cliente** electrónica no usa ese combo: el tipo de DE vive en SIFEN.
 
-Exportación: `Contabilidad → Paraguay → RG90`.
-
-![Wizard RG90: rango, compras/ventas y obligación mensual](img/odoo-rg90.jpg)
+Exportación: ver [Reportes DNIT — RG90](reportes.md#rg90).
 
 ---
 
@@ -79,13 +77,13 @@ Si esa empresa usa el circuito:
 2. Activar Variante A, % default, flags de crédito / IRE.
 3. Mapear cuentas + diario (o sugerir desde códigos del plan).
 
-Uso: `Contabilidad → Informes → Impuestos → Retención IVA (Variante A)`. Si “Aplicar retención” está apagado, no genera asientos.
+Uso: [Retención IVA (Variante A)](reportes.md#retencion-iva-variante-a). Si “Aplicar retención” está apagado, no genera asientos.
 
 ---
 
 ## Tipo de cambio DNIT
 
-Módulo `l10n_py_currency_rate`: cotizaciones por compañía. No compartir TC “a mano” entre empresas.
+Módulo `l10n_py_currency_rate`: ver [Tipo de cambio](tipo-cambio.md). No compartir TC “a mano” entre empresas.
 
 ---
 
@@ -93,3 +91,5 @@ Módulo `l10n_py_currency_rate`: cotizaciones por compañía. No compartir TC �
 
 - [Configuración SIFEN](configuracion.md)
 - [Uso](uso.md)
+- [Reportes DNIT](reportes.md)
+- [Tipo de cambio](tipo-cambio.md)

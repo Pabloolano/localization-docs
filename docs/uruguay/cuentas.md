@@ -64,7 +64,7 @@ En la compañía podés setear el **diario para comprobantes recibidos** (compra
 
 - **Redondeo en la venta:** flag en la compañía si aplica la política de redondeo comercial.
 - **TC en facturas de proveedor:** flag para mostrar el tipo de cambio en compras.
-- **Diferencia de cambio:** módulo UY aparte; cuentas y diarios **por compañía**.
+- **Diferencia de cambio:** [módulo UY](diferencia-cambio.md); cuentas y diarios **por compañía**.
 
 ---
 
@@ -72,3 +72,5 @@ En la compañía podés setear el **diario para comprobantes recibidos** (compra
 
 - [Configuración CFE](configuracion.md)
 - [Uso](uso.md)
+- [Reportes DGI](reportes.md)
+- [Diferencia de cambio](diferencia-cambio.md)
