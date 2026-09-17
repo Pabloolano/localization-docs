@@ -121,6 +121,10 @@ DGI lo tiene; Odoo no (o el número no coincide). Acciones en la línea:
 - **Buscar** — candidatos por proveedor, monto y fecha (aunque el número sea otro).
 - **Crear factura** — proveedor en **borrador** con datos del CFE; completá cuenta/producto y confirmá.
 
+En una conciliación ya cargada (acá `CONC/2026/0009`, julio), el filtro **Solo DGI** deja el botón **Buscar** en cada línea:
+
+![Líneas Solo DGI con botón Buscar](img/odoo-buscar-lineas.jpg)
+
 ### Solo sistema
 
 Está en Odoo y DGI no lo lista en **ese** período. Revisá la fecha de la factura. Si la fecha es del período, el proveedor no lo informó a DGI (o el XLS está incompleto).

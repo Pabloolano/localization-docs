@@ -13,6 +13,8 @@ Dos caminos distintos. No los mezcles.
 
 `Contabilidad → Proveedores → Facturas` → pestaña **SIFEN**, grupo **Comprobante recibido en papel**.
 
+![Nueva factura de proveedor: pestaña SIFEN](img/odoo-factura-papel.jpg)
+
 La numeración es **del proveedor**. No consume correlativos de la compañía.
 
 Completá:
@@ -54,7 +56,11 @@ Carga manual de XML sigue disponible aunque el IMAP esté apagado.
 En el contacto (compañía fiscal PY):
 
 1. Tipo de ID **RUC** y número `NNNNNNN-D`.
-2. Acción **Consulta RUC**.
+2. Acción **Consulta RUC** (también hay wizard en `Contabilidad → Paraguay`).
+
+![Contacto Paraguay con tipo RUC](img/odoo-partner-ruc.jpg)
+
+![Wizard Consultar RUC](img/odoo-consulta-ruc.jpg)
 
 **TuRUC** completa nombre, DV, estado, tipo (domicilio solo en algunos casos, p. ej. entidades públicas). El flag de facturador electrónico puede llegar después (consulta SIFEN en cola).
 

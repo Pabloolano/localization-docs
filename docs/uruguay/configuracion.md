@@ -62,6 +62,8 @@ En la pestaña CFE (notebook) o en `Contabilidad → Uruguay`:
 2. Creá al menos un **punto de emisión** ligado a esa sucursal.
 3. Asigná el punto al **diario de ventas** que va a emitir CFE.
 
+    ![Notebook Sucursales / Puntos en la pestaña CFE](img/odoo-sucursales.jpg)
+
 El número fiscal (serie + número) lo maneja el punto / el conector según el tipo de CFE. No tipear el número a mano en una factura ya confirmada.
 
 ---

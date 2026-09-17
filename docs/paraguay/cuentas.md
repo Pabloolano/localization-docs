@@ -9,6 +9,9 @@ Instalá el chart **genérico** de la localización (`l10n_py`). No copies el pl
 1. Compañía activa, país fiscal Paraguay.
 2. Instalar `l10n_py` (chart `py_generico`).
 3. `Contabilidad → Configuración → Plan de cuentas`.
+
+    ![Plan de cuentas Paraguay (códigos DNIT / Form 500)](img/odoo-plan-cuentas.jpg)
+
 4. Revisar clientes, proveedores, IVA, bancos, IRE / diferencia de cambio.
 
 Códigos DNIT en cuentas (`l10n_py_dnit_code`) alimentan EEFF. Si están vacíos, el reporte legal no cierra.
@@ -20,6 +23,8 @@ Cada wizard fiscal pide **compañía**: no mezcla saldos entre empresas.
 ## Diarios
 
 `Contabilidad → Configuración → Diarios`.
+
+![Diarios de la compañía Paraguay: ventas SIFEN, compras, banco, varios](img/odoo-diarios.jpg)
 
 | Tipo | Rol PY |
 |------|--------|
@@ -36,6 +41,8 @@ No reutilices diarios de una empresa Uruguay ni de otra PY.
 
 `Contabilidad → Configuración → Impuestos`.
 
+![Impuestos IVA 10 / 5 / exento del plan Paraguay](img/odoo-impuestos.jpg)
+
 Tasas del plan genérico:
 
 - IVA 10 %
@@ -46,6 +53,10 @@ Cuentas de débito/crédito = las de **esta** compañía. En la línea de factur
 
 ---
 
+El menú **Paraguay** agrupa reportes DNIT, masters SIFEN y DE recibidos:
+
+![Menú Paraguay: RG90, Form 120, EEFF, SIFEN, DE recibidos](img/odoo-menu-paraguay.jpg)
+
 ## Tipos DNIT (papel / RG90)
 
 Catálogo global + **cuáles están activos en esta compañía** (pestaña de tipos DNIT).
@@ -53,6 +64,10 @@ Catálogo global + **cuáles están activos en esta compañía** (pestaña de ti
 ![Tipos de comprobante DNIT activos (papel / RG90)](img/odoo-tipos-dnit.jpg)
 
 Sirven para el combo de comprobante en facturas **papel**. Con FE activa, la factura de **cliente** electrónica no usa ese combo: el tipo de DE vive en SIFEN.
+
+Exportación: `Contabilidad → Paraguay → RG90`.
+
+![Wizard RG90: rango, compras/ventas y obligación mensual](img/odoo-rg90.jpg)
 
 ---
 

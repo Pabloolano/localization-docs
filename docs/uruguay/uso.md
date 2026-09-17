@@ -20,6 +20,10 @@ Operación diaria con CFE ya configurado en **Testing** (o Producción, si esa c
 
     ![Factura: Imprimir, Enviar y estado CFE](img/odoo-factura-form.jpg)
 
+En la pestaña **Factura Electrónica** del mismo comprobante: serie, número, tipo CFE, sucursal y punto. CAE y firma no se publican.
+
+    ![Pestaña Factura Electrónica: serie, número y tipo](img/odoo-factura-cfe.jpg)
+
 Si DGI/el conector **rechaza**: corregí el motivo y volvé a confirmar según el circuito del conector (no inventes un número a mano).
 
 ### Imprimir
@@ -40,6 +44,8 @@ DGI exige vincular la NC/ND al comprobante original.
 2. No armes una NC suelta “parecida”: el vínculo al origen se pierde y DGI la observa.
 3. Mismo diario / familia de tipo (NC de e-Factura vs NC de e-Ticket).
 
+    ![Nota de crédito vinculada al comprobante original](img/odoo-nc.jpg)
+
 ---
 
 ## Factura de proveedor
@@ -48,6 +54,8 @@ DGI exige vincular la NC/ND al comprobante original.
 2. Diario de compras. Si llegó por bandeja CFE, suele crearse en borrador: revisá cuentas e impuestos y confirmá.
 3. Serie, número y tipo DGI del **proveedor** (numeración ajena).
 4. Conciliación contra el listado DGI: ver [Conciliación](conciliacion.md).
+
+    ![Factura de proveedor con pestaña Factura Electrónica](img/odoo-factura-prov.jpg)
 
 ---
 
@@ -60,16 +68,22 @@ DGI exige vincular la NC/ND al comprobante original.
 
 ## Consulta RUT en el día a día
 
-En el contacto: tipo RUT + número → consultar. Sirve antes de facturar para no emitir contra un RUT inválido.
+En el contacto: tipo RUT + número → **Consulta RUT**. Sirve antes de facturar para no emitir contra un RUT inválido.
+
+![Contacto con tipo RUT y botón Consulta RUT](img/odoo-consulta-rut.jpg)
 
 ---
 
 ## Reportes DGI
 
-`Contabilidad → Informes` (menús Uruguay).
+`Contabilidad → Uruguay` (menú de la localización):
 
-- Reportes de **detalle** (p. ej. 2181 / 1146): leen líneas de impuesto / cuentas. El filtro de diarios es opcional.
-- **Liquidación / anticipos** (p. ej. 1376): diseño contable de la empresa; no se resuelve “eligiendo un diario”.
+![Menú Uruguay: diferencia de cambio y reportes DGI](img/odoo-menu-uruguay.jpg)
+
+- Reportes de **detalle** (2181 / 1146): leen líneas de impuesto / cuentas. El filtro de diarios es opcional.
+- **Liquidación / anticipos** (1376): diseño contable de la empresa; no se resuelve “eligiendo un diario”.
+
+![Lista de reportes DGI (2181 / 1146)](img/odoo-reportes-dgi.jpg)
 
 ---
 
