@@ -31,6 +31,8 @@ Orden recomendado:
 
 Misma ficha de compañía → pestaña **SIFEN**. Equivalente de menú: `Contabilidad → Paraguay → Facturación electrónica`.
 
+![Pestaña SIFEN: FE activa, Testing, DE recibidos](img/odoo-sifen-tab.jpg)
+
 | Campo | Qué hace |
 |-------|----------|
 | **Facturación electrónica activa** | Prende el conector (`sifen`). Apagado = no envía ni consulta DNIT (útil si esa empresa solo registra papel RG90). |
@@ -67,6 +69,12 @@ Sin al menos una actividad, Odoo corta **antes de firmar** (no es un rechazo DNI
 
 Notebook bajo SIFEN, o `Contabilidad → Paraguay → Facturación electrónica`.
 
+![Lista de timbrados SIFEN](img/odoo-timbrados.jpg)
+
+![Establecimientos (dEst)](img/odoo-establecimientos.jpg)
+
+![Puntos de expedición (dPunExp)](img/odoo-puntos.jpg)
+
 1. **Timbrado**
     - Testing: número = RUC del emisor en 8 dígitos (`zfill`), con vigencia de la habilitación de prueba.
     - Producción: timbrado electrónico Marangatu. Odoo lo guarda aparte y lo **reactiva** al volver a Producción.
@@ -86,6 +94,8 @@ Formato que ves en el nombre de la factura:
 ## 5. Correo al aprobar el DE
 
 Pestaña **Correo SIFEN** en la compañía:
+
+![Correo SIFEN: enviar al aprobar el DE](img/odoo-correo-sifen.jpg)
 
 1. Una `mail.template` sobre `account.move` (y otra de `stock.picking` solo si emiten e-remito).
 2. Activar **Enviar correo al aprobar DE**.

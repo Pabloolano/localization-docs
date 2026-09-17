@@ -50,6 +50,8 @@ Cuentas de débito/crédito = las de **esta** compañía. En la línea de factur
 
 Catálogo global + **cuáles están activos en esta compañía** (pestaña de tipos DNIT).
 
+![Tipos de comprobante DNIT activos (papel / RG90)](img/odoo-tipos-dnit.jpg)
+
 Sirven para el combo de comprobante en facturas **papel**. Con FE activa, la factura de **cliente** electrónica no usa ese combo: el tipo de DE vive en SIFEN.
 
 ---

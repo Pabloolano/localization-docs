@@ -48,4 +48,4 @@ No sustituye el [manual nativo de Accounting](https://www.odoo.com/documentation
     Hasta validar el circuito, **Modalidad de conexión = Testing**. No uses URLs ni credenciales de producción en un entorno de desarrollo.
 
 !!! note "Capturas"
-    Los pasos están escritos. Las fotos salen de una **compañía demo** (sin RUT real). Todavía no están en esta página.
+    Fotos de Odoo 19. Se tapó la compañía, el RUT y menús o diarios propios del cliente. Proveedores y montos se dejan.

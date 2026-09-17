@@ -37,7 +37,7 @@ Los menús se escriben como en Odoo: `Contabilidad → Configuración → Ajuste
     En local, CFE y SIFEN se usan en **testing / test**. No apuntar Web Services de producción desde un entorno de desarrollo.
 
 !!! note "Capturas"
-    Los pasos ya están. Las fotos se cargan después, sobre una **compañía demo** (la base local EVO tiene datos de clientes y no se usa para screenshots).
+    Fotos de Odoo 19 sobre una base real. Se tapó nombre de **compañía**, RUT/RUC, chatter, certificados y menús o diarios propios de un cliente. Proveedores y montos se dejan como ejemplo.
 
 ## Qué no va aquí
 

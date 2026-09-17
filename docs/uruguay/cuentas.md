@@ -11,6 +11,9 @@ La localización no reemplaza el plan de cuentas nativo de Odoo: lo **usa**. Cad
 
 1. Con la compañía activa: instalar / verificar el plan Uruguay (localización + Accounting).
 2. `Contabilidad → Configuración → Plan de cuentas`.
+
+    ![Plan de cuentas de la compañía](img/odoo-plan-cuentas.jpg)
+
 3. Revisar cuentas de clientes, proveedores, IVA débito/crédito, redondeo y diferencia de cambio.
 
 Los reportes DGI leen **líneas de impuesto** y cuentas de IVA/IRPF, no “el diario mágico”. Un M2M de “diarios para reportes”, si existe, es **filtro opcional**: vacío = todos.
@@ -20,6 +23,8 @@ Los reportes DGI leen **líneas de impuesto** y cuentas de IVA/IRPF, no “el di
 ## Diarios
 
 `Contabilidad → Configuración → Diarios`.
+
+![Diarios: ventas CFE, compras, banco, varios](img/odoo-diarios.jpg)
 
 | Tipo | Para qué en UY |
 |------|----------------|
@@ -42,6 +47,8 @@ En la compañía podés setear el **diario para comprobantes recibidos** (compra
 ## Impuestos
 
 `Contabilidad → Configuración → Impuestos`.
+
+![Impuestos IVA / IRPF del plan Uruguay](img/odoo-impuestos.jpg)
 
 1. IVA tasas vigentes del plan Uruguay.
 2. Cuentas de débito y crédito fiscal coherentes con el CoA de **esta** compañía.

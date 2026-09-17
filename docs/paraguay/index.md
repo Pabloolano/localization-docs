@@ -48,4 +48,4 @@ Localización fiscal Paraguay sobre Odoo 19: **SIFEN** (DNIT), plan de cuentas, 
     En implementación y en local: **Modalidad de conexión = Testing**. No se documenta ni se prueba emisión a producción desde un entorno de desarrollo.
 
 !!! note "Capturas"
-    Pasos escritos. Las fotos serán de compañía **demo**, sin RUC real.
+    Fotos de Odoo 19. Se tapó la compañía, el RUC, el chatter y los certificados. Clientes y montos se dejan como ejemplo.

@@ -15,7 +15,7 @@ Orden recomendado:
 
 ## 1. Compañía
 
-Ve a `Ajustes → Empresas` y abrí la compañía (o creá una nueva).
+Ve a `Ajustes → Empresas` y abrí la compañía (o creá una nueva). El país fiscal **Uruguay** habilita la pestaña CFE:
 
 1. **País fiscal:** Uruguay. Sin esto no aparecen menús ni validaciones CFE.
 2. **Moneda** de la compañía (habitualmente UYU; el USD se opera como moneda de transacción).
@@ -35,6 +35,8 @@ Ve a `Ajustes → Empresas` y abrí la compañía (o creá una nueva).
 ## 2. Pestaña CFE
 
 En la misma ficha de compañía, pestaña **CFE** (solo si el país fiscal es Uruguay).
+
+![Pestaña CFE: FE activa, Testing, sucursal y punto](img/odoo-cfe-tab.jpg)
 
 | Campo | Qué hace |
 |-------|----------|
@@ -66,7 +68,9 @@ El número fiscal (serie + número) lo maneja el punto / el conector según el t
 
 ## 4. Tipos de comprobante DGI
 
-`Contabilidad → Configuración → Tipos de documento` (Latam) y, en la compañía, los tipos **activos** para esa empresa.
+`Contabilidad → Configuración → Tipos de documento` (Latam) y, en la compañía, los tipos **activos** para esa empresa (pestaña **Tipos de comprobante DGI**).
+
+![Tipos DGI activos en la compañía](img/odoo-tipos-dgi.jpg)
 
 Los más usados en emisión:
 

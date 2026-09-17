@@ -10,11 +10,15 @@ Operación diaria con CFE ya configurado en **Testing** (o Producción, si esa c
 ## Factura de cliente
 
 1. `Contabilidad → Clientes → Facturas` → Crear.
+
+    ![Lista de facturas de cliente](img/odoo-facturas.jpg)
 2. Elegí el **diario de ventas** CFE (define tipo e-Factura / e-Ticket y el punto).
 3. Partner: RUT si es e-Factura; consumidor final si es e-Ticket (según reglas DGI).
 4. Líneas, impuestos, plazo de pago.
 5. **Confirmar.** Odoo arma el CFE y lo manda al conector (Testing o Producción según la compañía).
 6. Esperá el estado (aceptado / observado / rechazado). El detalle queda en el chatter y en los campos CFE del move.
+
+    ![Factura: Imprimir, Enviar y estado CFE](img/odoo-factura-form.jpg)
 
 Si DGI/el conector **rechaza**: corregí el motivo y volvé a confirmar según el circuito del conector (no inventes un número a mano).
 

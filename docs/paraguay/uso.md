@@ -10,11 +10,17 @@ Día a día con SIFEN en **Testing** (o Producción, solo si esa compañía ya h
 ## Factura de cliente (DE emitido)
 
 1. `Contabilidad → Clientes → Facturas` → Crear.
+
+    ![Lista de facturas: número FE y Estado SIFEN](img/odoo-facturas.jpg)
 2. Diario de ventas, partner con RUC, calle y **número de puerta**, geo DNIT.
 3. Líneas e IVA (10 / 5 / exento).
 4. En **borrador**, pestaña SIFEN: tipo de DE, condición de venta, presencia, cuotas si aplica, documento asociado si es NC/ND.
 5. **Confirmar.** Odoo publica el número (`FE 001-001-…`) y envía el lote a SIFEN.
 6. Los datos SIFEN del comprobante quedan de **solo lectura** (ya se transmitió).
+
+    ![Factura aprobada: Imprimir, Enviar, SIFEN TEST](img/odoo-factura-form.jpg)
+
+    ![Pestaña SIFEN del comprobante: tipo DE, est, punto, estado](img/odoo-factura-sifen.jpg)
 
 Envío **asíncrono** por defecto: SIFEN devuelve ticket de lote; Odoo consulta el resultado.
 

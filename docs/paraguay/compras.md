@@ -33,6 +33,8 @@ Tipos DNIT activos de la compañía alimentan el combo (RG90).
 
 `Contabilidad → Proveedores → DE recibidos`.
 
+![Bandeja DE recibidos: cargar XML](img/odoo-de-recibidos.jpg)
+
 1. Subí el XML (o llega por buzón IMAP **por compañía**: Odoo asigna por RUC receptor = RUC SIFEN de la empresa).
 2. Procesar: arma la factura proveedor en **borrador**.
 3. Completá cuentas, analítica e impuestos si hace falta.
