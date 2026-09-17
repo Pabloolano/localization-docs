@@ -45,9 +45,11 @@ Si el período tiene más de 100 comprobantes, DGI deja el Excel/TXT para descar
 
 ## 2. Dónde está en Odoo
 
-`Contabilidad → Uruguay → Conciliación de Documentos → Conciliación DGI Comprobantes Recibidos`
+`Contabilidad → Proveedores → Conciliación de Documentos → Conciliación DGI comprobantes Recibidos`
 
-![Menú Uruguay — Conciliación DGI Comprobantes Recibidos](img/odoo-menu-conciliacion.jpg)
+![Menú Proveedores — Conciliación DGI comprobantes Recibidos](img/odoo-menu-conciliacion.jpg)
+
+Ya **no** está bajo el menú Uruguay: en Odoo 19 el ítem cuelga de **Proveedores** (junto a Comprobantes Recibidos).
 
 Si ya hay conciliaciones, la lista muestra referencia, fechas, nombre de archivo y estado (borrador / conciliado / aprobado). Podés reabrir un trabajo anterior **solo para consultar**; una aprobada no se edita.
 
@@ -108,7 +110,7 @@ Cruzaron bien. Acción solo si el estado es **Borrador**: hay que confirmar la f
 
 ### Discrepancias
 
-Montos distintos. Centavos / redondeo / IVA / TC: habitual. Diferencia grande: revisar la factura vs el PDF del CFE (descuento no cargado, TC, etc.).
+Montos distintos. Centavos / redondeo / IVA / TC: habitual. Si la diferencia es de centavos, el botón **Aceptar centavos** en la línea la da por buena. Diferencia grande: revisar la factura vs el PDF del CFE (descuento no cargado, TC, etc.).
 
 El cruce de identidad es por **número + proveedor**, no por monto en moneda local. En USD se compara el importe en la moneda del comprobante.
 
