@@ -14,11 +14,11 @@ Módulo `l10n_py_tax_reports`. Wizards **por compañía**: no mezclan saldos ent
 
 1. Compañía (fiscal Paraguay).
 2. Fecha desde / hasta.
-3. Obligación mensual (9550) u otra que use esa empresa.
+3. Obligación **Mensual (955)** o **Anual (956)**.
 4. Incluir compras y/o ventas.
-5. **Exportar RG90.** El archivo queda en el wizard.
+5. **Exportar RG90.** Baja un **ZIP** para Marangatu.
 
-Los tipos DNIT activos de la compañía alimentan el combo de comprobantes papel. Ver [Cuentas](cuentas.md).
+Los comprobantes **electrónicos SIFEN no entran** en ese CSV: solo papel / RG90. Tipos DNIT activos: [Cuentas](cuentas.md).
 
 ![Wizard RG90](img/odoo-rg90.jpg)
 
@@ -33,7 +33,7 @@ No se publica el archivo ni el RUC.
 1. Compañía, fecha desde / hasta.
 2. **Calcular.** Arma bases e IVA 10 / 5 / exento de ventas y compras, y el saldo (débito − crédito).
 3. Revisá los tres bloques.
-4. **Exportar PDF** si hace falta presentar o archivar.
+4. **Exportar PDF** — apoyo interno. **No** sustituye la DJ oficial en DNIT.
 
 Lee los impuestos del plan (IVA 10 / 5 / exento). Si el tax de la factura está mal, el 120 miente.
 

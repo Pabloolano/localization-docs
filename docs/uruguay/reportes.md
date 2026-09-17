@@ -6,7 +6,7 @@ Módulo `l10n_uy_tax_reports`. Genera el **2181**, el **1146** y la liquidación
 
 ![Menú Uruguay: diferencia de cambio y reportes DGI](img/odoo-menu-uruguay.jpg)
 
-El filtro de diarios en Ajustes es **opcional**: vacío = todos los diarios de la compañía. El 1376 no se “arregla” eligiendo un diario: lee el diseño contable (cuentas e impuestos mapeados).
+El filtro de diarios en Ajustes es **opcional**: vacío = todos los diarios de la compañía. El 1376 no se “arregla” eligiendo un diario: lee el diseño contable (cuentas e impuestos mapeados). La diferencia de cambio **Gravada (IVA)** alimenta el 2181: corré ese cálculo antes del mes.
 
 ---
 

@@ -29,7 +29,7 @@ Ahí también está el cron opcional (tipo + día).
 ## Cómo correr un período
 
 1. Entrá al menú del **tipo** que corresponde (no mezcles gravada IVA con revalúo de activo).
-2. **Nuevo.** Fecha desde / hasta. En los tres revalúos, cargá la **cotización** de cierre.
+2. **Nuevo.** Fecha desde / hasta. En **Gravada (IVA)** el rango es el mismo mes. En los tres revalúos, cargá la **cotización** de cierre. El cron de Ajustes viene **apagado**.
 3. `Cuentas específicas a filtrar` es opcional: vacío = las cuentas del tipo.
 4. **Calcular.** Revisá las líneas (cuenta, partner, factura, USD, UYU origen/cierre, diferencia).
 5. **Aprobar.**

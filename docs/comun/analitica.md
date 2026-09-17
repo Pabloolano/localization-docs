@@ -23,13 +23,13 @@ Los nombres de cuentas analíticas de un cliente no se publican.
 
 Módulo `validate_distribution_analytic`.
 
-En Ajustes, **por compañía**:
+En Ajustes:
 
-| Dónde | Campo |
-|-------|--------|
-| `Ajustes → Contabilidad` | **Validar Analítica** (facturas) |
-| `Ajustes → Ventas` | **Validar Analítica SO** |
-| `Ajustes → Compras` | **Validar Analítica PO** |
+| Dónde | Campo | Alcance |
+|-------|--------|---------|
+| `Ajustes → Contabilidad` | **Validar Analítica** (facturas) | **Por compañía** |
+| `Ajustes → Ventas` | **Validar Analítica SO** | **Toda la base** |
+| `Ajustes → Compras` | **Validar Analítica PO** | **Toda la base** |
 
 Si el flag está activo y confirmás un documento con líneas sin distribución analítica, sale el aviso:
 
@@ -50,8 +50,9 @@ Módulo `partner_line_analytic_match`. En el **proveedor**, pestaña *Ventas y C
 
 1. Grupo **Analítica por texto de línea**.
 2. Una fila por regla: **Texto en la línea** (p. ej. un número de servicio) + **Cuenta analítica**.
-3. Al cargar o cambiar la descripción de la línea en la factura de proveedor, Odoo asigna esa cuenta si el texto coincide.
-4. Si cambiás el producto, se conserva la descripción de la línea de compra.
+3. Al cargar la línea de una **compra** (factura, NC o recibo), Odoo asigna esa cuenta si el texto coincide. Si hay varios matches, gana el token **más largo**.
+4. Un número de **menos de 6 dígitos** no se acepta (falsos positivos).
+5. Si cambiás el producto, se conserva la descripción de la línea de compra.
 
 ![Reglas de analítica en el contacto proveedor](img/odoo-partner-analitica.jpg)
 

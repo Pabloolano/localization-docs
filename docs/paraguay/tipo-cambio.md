@@ -45,10 +45,11 @@ Ventas usan vendedor; compras, comprador — salvo que elijas manual.
 
 1. **Nuevo.** Compañía, moneda (USD), fecha de cierre, rango, diario, cuentas de ganancia y pérdida.
 2. **Calcular.** Líneas: cuenta, saldo ME, TC de cierre, esperado vs real, diferencia.
-3. Revisá. **Postear** genera el asiento.
-4. **Revertir** si hay que deshacer un período ya posteado.
+3. Revisá. **Postear** genera el asiento en la fecha de cierre y una **reversión automática al 1/1 del año siguiente**.
+4. Activos revalúan con **TC comprador**; pasivos con **TC vendedor**.
+5. **Revertir** cancela esa reversión si hay que regenerar el período.
 
-Estados: Borrador → Calculado → Posteado.
+Estados: Borrador → Calculado → Posteado. Sin TC DNIT en la fecha de cierre, el cálculo falla.
 
 ![Diferencia de cambio PY: cabecera y líneas](img/odoo-xc-py.jpg)
 
