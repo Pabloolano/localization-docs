@@ -13,7 +13,7 @@ Cruzar los CFE **recibidos** que lista DGI contra las facturas de proveedor en O
     Un “Solo DGI” puede ser el mismo CFE con **otra serie/número**, **otra fecha** o una NC. Buscá bien (RUT, número cercano, draft y posted) antes de **Crear factura**.
 
 !!! note
-    Este capítulo es el manual de usuario de la herramienta. El PDF original no se publica: traía capturas de una compañía real (nombres, RUT, montos). Las fotos de Odoo se reharán sobre **demo**. Las de DGI sí están: son el portal público.
+    Capturas de Odoo tomadas de una base real. Se tapó el nombre de la **compañía** y menús propios del cliente. Proveedores, RUT de emisor y montos se dejan: son el ejemplo de uso.
 
 ---
 
@@ -47,7 +47,11 @@ Si el período tiene más de 100 comprobantes, DGI deja el Excel/TXT para descar
 
 `Contabilidad → Uruguay → Conciliación de Documentos → Conciliación DGI Comprobantes Recibidos`
 
+![Menú Uruguay — Conciliación DGI Comprobantes Recibidos](img/odoo-menu-conciliacion.jpg)
+
 Si ya hay conciliaciones, la lista muestra referencia, fechas, nombre de archivo y estado (borrador / conciliado / aprobado). Podés reabrir un trabajo anterior **solo para consultar**; una aprobada no se edita.
+
+![Lista de conciliaciones](img/odoo-lista-conciliaciones.jpg)
 
 ---
 
@@ -57,6 +61,9 @@ Si ya hay conciliaciones, la lista muestra referencia, fechas, nombre de archivo
 2. Compañía activa (fiscal Uruguay).
 3. Subí el `.xls` en **Archivo DGI**.
 4. **Fecha desde / hasta** se completan solas desde el archivo.
+
+    ![Formulario Nueva conciliación](img/odoo-nueva-conciliacion.jpg)
+
 5. **Conciliar**. Puede tardar según la cantidad de líneas.
 6. Odoo abre la vista de resultados. Ahí aplicás filtros y **Agrupar por → Resultado**.
 
@@ -81,6 +88,8 @@ Campos de cada línea:
 
 Colores: verde conciliado, amarillo discrepancia, rojo solo DGI o solo sistema.
 
+![Resultados del cruce, filtros y Agrupar por](img/odoo-resultados.jpg)
+
 En el encabezado hay cinco indicadores (clic = filtra la lista):
 
 - **Líneas** — total procesado
@@ -88,6 +97,8 @@ En el encabezado hay cinco indicadores (clic = filtra la lista):
 - **Discrepancias**
 - **Solo DGI**
 - **Solo sistema**
+
+![Indicadores en el encabezado](img/odoo-indicadores.jpg)
 
 También: búsqueda por Resultado / Estado / Tipo, y agrupar por Resultado.
 
@@ -124,6 +135,8 @@ Causas típicas: no se descargó el XML, se descargó con **otro número**, o to
 2. Revisá candidatos (proveedor / monto / fecha).
 3. **Usar este** → **Confirmar** al pie del panel.
 4. Odoo une las líneas y actualiza el resultado.
+
+    ![Buscar coincidencia — Usar este y Confirmar](img/odoo-buscar.jpg)
 
 Si no hay candidatos: o está en otro período, o realmente falta → **Crear factura**.
 
@@ -163,6 +176,9 @@ Facturas **sin número de CFE** (carga manual) **no entran** al cruce.
 Cuando el período está revisado:
 
 1. Volvé al encabezado (clic en `CONC/AAAA/NNNN` arriba).
+
+    ![Volver al encabezado para aprobar](img/odoo-aprobar.jpg)
+
 2. **Aprobar conciliación**.
 3. Estado **Aprobado**: no se modifica. Si hace falta corregir, **nueva** conciliación del mismo período.
 
