@@ -79,7 +79,7 @@ Si esa empresa usa el circuito:
 2. Activar Variante A, % default, flags de crédito / IRE.
 3. Mapear cuentas + diario (o sugerir desde códigos del plan).
 
-Uso: [Retención IVA (Variante A)](reportes.md#retencion-iva-variante-a) (menú bajo Reportes DNIT). Si “Aplicar retención” está apagado, no genera asientos.
+Uso: [Comprobante de retención IVA](compras.md#comprobante-de-retencion-iva) (botón en el pago de proveedor).
 
 ---
 

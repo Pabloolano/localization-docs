@@ -11,7 +11,7 @@ Ya no son wizards. No mezclan saldos entre empresas.
 - Formulario 500 (IRE)
 - Estados Financieros (RG 49/14)
 - Libro IVA (Ley 125/91)
-- Retención IVA (Variante A) — este sí sigue siendo wizard
+- (la retención IVA ya no es un reporte: se emite desde el pago)
 
 ![Menú Paraguay: Reportes DNIT](img/odoo-menu-paraguay.jpg)
 
@@ -139,18 +139,10 @@ siendo el **RG90** (solo papel).
 
 ---
 
-## Retención IVA (Variante A)
+## Retención IVA
 
-Solo si **esa** empresa usa el circuito. Primero: `Contabilidad → Configuración → Ajustes` → bloque *Paraguay — Retención IVA* (activar Variante A, %, flags de crédito / IRE, diario y cuentas).
-
-Uso: `Contabilidad → Paraguay → Reportes DNIT → Retención IVA (Variante A)`.
-
-1. Compañía, proveedor, fecha.
-2. Importe de factura. Si **Aplicar retención** está apagado, no genera asientos.
-3. Base, %, diario y cuenta banco.
-4. **Crear asientos.** Quedan el pago y, si corresponde, el crédito.
-
-![Wizard Retención IVA Variante A](img/odoo-retencion-iva.jpg)
+Ya no es un reporte ni un wizard bajo Reportes DNIT. Se emite desde el
+pago de proveedor: [Compras — comprobante de retención](compras.md#comprobante-de-retencion-iva).
 
 ---
 

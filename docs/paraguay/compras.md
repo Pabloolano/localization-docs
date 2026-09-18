@@ -70,6 +70,23 @@ El **padrón RUC** es cache nacional (compartido entre compañías a propósito)
 
 ---
 
+## Comprobante de retención IVA {#comprobante-de-retencion-iva}
+
+Si **esa** compañía tiene activado *Usar retención IVA Variante A* (`Contabilidad → Configuración → Ajustes`):
+
+1. Pagá la factura de proveedor (el banco sale por el neto). El pago queda en **En proceso** o **Pagado**.
+2. En el pago: **Emitir retención**.
+3. Confirmá las facturas (podés destildar las que no correspondan) y el %.
+4. Se crea el comprobante `CRET/…`, el asiento de pasivo DNIT y se cierra el residual de cada factura.
+
+Listado: `Contabilidad → Paraguay → Comprobantes de Retención`. **Anular** solo si está emitido (revierte el asiento; no vuelve a borrador).
+
+No hay un segundo botón ni un ítem en Reportes DNIT. Tampoco XML SIFEN (CRE iTiDE 8 sigue bloqueado por DNIT).
+
+El botón aparece con el pago **En proceso** (asiento posteado, outstanding abierto) o **Pagado**. No espera la conciliación bancaria.
+
+---
+
 ## Receptor de prueba (para poder emitir)
 
 Aunque esta página es de compras, el cliente de una **venta** también es receptor SIFEN. Checklist:

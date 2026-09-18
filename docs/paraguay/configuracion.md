@@ -130,6 +130,17 @@ Cobranza / recordatorios: seguimiento nativo de Odoo (`account_followup`), no un
 
 ---
 
+## 8. Retención IVA (si esa empresa es agente)
+
+`Contabilidad → Configuración → Ajustes` → bloque *Paraguay — Retención IVA*:
+
+1. Activar **Usar retención IVA Variante A**.
+2. % default, flag imputa IRE, diario y cuenta *IVA retenciones a pagar*.
+
+Uso: [Comprobante de retención](compras.md#comprobante-de-retencion-iva).
+
+---
+
 ## Véase también
 
 - [Cuentas e impuestos](cuentas.md)
