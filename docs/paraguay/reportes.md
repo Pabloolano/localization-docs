@@ -15,8 +15,8 @@ Libro IVA) y **Retención IVA (Variante A)**.
 `Contabilidad → Paraguay → Reportes DNIT → RG90`.
 
 1. **Nuevo.** Obligación **Mensual (955)** o **Anual (956)**.
-2. **Calcular** → **Aprobar**.
-3. **Exportar ZIP** para Marangatu. El ZIP queda en el registro (`RG90/…`).
+2. **Calcular** (arma el snapshot) → **Aprobar**.
+3. **Exportar ZIP** para Marangatu. El archivo se genera en ese paso, no al calcular.
 
 Los comprobantes **electrónicos SIFEN no entran** (tampoco el lote
 pendiente de aprobación). Tipos DNIT activos: [Cuentas](cuentas.md).
@@ -40,8 +40,10 @@ No se publica el archivo ni el RUC.
 
 La DJ oficial se carga en Marangatu a mano. Si el tax de la factura está mal, el 120 miente.
 Una línea con IVA 5 y 10 parte la base; no la duplica.
-Las facturas entran por **fecha de factura** (igual que el RG90); los asientos
-de retención (cas. 52) por fecha contable.
+Las **notas de crédito** van a las casillas de devolución (15 / 34 / 37), no restan
+en la casilla de la factura original.
+Las facturas entran por **fecha de factura** (igual que el RG90); la cas. 52
+(retención) por las cuentas Variante A, no por asientos misc.
 
 ![Formulario 120](img/odoo-form120.jpg)
 
