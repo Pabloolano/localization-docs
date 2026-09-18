@@ -67,7 +67,7 @@ Catálogo global + **cuáles están activos en esta compañía** (pestaña de ti
 
 Sirven para el combo de comprobante en facturas **papel**. Con FE activa, la factura de **cliente** electrónica no usa ese combo: el tipo de DE vive en SIFEN.
 
-Exportación: ver [Reportes DNIT — RG90](reportes.md#rg90).
+Exportación (Form 120): posición fiscal **Exportación** en el contacto o la factura, no el país ni FEE. Ver [Formulario 120](reportes.md#formulario-120-iva).
 
 ---
 
