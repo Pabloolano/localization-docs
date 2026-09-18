@@ -51,6 +51,8 @@ Si el período tiene más de 100 comprobantes, DGI deja el Excel/TXT para descar
 
 Ya **no** está bajo el menú Uruguay: en Odoo 19 el ítem cuelga de **Proveedores** (junto a Comprobantes Recibidos).
 
+Si la compañía usa **Proinfo** (fiscal Uruguay y proveedor CFE = Proinfo) hay menús extra: conciliación Proinfo de recibidos (mismo padre en Proveedores) y de emitidos (`Clientes → Conciliación de Documentos`). En Paraguay, o en una empresa UY sin Proinfo, esos ítems no se listan. La conciliación DGI sigue visible en cualquier UY.
+
 Si ya hay conciliaciones, la lista muestra referencia, fechas, nombre de archivo y estado (borrador / conciliado / aprobado). Podés reabrir un trabajo anterior **solo para consultar**; una aprobada no se edita.
 
 ![Lista de conciliaciones](img/odoo-lista-conciliaciones.jpg)
