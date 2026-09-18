@@ -37,6 +37,9 @@ theme:
     - content.action.edit
     - toc.follow
 
+extra_css:
+  - stylesheets/extra.css
+
 plugins:
   - search:
       lang: es
