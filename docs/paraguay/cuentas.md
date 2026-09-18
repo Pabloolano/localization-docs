@@ -14,7 +14,8 @@ Instalá el chart **genérico** de la localización (`l10n_py`). No copies el pl
 
 4. Revisar clientes, proveedores, IVA, bancos, IRE / diferencia de cambio.
 
-Códigos DNIT en cuentas (`l10n_py_dnit_code`) alimentan EEFF. Si están vacíos, el reporte legal no cierra.
+Códigos DNIT en cuentas (`l10n_py_dnit_code`) alimentan el EEFF RG 49/14 y el
+Form. 500. Si están vacíos, esos reportes no calculan.
 
 RG90 / Form 120 / EEFF son documentos por compañía: no mezclan saldos entre empresas.
 
