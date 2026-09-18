@@ -59,10 +59,39 @@ DGI exige vincular la NC/ND al comprobante original.
 
 ---
 
-## e-Remito y e-Resguardo
+## e-Remito (181)
 
-- **e-Remito (181):** emisión electrónica de guía; no alcanza con validar un albarán de stock.
-- **e-Resguardo (182):** retenciones en el circuito de pagos. El PDF de representación puede tener límites conocidos: priorizá el XML/estado DGI.
+**Validar** el albarán no emite el CFE. Primero queda Hecho; después **Emitir Comprobante**.
+
+En el tipo de operación (`Inventario → Configuración → Tipos de operación`): **Utiliza Facturación electrónica**, sucursal y punto.
+
+1. Entrega / transferencia con ese tipo. **Validar** (estado Hecho).
+2. Revisá tipo 181, sucursal y punto.
+3. **Emitir Comprobante.** Esperá estado DGI. Pestaña Factura Electrónica + PDF.
+4. **Imprimir** usa la representación del remito (sin importes de venta).
+5. **Anular e-Remito** (indicador DGI 8). No alcanza un `cancel` de stock.
+
+![Transferencia validada: Anular e-Remito](img/odoo-remito.jpg)
+
+---
+
+## e-Resguardo (182)
+
+Retenciones en el circuito de pagos. Diario con flag **diario resguardo**.
+
+| Menú | Qué es |
+|------|--------|
+| `Contabilidad → Clientes → Resguardos emitidos` | 182 que emitís |
+| `Contabilidad → Proveedores` → resguardos recibidos | 182 que te emitieron (bandeja CFE) |
+| `Contabilidad → Proveedores` → anulación de resguardo | 182 de anulación, vinculado al original |
+
+1. Crear el resguardo (o llega por XML).
+2. Confirmar / publicar: emite el CFE.
+3. Anular: **Anular Resguardo** arma el documento de anulación. La conciliación del original **no** se revierte sola: hay que desconciliar a mano.
+
+El PDF de representación puede tener límites: priorizá XML y estado DGI.
+
+![Resguardo emitido](img/odoo-resguardo.jpg)
 
 ---
 

@@ -78,3 +78,10 @@ nav:
       - comun/index.md
       - Analítica: comun/analitica.md
       - Empresa: comun/empresa.md
+      - Captcha: comun/captcha.md
+      - Pagos: comun/pagos.md
+      - Segunda moneda: comun/multimoneda.md
+  - COMEX:
+      - comex/index.md
+      - Carpetas: comex/carpetas.md
+      - Cotizador: comex/cotizador.md

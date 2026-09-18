@@ -3,7 +3,7 @@
 Módulo `l10n_py_tax_reports`. RG90, Form 120 y EEFF son **documentos persistentes**
 (lista + estados, un registro por período). No mezclan saldos entre empresas.
 
-`Contabilidad → Paraguay → Reportes DNIT` (RG90, Form 120, EEFF) y **Retención IVA (Variante A)**.
+`Contabilidad → Paraguay → Reportes DNIT` (RG90, Form 120, Form 500, EEFF) y **Retención IVA (Variante A)**.
 
 ![Menú Paraguay: RG90, Form 120, EEFF, SIFEN](img/odoo-menu-paraguay.jpg)
 
@@ -42,7 +42,7 @@ La DJ oficial se carga en Marangatu a mano. Si el tax de la factura está mal, e
 
 ## Estados financieros (RG 49/14)
 
-`Contabilidad → Paraguay → Reportes DNIT → Estados Financieros (Form 500)`.
+`Contabilidad → Paraguay → Reportes DNIT → Estados Financieros (RG 49/14)`.
 
 Papel de trabajo de Anexos 1 y 2 (Balance y Resultados). **No** es la DJ Form. 500
 (casillas web en Marangatu).
@@ -53,10 +53,22 @@ Si falta, el cálculo se corta. Las cuentas hijas se **suman al padre oficial**
 
 1. **Nuevo** del ejercicio (1/1–31/12). Tipo: Balance, Resultados o ambos.
 2. **Calcular** → **Aprobar.** Queda en la lista (`EEFF/…`).
-3. **Exportar XLSX (EF)** → `{RUC}EF.xlsx` (columnas X1 / X1-1).
+3. **Exportar XLSX (EF)** → `{RUC}EF.xlsx` (Anexos 1–6, X1 / X1-1).
    Si Marangatu pide `.xls` o `.ods`, convertí ese archivo. El PDF es apoyo.
+   Las hojas 3–6 son papel de trabajo; no clonan la planilla oficial.
 
-No incluye flujo de efectivo, patrimonio, revalúo ni notas (Anexos 3–6).
+---
+
+## Formulario 500 (IRE General)
+
+`Contabilidad → Paraguay → Reportes DNIT → Formulario 500 (IRE)`.
+
+Papel de casillas de la DJ de renta (obligación 700). **No** se sube a Marangatu:
+se tipea. Reusa el EEFF del mismo ejercicio si ya está calculado.
+
+1. **Nuevo** del ejercicio → **Calcular**.
+2. Volvé a Borrador para cargar casillas manuales (pérdidas, créditos, anticipos).
+3. **Calcular** de nuevo → **Aprobar** → **Exportar XLSX**.
 
 ![Estados Financieros](img/odoo-eeff.jpg)
 

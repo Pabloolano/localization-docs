@@ -144,7 +144,7 @@ Causas típicas: no se descargó el XML, se descargó con **otro número**, o to
 
     ![Buscar coincidencia — Usar este y Confirmar](img/odoo-buscar.jpg)
 
-Si no hay candidatos: o está en otro período, o realmente falta → **Crear factura**.
+Si no hay candidatos (mismo RUT + tipo, score ≥ 30 en esa conciliación), el wizard lo dice: conciliá a mano con el checkbox o **Crear factura**. No inventa matches.
 
 ### Crear factura
 

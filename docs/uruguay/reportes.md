@@ -71,7 +71,7 @@ Es la liquidación / anticipos (IVA + IRAE). No exporta TXT en esta pantalla.
 
 `Retenciones OTT`, `IPAT` e `ICOSA` se pueden completar a mano si el cálculo no los trae.
 
-![Formulario 1376 (nuevo): bloques IVA, IRAE y anticipos](img/odoo-reporte-1376.jpg)
+![Formulario 1376 nuevo (antes de Calcular): bloques IVA, IRAE y anticipos](img/odoo-reporte-1376.jpg)
 
 ---
 

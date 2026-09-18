@@ -26,9 +26,17 @@ Odoo 19 Enterprise. Textos genéricos: compañía demo, placeholders, sin datos 
 
     ---
 
-    Tablero analítico, validar analítica y color de barra.
+    Analítica, captcha, pagos, segunda moneda y color de barra.
 
     [Abrir común](comun/index.md)
+
+-   **COMEX**
+
+    ---
+
+    Carpetas de importación/exportación y cotizador.
+
+    [Abrir COMEX](comex/index.md)
 
 </div>
 
@@ -49,7 +57,8 @@ Los menús se escriben como en Odoo: `Contabilidad → Configuración → Ajuste
 
 ## Qué no va aquí
 
-- RUT, RUC, certificados, claves, CSC, CAE o timbrados reales
+- RUT, RUC, certificados, claves, CSC, CAE, timbrados o CDC reales
 - Nombres, cuentas o diarios de un cliente
-- Capturas de una base de producción
-- Personalizaciones de un solo cliente
+- Cavas, Handy y cualquier menú de un solo cliente
+- `l10n_uy_gov_reference` (todavía verde)
+- Onboarding de empresa (descartado)

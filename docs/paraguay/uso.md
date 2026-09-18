@@ -55,16 +55,29 @@ Recordatorios de cobro: **Seguimiento de pagos** nativo, no un segundo wizard.
 
 ## Cancelar o inutilizar
 
-- **Cancelar factura** (ventana corta que define DNIT, p. ej. 48 h): evento SIFEN, no un `cancel` contable suelto.
-- **Inutilizar numeración:** huecos de correlativo en `Contabilidad → Paraguay → Facturación electrónica`. Si saltaste un número, inutilizá el hueco; no “tapés” con una factura ficticia.
+`Contabilidad → Paraguay → Facturación electrónica`.
+
+**Cancelar factura** es un **botón en el DE aprobado** (no hay menú Cancelar). Ventana DNIT: **48 h** desde la aprobación, con CDC. Motivo mínimo 5 caracteres → **Enviar a SIFEN**. Después de las 48 h: nota de crédito. No vuelve a borrador.
+
+**Inutilizar numeración** (`Contabilidad → Paraguay → Facturación electrónica → Inutilizar numeración`): hueco de correlativo. Timbrado, establecimiento, punto, tipo de DE, número desde / hasta, motivo. No “tapés” el hueco con una factura ficticia.
+
+![Wizard Inutilizar numeración](img/odoo-inutilizar.jpg)
 
 ---
 
-## Si quedó colgado en Enviado
+## Intercambios SIFEN
 
-1. **Consultar lote SIFEN** en la factura.
-2. Si el lote no existe / timeout: el detalle está en `Contabilidad → Paraguay → Intercambios SIFEN` (request/response).
+`Contabilidad → Paraguay → Facturación electrónica → Intercambios SIFEN`.
+
+Lista de request/response (lote, evento, consulta). Columnas: fecha, operación, código, mensaje, severidad, CDC, protocolo.
+
+Si la factura quedó en **Enviado**:
+
+1. **Consultar lote SIFEN** en el comprobante.
+2. Si el lote no existe o hay timeout, abrí el intercambio de esa factura.
 3. No cambies el CDC a mano.
+
+![Lista de intercambios SIFEN](img/odoo-intercambios.jpg)
 
 ---
 
@@ -72,3 +85,5 @@ Recordatorios de cobro: **Seguimiento de pagos** nativo, no un segundo wizard.
 
 - [Configuración](configuracion.md)
 - [Compras (papel y XML)](compras.md)
+- [Reportes DNIT](reportes.md)
+- [Tipo de cambio](tipo-cambio.md)

@@ -1,0 +1,17 @@
+---
+description: Un cambio de módulo genérico se refleja en este manual
+alwaysApply: true
+---
+
+# Este repo es el manual de usuario
+
+Si en el mismo trabajo se cambió un addon de localización (UY, PY, común),
+**esta** documentación se actualiza en el mismo hilo: menú, botón, estado,
+wizard o captura que el usuario ve.
+
+- Páginas en `docs/`; nav en `mkdocs.yml`.
+- `mkdocs build --strict` antes de cerrar.
+- Tapar compañía, RUT/RUC, chatter, certificados, timbrados, menús de cliente.
+- No documentar Cavas, Handy, gov_reference (verde) ni onboarding.
+- COMEX y el cotizador sí: `docs/comex/`.
+- No pushear salvo que el usuario lo pida.
