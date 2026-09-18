@@ -40,10 +40,14 @@ No se publica el archivo ni el RUC.
 
 La DJ oficial se carga en Marangatu a mano. Si el tax de la factura está mal, el 120 miente.
 Una línea con IVA 5 y 10 parte la base; no la duplica.
-Las **notas de crédito** van a las casillas de devolución (15 / 34 / 37), no restan
-en la casilla de la factura original.
+Las **notas de crédito** van a las casillas de devolución (15 / 34 / 37) con
+importe **positivo**; el total (cas. 18 / 24 / 43) las resta. No restan en la
+casilla de la factura original. Exportación y flete no tienen casilla de
+devolución: la NC baja el mismo renglón.
 Las facturas entran por **fecha de factura** (igual que el RG90); la cas. 52
 (retención) por las cuentas Variante A, no por asientos misc.
+La cas. 64 es IVA a costo (exento); el IVA de exportación va al anexo (211/214),
+no a esa casilla.
 
 ![Formulario 120](img/odoo-form120.jpg)
 
