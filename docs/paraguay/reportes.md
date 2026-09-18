@@ -38,7 +38,10 @@ pendiente de aprobación). Tipos DNIT activos: [Cuentas](cuentas.md).
 Una NC/ND sin factura origen no calcula. Más de 5000 filas no arma un ZIP
 anidado: hay que acotar el período o filtrar compras/ventas.
 
-![RG90 nuevo: obligación 955 y estados](img/odoo-rg90.jpg)
+Si el mes solo tiene facturas electrónicas SIFEN, Calcular avisa que no hay
+comprobantes (el ZIP de Marangatu es papel).
+
+![RG90 agosto: 0 comprobantes (solo SIFEN)](img/odoo-rg90.jpg)
 
 No se publica el archivo ni el RUC.
 
@@ -72,7 +75,7 @@ no a esa casilla.
 En el impuesto: pestaña **Form 120 (PY)** → tags de casilla. El plan genérico
 ya los trae; si agregás un tax, asigná el tag.
 
-![Formulario 120 nuevo: aperturas y Calcular](img/odoo-form120.jpg)
+![Formulario 120 calculado: Rubro 1 y Exportar](img/odoo-form120.jpg)
 
 ---
 
@@ -96,7 +99,7 @@ Si falta, el cálculo se corta. Las cuentas hijas se **suman al padre oficial**
    `{RUC}NE{año}.pdf` de las notas. Las hojas 3–6 son papel de trabajo.
    Con el EEFF aprobado las notas ya no se editan.
 
-![EEFF nuevo (RG 49/14): ejercicio y notas](img/odoo-eeff.jpg)
+![EEFF calculado: anexos RG 49/14](img/odoo-eeff.jpg)
 
 ---
 
@@ -117,7 +120,7 @@ mínimo del promedio IRE para anticipos (cas. 126).
 3. **Calcular** de nuevo → **Aprobar** (usuario de contabilidad) → **Exportar XLSX**.
    El promedio de anticipos (cas. 267) usa solo los ejercicios que existen.
 
-![Formulario 500 nuevo: ejercicio](img/odoo-form500.jpg)
+![Formulario 500 calculado: casillas V3](img/odoo-form500.jpg)
 
 ---
 
@@ -132,7 +135,7 @@ siendo el **RG90** (solo papel).
 1. **Nuevo** → Ventas o Compras → mes.
 2. **Calcular** → **Aprobar.** Queda en la lista (`L104/…`).
 
-![Libro IVA nuevo: ventas o compras](img/odoo-libro-iva.jpg)
+![Libro IVA calculado: ventas del mes](img/odoo-libro-iva.jpg)
 
 ---
 
