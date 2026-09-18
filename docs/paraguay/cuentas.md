@@ -17,7 +17,7 @@ Instalá el chart **genérico** de la localización (`l10n_py`). No copies el pl
 Códigos DNIT en cuentas (`l10n_py_dnit_code`) alimentan el EEFF RG 49/14 y el
 Form. 500. Si están vacíos, esos reportes no calculan.
 
-RG90 / Form 120 / EEFF son documentos por compañía: no mezclan saldos entre empresas.
+RG90 / Form 120 / Form 500 / EEFF / Libro IVA son documentos por compañía: no mezclan saldos entre empresas.
 
 ---
 
@@ -51,12 +51,13 @@ Tasas del plan genérico:
 - Exento
 
 Cuentas de débito/crédito = las de **esta** compañía. En la línea de factura, el tax es el que viaja al DE y al Form 120.
+En impuestos de compañía PY: pestaña **Form 120 (PY)** (tags de casilla). El plan genérico ya los trae.
 
 ---
 
 El menú **Paraguay** agrupa reportes DNIT, masters SIFEN y DE recibidos:
 
-![Menú Paraguay: RG90, Form 120, EEFF, SIFEN, DE recibidos](img/odoo-menu-paraguay.jpg)
+![Menú Paraguay: Reportes DNIT y SIFEN](img/odoo-menu-paraguay.jpg)
 
 ## Tipos DNIT (papel / RG90)
 
@@ -78,7 +79,7 @@ Si esa empresa usa el circuito:
 2. Activar Variante A, % default, flags de crédito / IRE.
 3. Mapear cuentas + diario (o sugerir desde códigos del plan).
 
-Uso: [Retención IVA (Variante A)](reportes.md#retencion-iva-variante-a). Si “Aplicar retención” está apagado, no genera asientos.
+Uso: [Retención IVA (Variante A)](reportes.md#retencion-iva-variante-a) (menú bajo Reportes DNIT). Si “Aplicar retención” está apagado, no genera asientos.
 
 ---
 
