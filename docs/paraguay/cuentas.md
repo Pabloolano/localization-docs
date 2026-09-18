@@ -16,7 +16,7 @@ Instalá el chart **genérico** de la localización (`l10n_py`). No copies el pl
 
 Códigos DNIT en cuentas (`l10n_py_dnit_code`) alimentan EEFF. Si están vacíos, el reporte legal no cierra.
 
-Cada wizard fiscal pide **compañía**: no mezcla saldos entre empresas.
+RG90 / Form 120 / EEFF son documentos por compañía: no mezclan saldos entre empresas.
 
 ---
 

@@ -1,6 +1,7 @@
 # Reportes DNIT
 
-Módulo `l10n_py_tax_reports`. Wizards **por compañía**: no mezclan saldos entre empresas.
+Módulo `l10n_py_tax_reports`. RG90, Form 120 y EEFF son **documentos persistentes**
+(lista + estados, un registro por período). No mezclan saldos entre empresas.
 
 `Contabilidad → Paraguay → Reportes DNIT` (RG90, Form 120, EEFF) y **Retención IVA (Variante A)**.
 
@@ -10,17 +11,15 @@ Módulo `l10n_py_tax_reports`. Wizards **por compañía**: no mezclan saldos ent
 
 ## RG90
 
-`Contabilidad → Paraguay → RG90`.
+`Contabilidad → Paraguay → Reportes DNIT → RG90`.
 
-1. Compañía (fiscal Paraguay).
-2. Fecha desde / hasta.
-3. Obligación **Mensual (955)** o **Anual (956)**.
-4. Incluir compras y/o ventas.
-5. **Exportar RG90.** Baja un **ZIP** para Marangatu.
+1. **Nuevo.** Obligación **Mensual (955)** o **Anual (956)**.
+2. **Calcular** → **Aprobar**.
+3. **Exportar ZIP** para Marangatu. El ZIP queda en el registro (`RG90/…`).
 
 Los comprobantes **electrónicos SIFEN no entran** en ese CSV: solo papel / RG90. Tipos DNIT activos: [Cuentas](cuentas.md).
 
-![Wizard RG90](img/odoo-rg90.jpg)
+![RG90](img/odoo-rg90.jpg)
 
 No se publica el archivo ni el RUC.
 
@@ -28,30 +27,38 @@ No se publica el archivo ni el RUC.
 
 ## Formulario 120 (IVA)
 
-`Contabilidad → Paraguay → Formulario 120 (IVA)`.
+`Contabilidad → Paraguay → Reportes DNIT → Formulario 120 (IVA)`.
 
-1. Compañía, fecha desde / hasta.
-2. **Calcular.** Arma bases e IVA 10 / 5 / exento de ventas y compras, y el saldo (débito − crédito).
-3. Revisá los tres bloques.
-4. **Exportar PDF** — apoyo interno. **No** sustituye la DJ oficial en DNIT.
+1. **Nuevo** del mes. Aperturas 46/51/215 solo la primera vez.
+2. **Calcular.** Arma bases e IVA 10 / 5 / exento de ventas y compras.
+3. **Aprobar.** Queda en la lista (`F120/…`).
+4. **Exportar XLSX** para tipear casillas en Marangatu. El PDF es apoyo interno.
 
-Lee los impuestos del plan (IVA 10 / 5 / exento). Si el tax de la factura está mal, el 120 miente.
+La DJ oficial se carga en Marangatu a mano. Si el tax de la factura está mal, el 120 miente.
 
-![Wizard Formulario 120](img/odoo-form120.jpg)
+![Formulario 120](img/odoo-form120.jpg)
 
 ---
 
-## Estados financieros (Form 500)
+## Estados financieros (RG 49/14)
 
-`Contabilidad → Paraguay → Estados Financieros (Form 500)`.
+`Contabilidad → Paraguay → Reportes DNIT → Estados Financieros (Form 500)`.
 
-Usa el código DNIT de cada cuenta (`l10n_py_dnit_code`). Si está vacío, el reporte no cierra.
+Papel de trabajo de Anexos 1 y 2 (Balance y Resultados). **No** es la DJ Form. 500
+(casillas web en Marangatu).
 
-1. Compañía, rango de fechas, tipo de reporte.
-2. **Calcular.** Lista código DNIT, tipo de cuenta y saldo.
-3. **Exportar XLSX.**
+Usa el código DNIT de cada cuenta (`l10n_py_dnit_code` en [Cuentas](cuentas.md)).
+Si falta, el cálculo se corta. Las cuentas hijas se **suman al padre oficial**
+(el planilla DNIT tiene menos filas que el plan NIC).
 
-![Wizard Estados Financieros (Form 500)](img/odoo-eeff.jpg)
+1. **Nuevo** del ejercicio (1/1–31/12). Tipo: Balance, Resultados o ambos.
+2. **Calcular** → **Aprobar.** Queda en la lista (`EEFF/…`).
+3. **Exportar XLSX (EF)** → `{RUC}EF.xlsx` (columnas X1 / X1-1).
+   Si Marangatu pide `.xls` o `.ods`, convertí ese archivo. El PDF es apoyo.
+
+No incluye flujo de efectivo, patrimonio, revalúo ni notas (Anexos 3–6).
+
+![Estados Financieros](img/odoo-eeff.jpg)
 
 ---
 
