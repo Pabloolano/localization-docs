@@ -63,8 +63,11 @@ Las **notas de crédito** van a las casillas de devolución (15 / 34 / 37) con
 importe **positivo**; el total (cas. 18 / 24 / 43) las resta. No restan en la
 casilla de la factura original. Exportación y flete no tienen casilla de
 devolución: la NC baja el mismo renglón.
-Las facturas entran por **fecha de factura** (igual que el RG90); la cas. 52
-(retención) por las cuentas Variante A, no por asientos misc.
+Las facturas entran por **fecha de factura** (igual que el RG90). La cas. 52
+(retenciones sufridas) suma el saldo posted de la cuenta **Retención IVA
+crédito** en el mes (fecha contable del asiento CREC/). Sin movimiento ahí
+queda en 0. No usa *IVA retenciones a pagar* (eso es el pasivo de quien
+emite el CRE, no una retención sufrida).
 Las facturas de **exportación** no se detectan por el país del cliente ni por FEE.
 Hay que usar la posición fiscal **Exportación** (en el contacto o en la factura):
 el IVA 10/5 de venta pasa a 0% exportación (cas. 14). Las compras a export usan
