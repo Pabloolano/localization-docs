@@ -79,7 +79,8 @@ Si esa empresa usa el circuito:
 2. Activar Variante A, % default, flags de crédito / IRE.
 3. Mapear cuentas + diario (o sugerir desde códigos del plan).
 
-Uso: [Comprobante de retención IVA](compras.md#comprobante-de-retencion-iva) (botón en el pago de proveedor).
+Uso emisor: [Comprobante de retención IVA](compras.md#comprobante-de-retencion-iva) (botón en el pago de proveedor).  
+Uso receptor: [Retención IVA recibida](compras.md#retencion-iva-recibida) (botón en el cobro de cliente; cuenta crédito).
 
 ---
 

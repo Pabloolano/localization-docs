@@ -44,7 +44,7 @@ Tipos DNIT activos de la compañía alimentan el combo (RG90).
 
 En la compañía (SIFEN → DE recibidos) puede estar el default **Crear factura al recibir XML**. Un rechazo DNIT posterior cancela el borrador o alerta si ya estaba publicado.
 
-Un XML con **iTiDE 8** (Comprobante de Retención Electrónico) **no** crea factura de proveedor: queda en estado **Retención pendiente**. El circuito de retención recibida todavía no está implementado.
+Un XML con **iTiDE 8** (Comprobante de Retención Electrónico) **no** crea factura de proveedor: queda en estado **Retención pendiente**. El botón **Cargar retención recibida** de esa ficha todavía avisa que el parseo XML no está listo: hay que cargar el comprobante a mano (ver [Retención IVA recibida](#retencion-iva-recibida)).
 
 Carga manual de XML sigue disponible aunque el IMAP esté apagado.
 
@@ -86,6 +86,25 @@ Listado: `Contabilidad → Paraguay → Comprobantes de Retención`. **Anular** 
 No hay un segundo botón ni un ítem en Reportes DNIT. Tampoco XML SIFEN (CRE iTiDE 8 sigue bloqueado por DNIT).
 
 El botón aparece con el pago **En proceso** (asiento posteado, outstanding abierto) o **Pagado**. No espera la conciliación bancaria.
+
+---
+
+## Retención IVA recibida {#retencion-iva-recibida}
+
+Cuando un **cliente** te retiene IVA en un cobro (Art. 10 Decreto 6806/05):
+
+1. Registrá el cobro nativo (el banco entra por el neto). El pago queda en **En proceso** o **Pagado**.
+2. En el cobro: **Cargar retención recibida**.
+3. Tildá las facturas de venta, tipeá el **%** que informa el comprobante físico (no hay default de compañía) y confirmá.
+4. Se crea el comprobante `CREC/…`, el asiento de **IVA crédito** y se cierra el residual de cada factura.
+
+Listado: `Contabilidad → Paraguay → Retenciones Recibidas`. **Anular** solo si está registrado (revierte el asiento; no vuelve a borrador).
+
+El botón aparece en compañía fiscal **PY**, cobro de cliente, con residual en alguna factura del pago y sin otra retención recibida ya registrada para ese cobro. No usa el flag *Variante A* (ese es solo del agente).
+
+Hace falta la cuenta *Retención IVA crédito* en Ajustes (la usa también el Form 120, cas. 52). El asiento convierte con **tasa comprador** del día del cobro.
+
+La carga automática desde el XML CRE de la bandeja **aún no está implementada**.
 
 ---
 

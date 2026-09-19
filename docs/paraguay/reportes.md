@@ -11,7 +11,7 @@ Ya no son wizards. No mezclan saldos entre empresas.
 - Formulario 500 (IRE)
 - Estados Financieros (RG 49/14)
 - Libro IVA (Ley 125/91)
-- (la retención IVA ya no es un reporte: se emite desde el pago)
+- (la retención IVA ya no es un reporte: se emite desde el pago o se carga desde el cobro)
 
 ![Menú Paraguay: Reportes DNIT](img/odoo-menu-paraguay.jpg)
 
