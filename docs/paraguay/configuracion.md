@@ -135,8 +135,8 @@ Cobranza / recordatorios: seguimiento nativo de Odoo (`account_followup`), no un
 `Contabilidad → Configuración → Ajustes` → bloque *Paraguay — Retención IVA*:
 
 1. Activar **Usar retención IVA Variante A** (solo si esta empresa **emite** retenciones).
-2. % default, flag imputa IRE, diario y cuenta *IVA retenciones a pagar*.
-3. Cuenta *Retención IVA crédito*: la usa el cobro cuando **te retienen** (cas. 52). No tiene flag propio.
+2. % default, flag imputa IRE, diario, *IVA retenciones a pagar* (emisor) y *Retención IVA crédito* (cuando te retienen; cas. 52).
+3. **Sugerir desde códigos del plan** rellena diario / payable / crédito si existen en el CoA. No hay cuenta banco ni IVA débito en este bloque (eran del asiento 2, ya dado de baja).
 
 Uso emisor: [Comprobante de retención](compras.md#comprobante-de-retencion-iva).  
 Uso receptor: [Retención IVA recibida](compras.md#retencion-iva-recibida).
