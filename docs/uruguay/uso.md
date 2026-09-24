@@ -97,9 +97,9 @@ Retenciones en el circuito de pagos. Diario con flag **diario resguardo**.
 
 | Menú | Qué es |
 |------|--------|
-| `Contabilidad → Clientes → Resguardos emitidos` | 182 que emitís |
-| `Contabilidad → Proveedores` → resguardos recibidos | 182 que te emitieron (bandeja CFE) |
-| `Contabilidad → Proveedores` → anulación de resguardo | 182 de anulación, vinculado al original |
+| `Contabilidad → Proveedores → Resguardos emitidos` | 182 que emitís al pagar a un proveedor |
+| `Contabilidad → Clientes → Resguardos recibidos` | 182 que te emitieron (bandeja CFE) |
+| `Contabilidad → Proveedores → Anulación de resguardos` | anulación de un resguardo emitido |
 
 1. Crear el resguardo (o llega por XML).
 2. Confirmar / publicar: emite el CFE.
