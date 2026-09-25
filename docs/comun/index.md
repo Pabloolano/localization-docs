@@ -28,6 +28,12 @@ Módulos que no son CFE ni SIFEN. Sirven en cualquier compañía (Uruguay, Parag
 
     Imputación manual y anticipos desde el pedido.
 
+-   **[Estado de cuenta](estado-cuenta.md)**
+
+    ---
+
+    Cuenta corriente del contacto por moneda, PDF y Excel.
+
 -   **[Segunda moneda](multimoneda.md)**
 
     ---

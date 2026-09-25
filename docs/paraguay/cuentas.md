@@ -57,7 +57,7 @@ En impuestos de compañía PY: pestaña **Form 120 (PY)** (tags de casilla). El 
 
 El menú **Paraguay** agrupa reportes DNIT, masters SIFEN y DE recibidos:
 
-![Menú Paraguay: Reportes DNIT y SIFEN](img/odoo-menu-paraguay.jpg)
+![Menú Paraguay: retenciones, Reportes DNIT y SIFEN](img/odoo-menu-paraguay.jpg)
 
 ## Tipos DNIT (papel / RG90)
 
@@ -76,8 +76,8 @@ Exportación (Form 120): posición fiscal **Exportación** en el contacto o la f
 Si esa empresa usa el circuito:
 
 1. `Contabilidad → Configuración → Ajustes` → bloque *Paraguay — Retención IVA*.
-2. Activar Variante A, % default, flags de crédito / IRE.
-3. Mapear cuentas + diario (o sugerir desde códigos del plan).
+2. Activar Variante A, % default y flag imputa IRE (solo si esta empresa **emite**).
+3. Mapear diario, *IVA retenciones a pagar* y *Retención IVA crédito* (o **Sugerir desde códigos del plan**). No hay cuenta banco ni IVA débito en este bloque.
 
 Uso emisor: [Comprobante de retención IVA](compras.md#comprobante-de-retencion-iva) (botón en el pago de proveedor).  
 Uso receptor: [Retención IVA recibida](compras.md#retencion-iva-recibida) (botón en el cobro de cliente; cuenta crédito).

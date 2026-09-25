@@ -32,7 +32,7 @@ Localización fiscal Paraguay sobre Odoo 19: **SIFEN** (DNIT), plan de cuentas, 
 
     ---
 
-    RG90, Form 120, Form 500, EEFF, Libro IVA y retención.
+    RG90, Form 120, Form 500, EEFF y Libro IVA.
 
 -   **[Tipo de cambio](tipo-cambio.md)**
 

@@ -13,7 +13,7 @@ Ya no son wizards. No mezclan saldos entre empresas.
 - Libro IVA (Ley 125/91)
 - (la retención IVA ya no es un reporte: se emite desde el pago o se carga desde el cobro)
 
-![Menú Paraguay: Reportes DNIT](img/odoo-menu-paraguay.jpg)
+![Menú Paraguay: retenciones y Reportes DNIT](img/odoo-menu-paraguay.jpg)
 
 Estados comunes (salvo RG90): Borrador → Calculado → Aprobado.
 **Calcular** solo en borrador. **Volver a Borrador** solo desde Calculado

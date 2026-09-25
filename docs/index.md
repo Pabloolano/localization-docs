@@ -26,7 +26,7 @@ Odoo 19 Enterprise. Textos genéricos: compañía demo, placeholders, sin datos 
 
     ---
 
-    Analítica, captcha, pagos, segunda moneda y color de barra.
+    Analítica, captcha, pagos, estado de cuenta, segunda moneda y color de barra.
 
     [Abrir común](comun/index.md)
 

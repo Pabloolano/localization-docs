@@ -20,7 +20,7 @@ Localización fiscal Uruguay sobre Odoo 19: **CFE** ante DGI, impuestos, diarios
 
     ---
 
-    Emitir, imprimir, enviar, e-Remito 181 y e-Resguardo 182.
+    Emitir, imprimir, e-Remito 181, e-Resguardo 182 y pagos electrónicos.
 
 -   **[Conciliación DGI](conciliacion.md)**
 
