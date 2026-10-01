@@ -112,17 +112,17 @@ Si falta, el cálculo se corta. Las cuentas hijas se **suman al padre oficial**
 `Contabilidad → Paraguay → Reportes DNIT → Cuadro depreciación (RG 77)`.
 
 Anexo oficial de depreciación de bienes del activo fijo (IRE Régimen General,
-RG 77/2020). Se archiva **junto** al Balance del ejercicio (EEFF RG 49/14)
-con nomenclatura histórica `RUC_AÑO_EEFF`. Uso: histórico y auditorías DNIT;
-el control operativo es que la depreciación cuadre con lo amortizado en el
-balance. **No** es el Anexo 6 de apoyo del EEFF (ese solo muestra saldos de
-cuentas PPE).
+RG 77/2020). Informe **paralelo**: el día a día (inventario y depreciación
+mensual) es **Contabilidad → Activos**; este cuadro arma el cálculo del
+Anexo para archivo y cuando auditoría lo pide. Se archiva junto al Balance
+(EEFF RG 49/14) como `RUC_AÑO_EEFF`. **No** es el Anexo 6 de apoyo del EEFF
+(ese solo muestra saldos de cuentas PPE).
 
-Los bienes salen del módulo nativo **Contabilidad → Activos** (requiere
-Assets / `account_asset`). En cada activo, pestaña **Fiscal PY (RG 77)**,
-se cargan % residual fiscal, vida útil fiscal y coeficiente de revalúo.
-Si no hay parámetros fiscales, se usan los valores contables. Para forzar
-residual fiscal 0 %, cargá la vida útil fiscal y dejá el % en 0.
+Los bienes salen del módulo nativo **Activos** (requiere Assets /
+`account_asset`). En cada activo, pestaña **Fiscal PY (RG 77)**, se cargan
+% residual fiscal, vida útil fiscal y coeficiente de revalúo. Si no hay
+parámetros fiscales, se usan los valores contables. Para forzar residual
+fiscal 0 %, cargá la vida útil fiscal y dejá el % en 0.
 
 La cuota contable del Anexo es la depreciación **contabilizada** del
 ejercicio en el activo (no se recalcula con la fórmula teórica del Anexo).
