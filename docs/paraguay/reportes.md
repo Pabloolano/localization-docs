@@ -1,6 +1,6 @@
 # Reportes DNIT
 
-Módulo `l10n_py_tax_reports`. RG90, Form 120, Form 500, EEFF y Libro IVA son
+Módulo `l10n_py_tax_reports`. RG90, Form 120, Form 500, EEFF, RG 77 y Libro IVA son
 **documentos persistentes** (lista + formulario, un registro por período).
 Ya no son wizards. No mezclan saldos entre empresas.
 
@@ -10,6 +10,7 @@ Ya no son wizards. No mezclan saldos entre empresas.
 - Formulario 120 (IVA)
 - Formulario 500 (IRE)
 - Estados Financieros (RG 49/14)
+- Cuadro depreciación (RG 77)
 - Libro IVA (Ley 125/91)
 - (la retención IVA ya no es un reporte: se emite desde el pago o se carga desde el cobro)
 
@@ -103,6 +104,31 @@ Si falta, el cálculo se corta. Las cuentas hijas se **suman al padre oficial**
    Con el EEFF aprobado las notas ya no se editan.
 
 ![EEFF calculado: anexos RG 49/14](img/odoo-eeff.jpg)
+
+---
+
+## Cuadro de depreciación (RG 77)
+
+`Contabilidad → Paraguay → Reportes DNIT → Cuadro depreciación (RG 77)`.
+
+Anexo oficial de depreciación de bienes del activo fijo (IRE Régimen General).
+Se presenta **junto** al EEFF en Marangatu. **No** es el Anexo 6 de apoyo del
+EEFF (ese solo muestra saldos de cuentas PPE).
+
+Los bienes salen del módulo nativo **Contabilidad → Activos** (requiere
+Assets / `account_asset`). En cada activo, pestaña **Fiscal PY (RG 77)**,
+se cargan % residual fiscal, vida útil fiscal y coeficiente de revalúo.
+Si no hay parámetros fiscales, se usan los valores contables. Para forzar
+residual fiscal 0 %, cargá la vida útil fiscal y dejá el % en 0.
+
+La cuota contable del Anexo es la depreciación **contabilizada** del
+ejercicio en el activo (no se recalcula con la fórmula teórica del Anexo).
+
+1. Tener los activos cargados y con depreciación del ejercicio.
+2. **Nuevo** del ejercicio → representante, contador, formulario y N° orden.
+3. **Calcular** (arma una línea por activo, incl. revalúos hijos) → **Aprobar**.
+4. **Exportar Anexo** deja `{RUC}DEP{año}.xlsx` (layout Anexo DNIT; el
+   nombre de archivo es convención EVO).
 
 ---
 
