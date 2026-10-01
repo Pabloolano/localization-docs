@@ -111,9 +111,12 @@ Si falta, el cálculo se corta. Las cuentas hijas se **suman al padre oficial**
 
 `Contabilidad → Paraguay → Reportes DNIT → Cuadro depreciación (RG 77)`.
 
-Anexo oficial de depreciación de bienes del activo fijo (IRE Régimen General).
-Se presenta **junto** al EEFF en Marangatu. **No** es el Anexo 6 de apoyo del
-EEFF (ese solo muestra saldos de cuentas PPE).
+Anexo oficial de depreciación de bienes del activo fijo (IRE Régimen General,
+RG 77/2020). Se archiva **junto** al Balance del ejercicio (EEFF RG 49/14)
+con nomenclatura histórica `RUC_AÑO_EEFF`. Uso: histórico y auditorías DNIT;
+el control operativo es que la depreciación cuadre con lo amortizado en el
+balance. **No** es el Anexo 6 de apoyo del EEFF (ese solo muestra saldos de
+cuentas PPE).
 
 Los bienes salen del módulo nativo **Contabilidad → Activos** (requiere
 Assets / `account_asset`). En cada activo, pestaña **Fiscal PY (RG 77)**,
@@ -125,10 +128,11 @@ La cuota contable del Anexo es la depreciación **contabilizada** del
 ejercicio en el activo (no se recalcula con la fórmula teórica del Anexo).
 
 1. Tener los activos cargados y con depreciación del ejercicio.
-2. **Nuevo** del ejercicio → representante, contador, formulario y N° orden.
-3. **Calcular** (arma una línea por activo, incl. revalúos hijos) → **Aprobar**.
-4. **Exportar Anexo** deja `{RUC}DEP{año}.xlsx` (layout Anexo DNIT; el
-   nombre de archivo es convención EVO).
+2. Tener el **EEFF** del mismo año calculado (o vincularlo).
+3. **Nuevo** del ejercicio → representante, contador, formulario y N° orden.
+4. **Calcular** (arma una línea por activo, incl. revalúos hijos) → **Aprobar**.
+5. **Archivar histórico** deja `{RUC}_{año}_EEFF.xlsx` (layout Anexo DNIT) y
+   `{RUC}_{año}_EEFF.pdf` (PDF del Balance / EEFF).
 
 ---
 
