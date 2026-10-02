@@ -100,7 +100,7 @@ El PDF de representación puede tener límites: priorizá XML y estado DGI.
 Llega por la bandeja de **Comprobantes recibidos** (Proinfo), igual que una factura de proveedor.
 
 1. Descargá el lote y **Crear comprobantes** (o **Reintentar crear** en la línea).
-2. Si el banco emisor está configurado (`Contabilidad → Configuración → E-Boletas → Configuración de bancos`), Odoo genera el asiento en el diario **BCDIV**, baja el **PDF** del CFE (Proinfo) y lo deja en el chatter de la línea y del asiento, igual que una factura o pago electrónico recibido.
+2. Si el banco emisor está configurado (`Contabilidad → Configuración → E-Boletas → Configuración de bancos`), Odoo genera el asiento en el diario **BCDIV**, baja el **PDF** del CFE (Proinfo) y lo deja en el chatter de la línea y del asiento, igual que una factura o pago electrónico recibido. En la línea se ve la **fecha del comprobante** (emisión del CFE).
 3. **Imprimir** en el asiento BCDIV también abre ese PDF del CFE (no el asiento contable genérico).
 4. Si falta el PDF: **Reintentar PDF** en la línea.
 5. Menú `Contabilidad → Proveedores → Boletas Cambio Divisas`: líneas 151 en `done` o esperando TC BCU. Las sin banco van a `Boletas sin identificar` (mismo menú Proveedores).
