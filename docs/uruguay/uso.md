@@ -103,7 +103,7 @@ Llega por la bandeja de **Comprobantes recibidos** (Proinfo), igual que una fact
 2. Si el banco emisor está configurado (`Contabilidad → Configuración → E-Boletas → Configuración de bancos`), Odoo genera el asiento en el diario **BCDIV**, baja el **PDF** del CFE (Proinfo) y lo deja en el chatter de la línea y del asiento, igual que una factura o pago electrónico recibido.
 3. **Imprimir** en el asiento BCDIV también abre ese PDF del CFE (no el asiento contable genérico).
 4. Si falta el PDF: **Reintentar PDF** en la línea.
-5. Menú `Contabilidad → Boletas Cambio Divisas`: líneas 151 en `done` o esperando TC BCU.
+5. Menú `Contabilidad → Proveedores → Boletas Cambio Divisas`: líneas 151 en `done` o esperando TC BCU. Las sin banco van a `Boletas sin identificar` (mismo menú Proveedores).
 
 Sin configuración de banco, la línea queda en **Boletas sin identificar** para revisión manual (wizard de dirección compra/venta).
 
