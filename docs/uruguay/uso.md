@@ -95,6 +95,19 @@ El PDF de representación puede tener límites: priorizá XML y estado DGI.
 
 ---
 
+## e-Boleta de cambio de divisas (151)
+
+Llega por la bandeja de **Comprobantes recibidos** (Proinfo), igual que una factura de proveedor.
+
+1. Descargá el lote y **Crear comprobantes** (o **Reintentar crear** en la línea).
+2. Si el banco emisor está configurado (`Contabilidad → Configuración → E-Boletas → Configuración de bancos`), Odoo genera el asiento en el diario **BCDIV** y baja el **PDF** del CFE con el mismo mecanismo que una factura recibida.
+3. Si falta el PDF: **Reintentar PDF** en la línea.
+4. Menú `Contabilidad → Boletas Cambio Divisas`: líneas 151 en `done` o esperando TC BCU.
+
+Sin configuración de banco, la línea queda en **Boletas sin identificar** para revisión manual (wizard de dirección compra/venta).
+
+---
+
 ## Consulta RUT en el día a día
 
 En el contacto: tipo RUT + número → **Consulta RUT**. Sirve antes de facturar para no emitir contra un RUT inválido.
