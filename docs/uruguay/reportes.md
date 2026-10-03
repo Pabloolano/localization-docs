@@ -64,7 +64,8 @@ El código de línea del impuesto (`Línea 2181`) es el punto de partida; el rep
 
 - Instructivo GC/CEDE: el **502/503** es IVA ventas **a contribuyentes**; no se detallan consumidores finales ahí.
 - La pestaña **Exclusiones** lista lo que PADI rechazaría o no se puede informar; corregí el RUT en la ficha y volvé a calcular.
-- Para que el **505** refleje toda la plaza, los impuestos de compras **indirectos** también deben tener línea 2181 = 505/506 (el 1376 sigue usando “Tipo IVA compras” aparte).
+- **505/506 plaza:** además del campo Línea 2181, entran solos los impuestos de compra con **Tipo IVA compras DJ 1376** directo/indirecto (22 % → 505, 10 % → 506). El 1376 sigue usando ese tipo para el prorrateo.
+- Importes de **ventas** (501/502/503) se guardan/exportan en positivo (como la DJ); las NC quedan negativas. PADI admite ambos signos.
 - La línea **1** (importación) usa la misma cuenta de IVA importación del bloque DJ 1376 en Ajustes.
 
 El 1146 usa el mismo circuito (sin esas reclasificaciones del 2181).
