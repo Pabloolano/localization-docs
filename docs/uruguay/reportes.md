@@ -35,8 +35,8 @@ Si el tax no está mapeado, el XML CFE puede estar bien y el reporte igual sale 
 
 Misma pantalla, distinto tipo. Menús:
 
-- `Contabilidad → Uruguay → Reportes DGI → Formulario 2181`
-- `Contabilidad → Uruguay → Reportes DGI → Formulario 1146`
+- `Contabilidad → Uruguay → Reportes DGI → 2181 — IVA ventas y compras`
+- `Contabilidad → Uruguay → Reportes DGI → 1146 — Retenciones IRPF`
 
 ![Lista de reportes DGI (2181 / 1146)](img/odoo-reportes-dgi.jpg)
 
@@ -76,11 +76,11 @@ No se publica el TXT ni el RUT de la compañía.
 
 ---
 
-## Formulario 1376
+## 1376 — Liquidación IVA y anticipos
 
-`Contabilidad → Uruguay → Reportes DGI → Formulario 1376`.
+`Contabilidad → Uruguay → Reportes DGI → 1376 — Liquidación IVA y anticipos`.
 
-Es la liquidación / anticipos (IVA + IRAE). No exporta TXT en esta pantalla.
+Es la liquidación / anticipos (IVA + IRAE / IP / ICOSA). No exporta TXT en esta pantalla.
 
 1. **Nuevo.** Mes, año, compañía.
 2. **Calcular.** Completa IVA ventas, compras deducibles, excedente, anticipos e IRAE.
