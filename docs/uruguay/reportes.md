@@ -17,6 +17,7 @@ En `Contabilidad → Configuración → Ajustes` (compañía fiscal Uruguay):
 1. **Diarios para Reportes DGI** — filtro opcional.
 2. **Cuenta Retención IRPF** — si esa empresa usa IRPF.
 3. Bloque **DJ 1376 — Anticipos**: coeficiente y mínimo IRAE, anticipos IPAT / ICOSA, cuentas de importación.
+4. Bloque **Cierre mensual de impuestos**: diario dedicado (ej. Impto) y cuentas del asiento (IVA ventas, excedente, OTT, anticipos IRAE/IP/ICOSA, DGI a pagar, IVA perdido, certificado opcional). Sin diario configurado no se puede generar el asiento.
 
 En cada impuesto (`Contabilidad → Configuración → Impuestos`):
 
@@ -84,10 +85,11 @@ Declaración jurada mensual DGI (CEDE/GC): paneles de IVA, anticipos de IRAE, IP
 
 1. **Nuevo.** Mes, año, compañía.
 2. **Calcular.** Completa IVA ventas, compras deducibles, excedente, anticipos e IRAE.
-3. Revisá pestañas **Ventas** y **Compras**.
+3. Revisá pestañas **Ventas** y **Compras**. Completá a mano `Retenciones OTT`, `IPAT`, `ICOSA` e **IVA perdido** si aplica.
 4. **Aprobar.**
+5. **Generar asiento de cierre** (solo con DJ aprobada). Crea un asiento en borrador en el diario de Ajustes, con la misma lógica que el MISC histórico «Cierre impuestos MM.AAAA». Revisalo y publicá a mano. Si ya hay asiento publicado, hay que anularlo antes de regenerar.
 
-`Retenciones OTT`, `IPAT` e `ICOSA` se pueden completar a mano si el cálculo no los trae.
+El pago del boleto a DGI (banco) es un asiento aparte; no lo genera este botón.
 
 ![Formulario 1376 nuevo (antes de Calcular): bloques IVA, IRAE y anticipos](img/odoo-reporte-1376.jpg)
 
