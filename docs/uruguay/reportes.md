@@ -50,7 +50,24 @@ Estados: Borrador → Calculado → Aprobado → Exportado. **Volver a Borrador*
 
 ![Formulario 2181: calcular, aprobar y exportar TXT](img/odoo-reporte-2181.jpg)
 
-El 1146 usa el mismo circuito.
+### Cómo arma el 2181 (reglas DGI)
+
+El código de línea del impuesto (`Línea 2181`) es el punto de partida; el reporte **reclasifica** según el contacto:
+
+| Situación | Línea DGI | Importe |
+|-----------|-----------|---------|
+| IVA ventas a **contribuyente** (RUT Uruguay válido) | **502** / **503** | IVA |
+| Ventas a **no contribuyente** (CI u otro doc.) | **501** | Base imponible (ventas) |
+| IVA compras plaza (directo e indirecto, si el tax está mapeado) | **505** / **506** | IVA |
+| IVA importación (cuenta de Ajustes del 1376) | **1** | IVA |
+| RUT estructuralmente inválido (p. ej. bloque `22…`) o sin identificación | **Exclusiones** | No va al TXT |
+
+- Instructivo GC/CEDE: el **502/503** es IVA ventas **a contribuyentes**; no se detallan consumidores finales ahí.
+- La pestaña **Exclusiones** lista lo que PADI rechazaría o no se puede informar; corregí el RUT en la ficha y volvé a calcular.
+- Para que el **505** refleje toda la plaza, los impuestos de compras **indirectos** también deben tener línea 2181 = 505/506 (el 1376 sigue usando “Tipo IVA compras” aparte).
+- La línea **1** (importación) usa la misma cuenta de IVA importación del bloque DJ 1376 en Ajustes.
+
+El 1146 usa el mismo circuito (sin esas reclasificaciones del 2181).
 
 ![Formulario 1146](img/odoo-reporte-1146.jpg)
 
