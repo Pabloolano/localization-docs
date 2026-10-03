@@ -76,11 +76,11 @@ No se publica el TXT ni el RUT de la compañía.
 
 ---
 
-## 1376 — Liquidación IVA y anticipos
+## 1376 — DJ mensual IVA · IRAE · IP · ICOSA
 
-`Contabilidad → Uruguay → Reportes DGI → 1376 — Liquidación IVA y anticipos`.
+`Contabilidad → Uruguay → Reportes DGI → 1376 — DJ mensual IVA · IRAE · IP · ICOSA`.
 
-Es la liquidación / anticipos (IVA + IRAE / IP / ICOSA). No exporta TXT en esta pantalla.
+Declaración jurada mensual DGI (CEDE/GC): paneles de IVA, anticipos de IRAE, IP e ICOSA. El boleto sale del cuadro resumen y discrimina por impuesto. No exporta TXT en esta pantalla.
 
 1. **Nuevo.** Mes, año, compañía.
 2. **Calcular.** Completa IVA ventas, compras deducibles, excedente, anticipos e IRAE.
