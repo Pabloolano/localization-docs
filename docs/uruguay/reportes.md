@@ -4,11 +4,13 @@ Módulo `l10n_uy_tax_reports`. Tres usos distintos bajo `Contabilidad → Urugua
 
 | Menú | Para qué |
 |------|----------|
-| **Liquidación del mes** | Boleto → asientos de cierre → candado / conciliación |
-| **Liquidadores** | Detalle y cálculo de **cada impuesto** (IVA, IRAE, IPAT, …) |
-| **Formularios DGI** | Lo que se presenta a DGI: **2181**, **1146**, **1376** |
+| **Liquidación Mensual y Boleto de Pago** | Boleto → asientos de cierre → candado / conciliación |
+| **Liquidadores** | Detalle y cálculo de **cada impuesto** habilitado en la compañía |
+| **Formularios DGI** | Lo que se presenta a DGI (2181, 1146, 1376, …) según impuestos habilitados |
 
-El **1376** es un formulario que **agrupa** varios liquidadores; el detalle del IVA se mira en **Liquidadores → IVA**, no en el boleto.
+Los ítems de **Liquidadores** y **Formularios DGI** se muestran según los tildes de **Impuestos UY** en la compañía (p. ej. IVA → liquidador IVA + formularios 2181 y 1376).
+
+El **1376** agrupa varios liquidadores; el detalle del IVA se mira en **Liquidadores → IVA**, no en el boleto.
 
 ![Menú Uruguay: diferencia de cambio y reportes DGI](img/odoo-menu-uruguay.jpg)
 
@@ -43,7 +45,7 @@ Si el tax no está mapeado, el XML CFE puede estar bien y el reporte igual sale 
 
 Ahí se calcula y aprueba cada impuesto del mes (montos a pagar / crédito). Es el lugar del **detalle de liquidación** (p. ej. IVA), no el armado del boleto.
 
-La **Liquidación del mes** consolida los liquidadores aprobados del pack, arma boletos y genera asientos.
+La **Liquidación Mensual y Boleto de Pago** consolida los liquidadores aprobados del pack, arma boletos y genera asientos.
 
 ---
 
