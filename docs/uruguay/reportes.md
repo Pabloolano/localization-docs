@@ -45,7 +45,9 @@ Si el tax no está mapeado, el XML CFE puede estar bien y el reporte igual sale 
 
 Ahí se calcula y aprueba cada impuesto del mes (montos a pagar / crédito). Es el lugar del **detalle de liquidación** (p. ej. IVA), no el armado del boleto.
 
-La **Liquidación Mensual y Boleto de Pago** consolida los liquidadores aprobados del pack, arma boletos y genera asientos.
+En el liquidador **IVA**, tras calcular, las pestañas **Créditos / Egresos / Saldo** muestran el desglose que alimenta el 1376 (compras, ventas y resultado).
+
+La **Liquidación Mensual y Boleto de Pago** consolida los liquidadores aprobados del pack. Con la DJ lista, **Generar boleto y asientos** arma las líneas de pago y los asientos en un paso. En cada línea cargá el **nº de boleto DGI**, el **PDF del boleto DGI** y, si aplica, el **comprobante bancario**. Sin nº + PDF DGI no se puede **Cerrar / conciliar**. No hay exportación TXT del boleto 2908 (lo genera PADI / web DGI).
 
 ---
 
@@ -104,9 +106,9 @@ Declaración jurada mensual DGI (CEDE/GC): paneles de IVA, anticipos de IRAE, IP
 2. **Calcular.** Completa IVA ventas, compras deducibles, excedente, anticipos e IRAE.
 3. Revisá pestañas **Ventas** y **Compras**. Completá a mano `Retenciones OTT`, `IPAT`, `ICOSA` e **IVA perdido** si aplica (antes de aprobar).
 4. **Aprobar.**
-5. Ir a **Liquidación del mes** → armar boletos → crear asientos → cerrar/conciliar.
+5. Ir a **Liquidación Mensual y Boleto de Pago** → **Generar boleto y asientos** → cargar nº DGI + PDF(s) → **Cerrar / conciliar**.
 
-El pago del boleto a DGI (banco) es un asiento aparte.
+El comprobante de pago bancario se adjunta en la misma línea del boleto (además del PDF DGI).
 
 ![Formulario 1376 nuevo (antes de Calcular): bloques IVA, IRAE y anticipos](img/odoo-reporte-1376.jpg)
 
