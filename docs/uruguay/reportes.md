@@ -1,8 +1,14 @@
-# Reportes DGI
+# Reportes e Impuestos DGI
 
-Módulo `l10n_uy_tax_reports`. Genera el **2181**, el **1146** y la liquidación **1376** de **esta** compañía.
+Módulo `l10n_uy_tax_reports`. Tres usos distintos bajo `Contabilidad → Uruguay → Impuestos`:
 
-`Contabilidad → Uruguay → Reportes DGI`.
+| Menú | Para qué |
+|------|----------|
+| **Liquidación del mes** | Boleto → asientos de cierre → candado / conciliación |
+| **Liquidadores** | Detalle y cálculo de **cada impuesto** (IVA, IRAE, IPAT, …) |
+| **Formularios DGI** | Lo que se presenta a DGI: **2181**, **1146**, **1376** |
+
+El **1376** es un formulario que **agrupa** varios liquidadores; el detalle del IVA se mira en **Liquidadores → IVA**, no en el boleto.
 
 ![Menú Uruguay: diferencia de cambio y reportes DGI](img/odoo-menu-uruguay.jpg)
 
@@ -12,12 +18,11 @@ El filtro de diarios en Ajustes es **opcional**: vacío = todos los diarios de l
 
 ## Antes de calcular
 
-En `Contabilidad → Configuración → Ajustes` (compañía fiscal Uruguay):
+En `Contabilidad → Configuración → Ajustes` (compañía fiscal Uruguay), bloque **Impuestos UY** (también pestaña en la ficha de la compañía):
 
-1. **Diarios para Reportes DGI** — filtro opcional.
-2. **Cuenta Retención IRPF** — si esa empresa usa IRPF.
-3. Bloque **DJ 1376 — Anticipos**: coeficiente y mínimo IRAE, anticipos IPAT / ICOSA, cuentas de importación.
-4. Bloque **Cierre mensual de impuestos**: diario dedicado (ej. Impto) y cuentas del asiento (IVA ventas, excedente, OTT, anticipos IRAE/IP/ICOSA, DGI a pagar, IVA perdido, certificado opcional). Sin diario configurado no se puede generar el asiento.
+1. Qué impuestos habilitar (IVA, IRAE, IPAT, …).
+2. **Diarios para Reportes DGI** — filtro opcional.
+3. Cuentas y parámetros de liquidación: diario de cierre, DGI a pagar, IVA/excedente/OTT, anticipos IRAE/IP/ICOSA, IRPF, importación. Sin diario de cierre no se pueden generar asientos desde **Liquidación del mes**.
 
 En cada impuesto (`Contabilidad → Configuración → Impuestos`):
 
@@ -32,12 +37,22 @@ Si el tax no está mapeado, el XML CFE puede estar bien y el reporte igual sale 
 
 ---
 
+## Liquidadores (detalle por impuesto)
+
+`Contabilidad → Uruguay → Impuestos → Liquidadores → …`
+
+Ahí se calcula y aprueba cada impuesto del mes (montos a pagar / crédito). Es el lugar del **detalle de liquidación** (p. ej. IVA), no el armado del boleto.
+
+La **Liquidación del mes** consolida los liquidadores aprobados del pack, arma boletos y genera asientos.
+
+---
+
 ## 2181 y 1146
 
 Misma pantalla, distinto tipo. Menús:
 
-- `Contabilidad → Uruguay → Reportes DGI → 2181 — IVA ventas y compras`
-- `Contabilidad → Uruguay → Reportes DGI → 1146 — Retenciones IRPF`
+- `Contabilidad → Uruguay → Impuestos → Formularios DGI → 2181 — IVA ventas y compras`
+- `Contabilidad → Uruguay → Impuestos → Formularios DGI → 1146 — Retenciones IRPF`
 
 ![Lista de reportes DGI (2181 / 1146)](img/odoo-reportes-dgi.jpg)
 
@@ -79,17 +94,17 @@ No se publica el TXT ni el RUT de la compañía.
 
 ## 1376 — DJ mensual IVA · IRAE · IP · ICOSA
 
-`Contabilidad → Uruguay → Reportes DGI → 1376 — DJ mensual IVA · IRAE · IP · ICOSA`.
+`Contabilidad → Uruguay → Impuestos → Formularios DGI → 1376 — DJ mensual IVA · IRAE · IP · ICOSA`.
 
-Declaración jurada mensual DGI (CEDE/GC): paneles de IVA, anticipos de IRAE, IP e ICOSA. El boleto sale del cuadro resumen y discrimina por impuesto. No exporta TXT en esta pantalla.
+Declaración jurada mensual DGI (CEDE/GC): paneles de IVA, anticipos de IRAE, IP e ICOSA. Agrupa varios liquidadores. El **boleto y los asientos de cierre** se arman en **Liquidación del mes** (un solo camino operativo).
 
-1. **Nuevo.** Mes, año, compañía.
+1. **Nuevo.** Mes, año, compañía (o trabajar desde liquidadores + liquidación del mes).
 2. **Calcular.** Completa IVA ventas, compras deducibles, excedente, anticipos e IRAE.
-3. Revisá pestañas **Ventas** y **Compras**. Completá a mano `Retenciones OTT`, `IPAT`, `ICOSA` e **IVA perdido** si aplica.
+3. Revisá pestañas **Ventas** y **Compras**. Completá a mano `Retenciones OTT`, `IPAT`, `ICOSA` e **IVA perdido** si aplica (antes de aprobar).
 4. **Aprobar.**
-5. **Generar asiento de cierre** (solo con DJ aprobada). Crea un asiento en borrador en el diario de Ajustes, con la misma lógica que el MISC histórico «Cierre impuestos MM.AAAA». Revisalo y publicá a mano. Si ya hay asiento publicado, hay que anularlo antes de regenerar.
+5. Ir a **Liquidación del mes** → armar boletos → crear asientos → cerrar/conciliar.
 
-El pago del boleto a DGI (banco) es un asiento aparte; no lo genera este botón.
+El pago del boleto a DGI (banco) es un asiento aparte.
 
 ![Formulario 1376 nuevo (antes de Calcular): bloques IVA, IRAE y anticipos](img/odoo-reporte-1376.jpg)
 
