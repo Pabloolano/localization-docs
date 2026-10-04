@@ -45,7 +45,7 @@ Si el tax no está mapeado, el XML CFE puede estar bien y el reporte igual sale 
 
 Ahí se calcula y aprueba cada impuesto del mes (montos a pagar / crédito). Es el lugar del **detalle de liquidación** (p. ej. IVA), no el armado del boleto.
 
-En el liquidador **IVA**, tras calcular, las pestañas **Créditos / Egresos / Saldo** muestran el desglose que alimenta el 1376. En cada categoría usá **Facturas** (o abrí la fila) para ver los apuntes/comprobantes; debajo del resumen está el detalle completo. En créditos, el IVA **indirecto** se lista aparte porque se prorratea por % de ventas.
+En el liquidador **IVA**, tras calcular, **Créditos** y **Egresos** agrupan por categoría (No gravada, Gravada, …): expandí el grupo para ver las facturas/apuntes. En créditos, el IVA **indirecto** (prorrateo) es un grupo aparte. **Saldo** resume totales. Cada liquidador tiene **Aprobar** en el encabezado.
 
 Desde **Liquidación Mensual y Boleto de Pago**, en cada línea del pack usá **Abrir** para ir al liquidador y validarlo. El aviso azul indica el próximo paso. Con la DJ lista, **Generar boleto y asientos** arma las líneas de pago y los asientos. En cada línea cargá el **nº de boleto DGI**, el **PDF del boleto DGI** y, si aplica, el **comprobante bancario**. Sin nº + PDF DGI no se puede **Cerrar / conciliar**.
 
