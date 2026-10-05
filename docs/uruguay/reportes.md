@@ -35,6 +35,10 @@ En `Contabilidad → Configuración → Ajustes` (compañía fiscal Uruguay), bl
 | Liquidadores → **Patrimonio (IPAT)** | Submenú **Anticipo mensual** / **Determinación anual** |
 | Formularios DGI → **1050 — Patrimonio anual** | Pack anual (exige determinación aprobada) |
 
+**Crédito / excedente IVA inicial (cutover):** en Impuestos UY cargá el L21 de arranque (semilla). Se usa **solo** si no hay DJ 1376 del mes anterior **aprobada**; después manda la cadena mes a mes. No es el saldo eterno de la cuenta 114310 (esa puede servir de control, no de dueña del número).
+
+En el liquidador **IVA** y en la liquidación del mes se muestra **Saldo IVA a favor**. Si no hay IVA a pagar, en **Boletos** queda una línea informativa `IVA: $0 — crédito a favor …` (sin exigir nº/PDF de boleto).
+
 En cada impuesto (`Contabilidad → Configuración → Impuestos`):
 
 | Campo | Para qué |
