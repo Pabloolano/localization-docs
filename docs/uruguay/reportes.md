@@ -25,6 +25,7 @@ En `Contabilidad → Configuración → Ajustes` (compañía fiscal Uruguay), bl
 1. Qué impuestos habilitar (IVA, IRAE, IPAT, …).
 2. **Diarios para Reportes DGI** — filtro opcional.
 3. Cuentas y parámetros de liquidación: diario de cierre, DGI a pagar, IVA/excedente/OTT, anticipos IRAE/IP/ICOSA, IRPF, importación. Sin diario de cierre no se pueden generar asientos desde **Liquidación del mes**.
+4. Si **no hay ejercicio fiscal cerrado anterior** en Odoo, Ajustes muestra un aviso y campos para cargar a mano el **% / coeficiente de anticipo IRAE (renta)** y el de **IPAT (patrimonio)** (base IPAT anual × coeficiente, p. ej. 1/12 ≈ 0,0833; o importe fijo mensual).
 
 En cada impuesto (`Contabilidad → Configuración → Impuestos`):
 
