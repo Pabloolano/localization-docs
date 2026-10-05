@@ -48,7 +48,7 @@ Si el tax no está mapeado, el XML CFE puede estar bien y el reporte igual sale 
 
 Ahí se calcula y aprueba cada impuesto del mes (montos a pagar / crédito). Es el lugar del **detalle de liquidación** (p. ej. IVA), no el armado del boleto.
 
-En el liquidador **IVA**, los botones **Créditos** / **Egresos** abren la lista nativa agrupada por categoría (Grouped Tree: No gravada, Gravada, … con facturas debajo). **Saldo** resume totales. En **2181 / 1146**, **Ver agrupado por código DGI**. En la liquidación del mes, **Generar boleto y asientos** queda disponible para usuarios Impuestos UY.
+En el liquidador **IVA**, los botones **Créditos** / **Egresos** abren la lista nativa agrupada por categoría (Grouped Tree: No gravada, Gravada, … con facturas debajo). **Saldo** resume totales. En el **2181**, el detalle de facturas está en el smart button **Detalles** y en **Ver facturas** por línea. En **1146**, **Ver agrupado por código DGI**. En la liquidación del mes, **Generar boleto y asientos** queda disponible para usuarios Impuestos UY.
 
 Desde **Liquidación Mensual y Boleto de Pago**, en cada línea del pack usá **Abrir** para ir al liquidador y validarlo. El aviso azul indica el próximo paso. Con la DJ lista, **Generar boleto y asientos** arma las líneas de pago y los asientos. En cada línea cargá el **nº de boleto DGI**, el **PDF del boleto DGI** y, si aplica, el **comprobante bancario**. Sin nº + PDF DGI no se puede **Cerrar / conciliar**.
 
