@@ -50,7 +50,17 @@ En el liquidador **IVA**, los botones **Créditos** / **Egresos** abren la lista
 
 Desde **Liquidación Mensual y Boleto de Pago**, en cada línea del pack usá **Abrir** para ir al liquidador y validarlo. El aviso azul indica el próximo paso. Con la DJ lista, **Generar boleto y asientos** arma las líneas de pago y los asientos. En cada línea cargá el **nº de boleto DGI**, el **PDF del boleto DGI** y, si aplica, el **comprobante bancario**. Sin nº + PDF DGI no se puede **Cerrar / conciliar**.
 
-**TXT para PADI:** en la liquidación del mes (pack 1376 o 1146), el botón **TXT DGI (PADI)** calcula los formularios del período (2181 y, si está habilitado, 1146). Si faltan aprobar, abre esos formularios; si ya están aprobados, descarga el `.txt` (o un `.zip` si hay más de uno) y lo deja en el chatter. El **1376** no tiene TXT de importación desde Odoo: se confecciona en PADI.
+**TXT para PADI:** en la liquidación del mes, el botón **TXT DGI (PADI)** prepara los formularios con layout de importación DGI:
+
+| Pack / form | Código TXT | Notas |
+|-------------|------------|--------|
+| 2181 | `02181` | Se calcula solo |
+| 1146 | `01146` | Se calcula solo |
+| 2183 / 1144 | `02183` / `01144` | Mismo layout PADI; el cálculo automático aún es stub (cargar líneas o esperar nómina/agente) |
+
+Si faltan aprobar, abre esos formularios; si ya están aprobados, descarga el `.txt` (o un `.zip`) y lo deja en el chatter. El **1376** y el **1050** no tienen TXT de importación usable desde Odoo: se confeccionan en PADI. El archivo TXT termina en `;` (requisito del instructivo DGI).
+
+**Aprobar liquidadores / pack:** hace falta el grupo **Impuestos UY / Aprobador** (o administrador contable). El usuario de impuestos puede calcular y armar boleto, pero no aprobar.
 
 ---
 
