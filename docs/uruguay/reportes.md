@@ -32,7 +32,9 @@ En cada impuesto (`Contabilidad → Configuración → Impuestos`):
 | Campo | Para qué |
 |-------|----------|
 | Línea 2181 | Agrupa el tax en el 2181 |
+| Línea 2183 | Agrupa el tax en el 2183 (agente) |
 | Línea 1146 | Agrupa el tax en el 1146 |
+| Línea 1144 | Agrupa el tax en el 1144 (dependientes / IRPF tipado) |
 | Categoría DJ 1376 (venta) | Clasifica ventas de la liquidación |
 | Tipo IVA compras 1376 | Clasifica compras de la liquidación |
 
@@ -55,8 +57,9 @@ Desde **Liquidación Mensual y Boleto de Pago**, en cada línea del pack usá **
 | Pack / form | Código TXT | Notas |
 |-------------|------------|--------|
 | 2181 | `02181` | Se calcula solo |
-| 1146 | `01146` | Se calcula solo |
-| 2183 / 1144 | `02183` / `01144` | Mismo layout PADI; el cálculo automático aún es stub (cargar líneas o esperar nómina/agente) |
+| 1146 | `01146` | Cuenta IRPF + **Código impuesto 1146** en el tax del asiento |
+| 2183 | `02183` | Taxes con **Código impuesto 2183** |
+| 1144 | `01144` | Misma cuenta IRPF + **Código impuesto 1144** (CI/NIE/PAS/DNI) |
 
 Si faltan aprobar, abre esos formularios; si ya están aprobados, descarga el `.txt` (o un `.zip`) y lo deja en el chatter. El **1376** y el **1050** no tienen TXT de importación usable desde Odoo: se confeccionan en PADI. El archivo TXT termina en `;` (requisito del instructivo DGI).
 
