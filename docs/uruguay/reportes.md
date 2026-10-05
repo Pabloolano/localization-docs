@@ -49,11 +49,13 @@ En el liquidador **IVA**, los botones **Créditos** / **Egresos** abren la lista
 
 Desde **Liquidación Mensual y Boleto de Pago**, en cada línea del pack usá **Abrir** para ir al liquidador y validarlo. El aviso azul indica el próximo paso. Con la DJ lista, **Generar boleto y asientos** arma las líneas de pago y los asientos. En cada línea cargá el **nº de boleto DGI**, el **PDF del boleto DGI** y, si aplica, el **comprobante bancario**. Sin nº + PDF DGI no se puede **Cerrar / conciliar**.
 
+**TXT para PADI:** en la liquidación del mes (pack 1376 o 1146), el botón **TXT DGI (PADI)** calcula los formularios del período (2181 y, si está habilitado, 1146). Si faltan aprobar, abre esos formularios; si ya están aprobados, descarga el `.txt` (o un `.zip` si hay más de uno) y lo deja en el chatter. El **1376** no tiene TXT de importación desde Odoo: se confecciona en PADI.
+
 ---
 
 ## 2181 y 1146
 
-Misma pantalla, distinto tipo. Menús:
+Misma pantalla, distinto tipo. Menús (también alcanzables desde **TXT DGI (PADI)** en la liquidación del mes):
 
 - `Contabilidad → Uruguay → Impuestos → Formularios DGI → 2181 — IVA ventas y compras`
 - `Contabilidad → Uruguay → Impuestos → Formularios DGI → 1146 — Retenciones IRPF`
