@@ -1,20 +1,20 @@
 # Reportes e Impuestos DGI
 
-Módulo `l10n_uy_tax_reports`. Tres usos distintos bajo `Contabilidad → Uruguay → Impuestos`:
+Módulo `l10n_uy_tax_reports`. Camino operativo bajo `Contabilidad → Uruguay → Impuestos`:
 
 | Menú | Para qué |
 |------|----------|
-| **Liquidación Mensual y Boleto de Pago** | Boleto → asientos de cierre → candado / conciliación |
-| **Liquidadores** | Detalle y cálculo de **cada impuesto** habilitado en la compañía |
-| **Formularios DGI** | Lo que se presenta a DGI (2181, 1146, 1376, …) según impuestos habilitados |
+| **Liquidación Mensual y Boleto de Pago** | **Camino principal:** calcular/aprobar liquidadores → DJ 1376 → boleto → asientos → candado; botón **TXT DGI (PADI)** |
+| **Liquidadores** | Detalle por impuesto (debug / revisión); aprobar exige grupo Aprobador |
+| **Formularios DGI** | Consulta TXT 2181/1146 y detalle DJ 1376. La DJ **no** se calcula ni aprueba aquí: usar la liquidación del mes |
 
-Los ítems de **Liquidadores** y **Formularios DGI** se muestran según los tildes de **Impuestos UY** en la compañía (p. ej. IVA → liquidador IVA + formularios 2181 y 1376).
+Los ítems se muestran según los tildes de **Impuestos UY** en la compañía.
 
-El **1376** agrupa varios liquidadores; el detalle del IVA se mira en **Liquidadores → IVA**, no en el boleto.
+El **1376** se arma desde el pack; el detalle del IVA se mira en **Liquidadores → IVA**.
 
 ![Menú Uruguay: diferencia de cambio y reportes DGI](img/odoo-menu-uruguay.jpg)
 
-El filtro de diarios en Ajustes es **opcional**: vacío = todos los diarios de la compañía. El 1376 no se “arregla” eligiendo un diario: lee el diseño contable (cuentas e impuestos mapeados). La diferencia de cambio **Gravada (IVA)** alimenta el 2181: corré ese cálculo antes del mes.
+El filtro de diarios en Ajustes es **opcional**: vacío = todos. Si se carga, acota **TXT y 1376** a esos diarios. La liquidación sigue dependiendo del mapeo de cuentas e impuestos. La diferencia de cambio **Gravada (IVA)** alimenta el 2181: corré ese cálculo antes del mes.
 
 ---
 
@@ -23,7 +23,7 @@ El filtro de diarios en Ajustes es **opcional**: vacío = todos los diarios de l
 En `Contabilidad → Configuración → Ajustes` (compañía fiscal Uruguay), bloque **Impuestos UY** (también pestaña en la ficha de la compañía):
 
 1. Qué impuestos habilitar (IVA, IRAE, IPAT, …).
-2. **Diarios para Reportes DGI** — filtro opcional.
+2. **Diarios para Reportes DGI** — filtro opcional (vacío = todos). Aplica a **TXT y DJ 1376** por igual.
 3. Cuentas y parámetros de liquidación: diario de cierre, DGI a pagar, IVA/excedente/OTT, anticipos IRAE/IP/ICOSA, IRPF, importación. Sin diario de cierre no se pueden generar asientos desde **Liquidación del mes**.
 4. Si **no hay ejercicio fiscal cerrado anterior** en Odoo, Ajustes muestra un aviso y campos para cargar a mano el **% / coeficiente de anticipo IRAE (renta)** y el de **IPAT (patrimonio)** (base IPAT anual × coeficiente, p. ej. 1/12 ≈ 0,0833; o importe fijo mensual).
 
@@ -52,7 +52,7 @@ En el liquidador **IVA**, los botones **Créditos** / **Egresos** abren la lista
 
 Desde **Liquidación Mensual y Boleto de Pago**, en cada línea del pack usá **Abrir** para ir al liquidador y validarlo. El aviso azul indica el próximo paso. Con la DJ lista, **Generar boleto y asientos** arma las líneas de pago y los asientos. En cada línea cargá el **nº de boleto DGI**, el **PDF del boleto DGI** y, si aplica, el **comprobante bancario**. Sin nº + PDF DGI no se puede **Cerrar / conciliar**.
 
-**TXT para PADI:** en la liquidación del mes, el botón **TXT DGI (PADI)** prepara los formularios con layout de importación DGI:
+**TXT para PADI:** en la liquidación del mes (packs **1376, 1146, 1144, 2183**), el botón **TXT DGI (PADI)** prepara los formularios:
 
 | Pack / form | Código TXT | Notas |
 |-------------|------------|--------|
@@ -63,24 +63,24 @@ Desde **Liquidación Mensual y Boleto de Pago**, en cada línea del pack usá **
 
 Si faltan aprobar, abre esos formularios; si ya están aprobados, descarga el `.txt` (o un `.zip`) y lo deja en el chatter. El **1376** y el **1050** no tienen TXT de importación usable desde Odoo: se confeccionan en PADI. El archivo TXT termina en `;` (requisito del instructivo DGI).
 
-**Aprobar liquidadores / pack:** hace falta el grupo **Impuestos UY / Aprobador** (o administrador contable). El usuario de impuestos puede calcular y armar boleto, pero no aprobar.
+**Aprobar / exportar TXT:** hace falta el grupo **Impuestos UY / Aprobador** (o administrador contable) — liquidadores, pack, formularios TXT y sincronización de la DJ. El usuario de impuestos puede calcular y armar boleto, pero no aprobar ni exportar PADI.
 
 ---
 
 ## 2181 y 1146
 
-Misma pantalla, distinto tipo. Menús (también alcanzables desde **TXT DGI (PADI)** en la liquidación del mes):
+Misma pantalla, distinto tipo. Entrada preferida: **TXT DGI (PADI)** en la liquidación del mes (también menús Formularios DGI):
 
 - `Contabilidad → Uruguay → Impuestos → Formularios DGI → 2181 — IVA ventas y compras`
 - `Contabilidad → Uruguay → Impuestos → Formularios DGI → 1146 — Retenciones IRPF`
 
 ![Lista de reportes DGI (2181 / 1146)](img/odoo-reportes-dgi.jpg)
 
-1. **Nuevo**. Mes, año y compañía.
+1. **Nuevo** (o abierto desde el pack). Mes, año y compañía.
 2. **Modo de exportación:** totales por partner o detalle por factura.
 3. **Calcular.** Revisa las líneas (partner, RUT, importe). **Ver detalle** abre las facturas que alimentan esa línea.
-4. **Aprobar.**
-5. **Exportar TXT.** El archivo queda en el formulario.
+4. **Aprobar** (grupo Aprobador).
+5. **Exportar TXT** (mismo grupo). El archivo queda en el formulario.
 
 Estados: Borrador → Calculado → Aprobado → Exportado. **Volver a Borrador** si hay que recalcular.
 
