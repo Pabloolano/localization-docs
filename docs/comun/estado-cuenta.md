@@ -32,7 +32,18 @@ El PDF usa el **layout de reporte de la compañía** (logo, dirección y pie nat
 
 ---
 
+## Incluir facturas de canje
+
+Marcá **Incluir facturas de canje** para traer también el otro lado del partner (cliente↔proveedor).
+
+Regla anti-duplicado (según conciliación nativa):
+
+| Situación | Qué se lista |
+|-----------|----------------|
+| Canje (factura del otro lado) **conciliada** con un pago | Solo el **pago**; en Comprobantes, el link a esa factura |
+| Canje **sin** pago conciliado | Solo la **factura** de canje |
+| Nunca | Pago y la misma factura de canje como dos líneas |
+
 ## Notas
 
-- **Incluir facturas de canje** mezcla el otro lado (cliente↔proveedor) cuando aplica.
 - Pagos sin conciliación dejan **Comprobantes** vacío.
