@@ -49,6 +49,8 @@ Documento asociado al DE original (referencia SIFEN). Mismo circuito de lote. No
 2. **Enviar:** asistente nativo. Adjuntos: KuDE + XML, según la plantilla de **Correo SIFEN**.
 3. Mail automático: al pasar a Aprobado, si la compañía tiene el toggle y el tipo marcado.
 
+En el encabezado del KuDE: si la compañía tiene logo propio, se muestra; si no subió ninguno (o quedó el placeholder “Your logo” de Odoo), se muestra el **nombre de la compañía**.
+
 Recordatorios de cobro: **Seguimiento de pagos** nativo, no un segundo wizard.
 
 ---
