@@ -33,7 +33,7 @@ En `Contabilidad → Configuración → Ajustes` (compañía fiscal Uruguay), bl
 |-------|-----|
 | Ajustes / compañía | Un bloque: anticipo **mensual** (1376/boleto) + determinación **anual** + DJ **1050** |
 | Liquidadores → **Patrimonio (IPAT)** | Submenú **Anticipo mensual** / **Determinación anual** |
-| Formularios DGI → **1050 — Patrimonio anual** | Pack anual (exige determinación aprobada) |
+| Formularios DGI → **1050 — Patrimonio anual** | Pack anual (exige determinación aprobada). Tras «formulario listo» / cerrar: **propuestas** de coef/mín IRAE, IPAT e ICOSA en el hub; viven en el 1376 solo con **Aplicar propuestas al hub** (Aprobador). No sustituye la confección PADI del 1050. |
 
 **Crédito / excedente IVA inicial (cutover):** en Impuestos UY cargá el L21 de arranque (semilla). Se usa **solo** si no hay DJ 1376 del mes anterior **aprobada**; después manda la cadena mes a mes. No es el saldo eterno de la cuenta 114310 (esa puede servir de control, no de dueña del número).
 
