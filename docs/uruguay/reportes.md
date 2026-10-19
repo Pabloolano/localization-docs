@@ -73,7 +73,7 @@ Desde **Liquidación Mensual y Boleto de Pago**, en cada línea del pack usá **
 | 2183 | `02183` | Taxes con **Código impuesto 2183** **y/o** e-Resguardos 2183 |
 | 1144 | `01144` | Misma cuenta IRPF tipada **y/o** e-Resguardos 1144 (CI/NIE/PAS/DNI) |
 
-Los e-Resguardos aportan las líneas de la pestaña **Retenciones** (código + importe). No se cuentan dos veces si el mismo pago también genera asiento en la cuenta IRPF.
+Los **e-Resguardos emitidos con CFE** aportan las líneas de la pestaña **Retenciones** (código + importe) a 1146/1144/2183. Los **recibidos** no entran a esos formularios (ahí la empresa es agente). No se cuentan dos veces si el mismo pago también genera asiento en la cuenta IRPF; el filtro de diarios del hub no aplica a este puente.
 
 Si faltan aprobar, abre esos formularios; si ya están aprobados, descarga el `.txt` (o un `.zip`) y lo deja en el chatter. El **1376** y el **1050** no tienen TXT de importación usable desde Odoo: se confeccionan en PADI. El archivo TXT termina en `;` (requisito del instructivo DGI).
 
