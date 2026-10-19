@@ -40,9 +40,9 @@ Regla anti-duplicado (según conciliación nativa):
 
 | Situación | Qué se lista |
 |-----------|----------------|
-| Canje (factura del otro lado) **conciliada** con un pago | Solo el **pago**; en Comprobantes, el link a esa factura |
-| Canje **sin** pago conciliado | Solo la **factura** de canje |
-| Nunca | Pago y la misma factura de canje como dos líneas |
+| Canje **totalmente** conciliado con un pago **del mismo período** | Solo el **pago**; en Comprobantes, el link a esa factura |
+| Canje sin pago, pago **fuera** del período, o canje **parcial** | Se lista la **factura** de canje (y el pago si cae en el período) |
+| Nunca (canje 100 % pagado + pago en el período) | Pago y la misma factura de canje como dos líneas |
 
 ## Notas
 
