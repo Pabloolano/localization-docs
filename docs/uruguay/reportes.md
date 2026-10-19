@@ -69,9 +69,11 @@ Desde **Liquidación Mensual y Boleto de Pago**, en cada línea del pack usá **
 | Pack / form | Código TXT | Notas |
 |-------------|------------|--------|
 | 2181 | `02181` | Se calcula solo |
-| 1146 | `01146` | Cuenta IRPF + **Código impuesto 1146** en el tax del asiento |
-| 2183 | `02183` | Taxes con **Código impuesto 2183** |
-| 1144 | `01144` | Misma cuenta IRPF + **Código impuesto 1144** (CI/NIE/PAS/DNI) |
+| 1146 | `01146` | Cuenta IRPF tipada **y/o** e-Resguardos emitidos con código DGI formulario 1146 |
+| 2183 | `02183` | Taxes con **Código impuesto 2183** **y/o** e-Resguardos 2183 |
+| 1144 | `01144` | Misma cuenta IRPF tipada **y/o** e-Resguardos 1144 (CI/NIE/PAS/DNI) |
+
+Los e-Resguardos aportan las líneas de la pestaña **Retenciones** (código + importe). No se cuentan dos veces si el mismo pago también genera asiento en la cuenta IRPF.
 
 Si faltan aprobar, abre esos formularios; si ya están aprobados, descarga el `.txt` (o un `.zip`) y lo deja en el chatter. El **1376** y el **1050** no tienen TXT de importación usable desde Odoo: se confeccionan en PADI. El archivo TXT termina en `;` (requisito del instructivo DGI).
 
