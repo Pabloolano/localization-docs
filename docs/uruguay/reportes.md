@@ -4,9 +4,9 @@ Módulo `l10n_uy_tax_reports`. Camino operativo bajo `Contabilidad → Uruguay �
 
 | Menú | Para qué |
 |------|----------|
-| **Liquidación Mensual y Boleto de Pago** | **Camino principal:** calcular/aprobar liquidadores → DJ 1376 → boleto → asientos → candado; botón **TXT DGI (PADI)** |
+| **Liquidación Mensual y Boleto de Pago** | **Camino principal 1376:** liquidadores → DJ → boleto → asientos (diario de impuestos) → candado; **TXT DGI** arma el 2181 |
 | **Liquidadores** | Detalle por impuesto (debug / revisión); aprobar exige grupo Aprobador |
-| **Formularios DGI** | Consulta TXT 2181/1146 y detalle DJ 1376. La DJ **no** se calcula ni aprueba aquí: usar la liquidación del mes |
+| **Formularios DGI** | Packs **1146 / 1144 / 2183 / 1050** (mismo flujo que la liquidación). **2181** es consulta del TXT ya calculado; no se crea ni se calcula ahí |
 
 Los ítems se muestran según los tildes de **Impuestos UY** en la compañía.
 
@@ -66,14 +66,14 @@ Desde **Liquidación Mensual y Boleto de Pago**, en cada línea del pack usá **
 
 En el asiento **IVA**, *DGI a pagar* es el monto del boleto (línea 545). Si hay crédito y el boleto IVA es $0, esa cuenta queda en cero; lo que no cierra de compras/OTT/IVA importación va a **excedente IVA**, no se inventa un a pagar. El **anticipo IRAE importación** (cuenta 114205) se revierte en el asiento **IRAE**, no en el IVA. El certificado de crédito DGI no se revierte solo: si aplica, el asiento va a mano. IRAE, IPAT e ICOSA sí van a DGI a pagar por el monto del boleto. El pack copia el anticipo IRAE del motor a la DJ al marcarla lista.
 
-**TXT para PADI:** en la liquidación del mes (packs **1376, 1146, 1144, 2183**), el botón **TXT DGI (PADI)** prepara los formularios:
+**TXT para PADI:** cada pack tiene su botón **TXT DGI (PADI)**. El 1376 no arrastra el 1146.
 
 | Pack / form | Código TXT | Notas |
 |-------------|------------|--------|
-| 2181 | `02181` | Se calcula solo |
-| 1146 | `01146` | Cuenta IRPF tipada **y/o** e-Resguardos emitidos con código DGI formulario 1146 |
-| 2183 | `02183` | Taxes con **Código impuesto 2183** **y/o** e-Resguardos 2183 |
-| 1144 | `01144` | Misma cuenta IRPF tipada **y/o** e-Resguardos 1144 (CI/NIE/PAS/DNI) |
+| 1376 → 2181 | `02181` | Solo IVA ventas/compras |
+| 1146 | `01146` | Pack aparte: asiento IRPF (p. ej. 213306) ↔ DGI a pagar, diario de impuestos. Cuenta IRPF **y/o** e-Resguardos 1146 |
+| 2183 | `02183` | Pack aparte. Taxes **Código impuesto 2183** **y/o** e-Resguardos 2183 |
+| 1144 | `01144` | Pack aparte. Cuenta IRPF **y/o** e-Resguardos 1144 (CI/NIE/PAS/DNI) |
 
 Los **e-Resguardos emitidos con CFE** aportan las líneas de la pestaña **Retenciones** (código + importe) a 1146/1144/2183. Los **recibidos** no entran a esos formularios (ahí la empresa es agente). No se cuentan dos veces si el mismo pago también genera asiento en la cuenta IRPF; el filtro de diarios del hub no aplica a este puente.
 
@@ -85,20 +85,20 @@ Si faltan aprobar, abre esos formularios; si ya están aprobados, descarga el `.
 
 ## 2181 y 1146
 
-Misma pantalla, distinto tipo. Entrada preferida: **TXT DGI (PADI)** en la liquidación del mes (también menús Formularios DGI):
+Un camino: el **pack**. El 2181 se arma con **TXT DGI (PADI)** en la liquidación 1376. El 1146 es un pack propio (`Formularios DGI → 1146`) con boleto y asiento en el diario de impuestos, no mezclado con el IVA.
 
-- `Contabilidad → Uruguay → Impuestos → Formularios DGI → 2181 — IVA ventas y compras`
-- `Contabilidad → Uruguay → Impuestos → Formularios DGI → 1146 — Retenciones IRPF`
+`Formularios DGI → 2181` es **consulta** de TXT ya calculados (sin «Nuevo»).
 
 ![Lista de reportes DGI (2181 / 1146)](img/odoo-reportes-dgi.jpg)
 
-1. **Nuevo** (o abierto desde el pack). Mes, año y compañía.
-2. **Modo de exportación:** totales por partner o detalle por factura.
-3. **Calcular.** Revisa las líneas (partner, RUT, importe). **Ver detalle** abre las facturas que alimentan esa línea.
-4. **Aprobar** (grupo Aprobador).
-5. **Exportar TXT** (mismo grupo). El archivo queda en el formulario.
+Desde el pack:
 
-Estados: Borrador → Calculado → Aprobado → Exportado. **Volver a Borrador** si hay que recalcular.
+1. **TXT DGI (PADI)** calcula el formulario del mes.
+2. Revisá líneas (partner, RUT, importe). **Ver detalle** abre las facturas.
+3. **Aprobar** (grupo Aprobador).
+4. **Exportar TXT** (mismo grupo). El archivo queda en el formulario y en el chatter del pack.
+
+Estados: Borrador → Calculado → Aprobado → Exportado. **Volver a Borrador** si hay que recalcular (desde el TXT abierto por el pack).
 
 ![Formulario 2181: calcular, aprobar y exportar TXT](img/odoo-reporte-2181.jpg)
 
