@@ -49,7 +49,7 @@ En cada impuesto (`Contabilidad → Configuración → Impuestos`):
 | Línea 1146 | Agrupa el tax en el 1146 |
 | Línea 1144 | Agrupa el tax en el 1144 (dependientes / IRPF tipado) |
 | Categoría DJ 1376 (venta) | Clasifica ventas de la liquidación |
-| Tipo IVA compras 1376 | Clasifica compras de la liquidación |
+| Tipo IVA compras 1376 | **Directo** o **Indirecto** (Art. 14). Definí el tax y asignalo al producto de compra. Detalle en [Cuentas e impuestos](cuentas.md#tipo-iva-compras) |
 
 Si el tax no está mapeado, el XML CFE puede estar bien y el reporte igual sale incompleto.
 
@@ -137,7 +137,7 @@ Declaración jurada mensual DGI (CEDE/GC): paneles de IVA, anticipos de IRAE, IP
 
 1. **Nuevo.** Mes, año, compañía (o trabajar desde liquidadores + liquidación del mes).
 2. **Calcular.** Completa IVA ventas, compras deducibles, excedente, anticipos e IRAE.
-3. Revisá pestañas **Ventas** y **Compras**. Completá a mano `Retenciones OTT`, `IPAT`, `ICOSA` e **IVA perdido** si aplica (antes de aprobar).
+3. Revisá pestañas **Ventas** y **Compras**. **IVA perdido** se completa al calcular (tajada de IVA **indirecto** a no gravada / suspenso / percibido; afuera exportación e IVA importación). Revisalo; se puede ajustar hasta aprobar. Completá a mano `Retenciones OTT`, `IPAT` e `ICOSA` si aplica. El asiento de IVA perdido **no** nace al calcular: hace falta **Generar boleto y asientos**.
 4. **Aprobar.**
 5. Ir a **Liquidación Mensual y Boleto de Pago** → **Generar boleto y asientos** → cargar nº DGI + PDF(s) → **Cerrar / conciliar**.
 

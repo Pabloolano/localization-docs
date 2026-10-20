@@ -14,7 +14,7 @@ Localización fiscal Uruguay sobre Odoo 19: **CFE** ante DGI, impuestos, diarios
 
     ---
 
-    Plan de cuentas, diarios CFE e IVA.
+    Plan de cuentas, diarios CFE e IVA directo/indirecto (Art. 14).
 
 -   **[Uso](uso.md)**
 

@@ -8,7 +8,7 @@ Orden recomendado:
 2. Facturación electrónica (CFE)
 3. Sucursales y puntos de emisión
 4. Tipos de comprobante DGI
-5. [Cuentas, diarios e impuestos](cuentas.md)
+5. [Cuentas, diarios e impuestos](cuentas.md) — incluir **Tipo IVA compras** Directo/Indirecto en cada tax de compra y en el producto (Art. 14)
 6. Una factura de prueba en **Testing**
 
 ---

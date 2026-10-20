@@ -54,9 +54,36 @@ En la compañía podés setear el **diario para comprobantes recibidos** (compra
 2. Cuentas de débito y crédito fiscal coherentes con el CoA de **esta** compañía.
 3. Posiciones fiscales si hay exportación / no gravado.
 4. Retenciones / IRPF solo si el circuito de esa empresa las usa.
+5. **Tipo IVA compras DJ 1376** (Directo / Indirecto) en cada impuesto de **compra**, y el mismo tax en el **producto**. Ver [abajo](#tipo-iva-compras).
 
 !!! tip
     En la factura, el impuesto de la línea es el que viaja al CFE y el que después sale en reportes DGI. Si el tax está mal mapeado, el XML y el 2181/1146 van a mentir.
+
+---
+
+## Tipo IVA compras (Directo / Indirecto) {#tipo-iva-compras}
+
+Campo **Tipo IVA compras DJ 1376** en el impuesto, y **Categoría DJ 1376 (compras directas)** en la **cuenta** de gasto (solo si el tax es Directo).
+
+Norma: [Art. 14 Título 10 TO 2023](https://www.impo.com.uy/bases/todgi2023/101-2024/14_T10) (Dec. 101/024) y FAQ DGI del 18/06/2024 (cita también Art. 124 Dec. 220/998).
+
+| En Odoo | Criterio DGI | Ejemplos de producto |
+|---------|--------------|----------------------|
+| **Directo** | El bien o servicio se destina **exclusivamente** a una operación. El IVA se deduce entero (gravada) o no se deduce (exenta). No se prorratea. | Almacenaje de mercadería nacionalizada / gravada |
+| **Indirecto** | **No** es exclusivo de gravadas ni de exentas. Se deduce en **proporción a las ventas gravadas** del ejercicio. | Telefonía, internet, energía, GAV de administración |
+| Cuenta **IVA importación** (Ajustes 1376) | Apartado **B** del Art. 14: IVA pagado al importar. No usa este campo. **No** va a IVA perdido. | Despacho / aduana |
+| Categoría **exportación** (cuenta o % de ventas) | El Art. 14 **permite deducir** (y, si hay crédito, devolver o imputar) el IVA que integra el costo del producto exportado. **No** es gasto de IVA perdido. | — |
+
+**Cómo cargarlo**
+
+1. Creá (o usá) dos impuestos de compra por alícuota, p. ej. *IVA Compras 22 %* = Directo y *IVA compras indirecto 22 %* = Indirecto. Lo mismo a tasa mínima.
+2. En cada **producto** de compra, impuestos de proveedor = el que corresponda. El motor lee el tax de la factura, no el nombre del producto.
+3. En cuentas de gasto usadas con tax **Directo**, cargá **Categoría DJ 1376 (compras directas)** (`gravada` por defecto). Ahí se decide si ese IVA es 100 % crédito o queda fuera del deducible.
+4. La cuenta de **IVA importación** se tipa en Ajustes (compañía), no en el tax.
+
+Si un gasto común (telefonía, GAV) lleva tax **Directo**, el 1376 lo toma como exclusivo y **no** lo prorratea: el IVA perdido del mes queda corto y el crédito IVA queda inflado. Corregí el tax del producto y volvé a calcular.
+
+**IVA perdido** (gasto al calcular el 1376) = tajada de IVA **indirecto** del mes asignada a ventas no gravadas / IVA en suspenso / impuesto percibido. No incluye directo, importación ni exportación. El asiento a la cuenta de IVA perdido **no** se postea al calcular: sale en borrador con **Generar boleto y asientos**, después de que un humano aprueba la DJ.
 
 ---
 
