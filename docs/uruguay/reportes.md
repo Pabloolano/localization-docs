@@ -64,6 +64,8 @@ En el liquidador **IVA**, los botones **Créditos** / **Egresos** abren la lista
 
 Desde **Liquidación Mensual y Boleto de Pago**, en cada línea del pack usá **Abrir** para ir al liquidador y validarlo. El aviso azul indica el próximo paso. Con la DJ lista, **Generar boleto y asientos** arma las líneas de pago y los asientos. En cada línea cargá el **nº de boleto DGI**, el **PDF del boleto DGI** y, si aplica, el **comprobante bancario**. Sin nº + PDF DGI no se puede **Cerrar / conciliar**.
 
+En el asiento **IVA**, *DGI a pagar* es el monto del boleto (línea 545). Si hay crédito y el boleto IVA es $0, esa cuenta queda en cero; lo que no cierra de compras/OTT/importación va a **excedente IVA**, no se inventa un a pagar. IRAE, IPAT e ICOSA sí van a DGI a pagar por el monto del boleto.
+
 **TXT para PADI:** en la liquidación del mes (packs **1376, 1146, 1144, 2183**), el botón **TXT DGI (PADI)** prepara los formularios:
 
 | Pack / form | Código TXT | Notas |
