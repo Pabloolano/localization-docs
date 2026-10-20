@@ -5,6 +5,7 @@ Módulo `l10n_uy_tax_reports`. Camino operativo bajo `Contabilidad → Uruguay �
 | Menú | Para qué |
 |------|----------|
 | **Liquidación Mensual y Boleto de Pago** | **Camino principal 1376:** liquidadores → DJ → boleto → asientos (diario de impuestos) → candado; **TXT DGI** arma el 2181 |
+| **Tablero del ejercicio** | Una fila por mes (ventas 22%/0%, IVA, excedente, anticipos, OTT, boleto). Filtro año. No es el mayor: el Acumulado de cuentas es el **Balance de comprobación** nativo |
 | **Liquidadores** | Detalle por impuesto (debug / revisión); aprobar exige grupo Aprobador |
 | **Formularios DGI** | Packs **1146 / 1144 / 2183 / 1050** (mismo flujo que la liquidación). **2181** es consulta del TXT ya calculado; no se crea ni se calcula ahí |
 
@@ -64,7 +65,7 @@ En el liquidador **IVA**, los botones **Créditos** / **Egresos** abren la lista
 
 Desde **Liquidación Mensual y Boleto de Pago**, en cada línea del pack usá **Abrir** para ir al liquidador y validarlo. El aviso azul indica el próximo paso. Con la DJ lista, **Generar boleto y asientos** arma las líneas de pago y los asientos. **Publicá** esos asientos. En cada línea cargá el **nº de boleto DGI**, el **PDF del boleto DGI** y, si aplica, el **comprobante bancario**. **Cerrar / conciliar** exige asientos publicados + nº + PDF DGI; no se cierra solo con boletos.
 
-En el asiento **IVA**, *DGI a pagar* es el monto del boleto (línea 545). Si hay crédito y el boleto IVA es $0, esa cuenta queda en cero; lo que no cierra de compras/OTT/IVA importación va a **excedente IVA**, no se inventa un a pagar. El **anticipo IRAE importación** (cuenta 114205) se revierte en el asiento **IRAE**, no en el IVA. El certificado de crédito DGI no se revierte solo: si aplica, el asiento va a mano. IRAE, IPAT e ICOSA sí van a DGI a pagar por el monto del boleto. El pack copia el anticipo IRAE del motor a la DJ al marcarla lista.
+En el asiento **IVA**, *DGI a pagar* es el monto del boleto (línea 545). Si hay crédito y el boleto IVA es $0, esa cuenta queda en cero; lo que no cierra de compras/IVA importación va a **excedente IVA**, no se inventa un a pagar. El crédito **OTT** (cuenta 114311, sin diferencia de cambio ni asiento de cierre) se aplica al boleto como en Rubro 7: primero **ICOSA**, el resto **IRAE**. No baja el IVA. El sobrante queda en 114311. El **anticipo IRAE importación** (cuenta 114205) se revierte en el asiento **IRAE**, no en el IVA. El certificado de crédito DGI no se revierte solo: si aplica, el asiento va a mano. IRAE, IPAT e ICOSA sí van a DGI a pagar por el monto del boleto (ICOSA/IRAE ya netos de OTT). El pack copia el anticipo IRAE/ICOSA **bruto** a la DJ al marcarla lista.
 
 **TXT para PADI:** cada pack tiene su botón **TXT DGI (PADI)**. El 1376 no arrastra el 1146.
 
@@ -141,6 +142,8 @@ Declaración jurada mensual DGI (CEDE/GC): paneles de IVA, anticipos de IRAE, IP
 5. Ir a **Liquidación Mensual y Boleto de Pago** → **Generar boleto y asientos** → cargar nº DGI + PDF(s) → **Cerrar / conciliar**.
 
 El comprobante de pago bancario se adjunta en la misma línea del boleto (además del PDF DGI).
+
+**Tablero del ejercicio:** `Contabilidad → Uruguay → Impuestos → Tablero del ejercicio`. Lista de packs 1376 del año (filtro *Ejercicio actual*). Cada fila es un mes ya liquidado o en curso; el clic abre el pack. Ventas = neto/base (22 % vs 0 %); el % gravada YTD incluye también tasa mínima. No recalcula el plan de cuentas.
 
 ![Formulario 1376 nuevo (antes de Calcular): bloques IVA, IRAE y anticipos](img/odoo-reporte-1376.jpg)
 
