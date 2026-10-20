@@ -78,7 +78,7 @@ Norma: [Art. 14 Título 10 TO 2023](https://www.impo.com.uy/bases/todgi2023/101-
 
 1. Creá (o usá) dos impuestos de compra por alícuota, p. ej. *IVA Compras 22 %* = Directo y *IVA compras indirecto 22 %* = Indirecto. Lo mismo a tasa mínima.
 2. En cada **producto** de compra, impuestos de proveedor = el que corresponda. El motor lee el tax de la factura, no el nombre del producto.
-3. En cuentas de gasto usadas con tax **Directo**, cargá **Categoría DJ 1376 (compras directas)** (`gravada` por defecto). Ahí se decide si ese IVA es 100 % crédito o queda fuera del deducible.
+3. En cuentas de gasto usadas con tax **Directo**, cargá **Categoría DJ 1376 (compras directas)** (`gravada` por defecto). Ahí se decide si ese IVA es 100 % crédito o queda fuera del deducible. Si una misma factura junta cuentas de categorías distintas bajo ese tax, el 1376 **no calcula**: el Art. 14 no reparte un IVA directo. Separá las líneas.
 4. La cuenta de **IVA importación** se tipa en Ajustes (compañía), no en el tax.
 
 Si un gasto común (telefonía, GAV) lleva tax **Directo**, el 1376 lo toma como exclusivo y **no** lo prorratea: el IVA perdido del mes queda corto y el crédito IVA queda inflado. Corregí el tax del producto y volvé a calcular.

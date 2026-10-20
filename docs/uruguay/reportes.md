@@ -119,7 +119,7 @@ El código de línea del impuesto (`Línea 2181`) es el punto de partida; el rep
 - La pestaña **Exclusiones** lista lo que PADI rechazaría o no se puede informar; corregí el RUT en la ficha y volvé a calcular.
 - **505/506 plaza:** además del campo Línea 2181, entran solos los impuestos de compra con **Tipo IVA compras DJ 1376** directo/indirecto (22 % → 505, 10 % → 506). El 1376 sigue usando ese tipo para el prorrateo.
 - **IVA diferencia de cambio gravada** (asiento EXCH, flag en la línea, solo cobranzas): si la factura mezcla 10 % y 22 %, el IVA Art. 111 se **parte** en **503** y **502** según el IVA de esa factura. Una sola alícuota (o sin factura origen) usa la tasa más cercana a 10 % o 22 %. **501** si el partner no es contribuyente (la base usa la tasa efectiva de esa factura). No hace falta `tax_line_id`. Las compras con el mismo flag no entran al 1376 ni al 2181.
-- Importes de **ventas** (501/502/503) se guardan/exportan en positivo (como la DJ); las NC quedan negativas. PADI admite ambos signos.
+- Importes de **ventas** (501/502/503) se guardan en positivo (como la DJ); las NC quedan negativas. El TXT **trunca** los decimales (no redondea). PADI admite ambos signos. En el 1376, si en un rubro las NC superan a las facturas, el neto de ese rubro queda negativo.
 - La línea **1** (importación) usa la misma cuenta de IVA importación del bloque DJ 1376 en Ajustes.
 
 El 1146 usa el mismo circuito (sin esas reclasificaciones del 2181).
