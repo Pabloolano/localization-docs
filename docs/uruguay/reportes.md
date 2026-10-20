@@ -33,7 +33,7 @@ En `Contabilidad → Configuración → Ajustes` (compañía fiscal Uruguay), bl
 |-------|-----|
 | Ajustes / compañía | Un bloque: anticipo **mensual** (1376/boleto) + determinación **anual** + DJ **1050** |
 | Liquidadores → **Patrimonio (IPAT)** | Submenú **Anticipo mensual** / **Determinación anual** |
-| Formularios DGI → **1050 — Patrimonio anual** | Pack anual (exige determinación aprobada). Tras «formulario listo» / cerrar: **propuestas** de coef/mín IRAE, IPAT e ICOSA en el hub; viven en el 1376 solo con **Aplicar propuestas al hub** (Aprobador). No sustituye la confección PADI del 1050. |
+| Formularios DGI → **1050 — Patrimonio anual** | Pack anual (exige determinación aprobada). «Formulario listo» arma **propuestas en el pack**. Al hub (campos vivos) van con **Aplicar propuestas al hub** (Aprobador) o al **Cerrar ejercicio 1050**. No sustituye la confección PADI del 1050. |
 
 **Crédito / excedente IVA inicial (cutover):** en Impuestos UY cargá el L21 de arranque (semilla). Se usa **solo** si no hay DJ 1376 del mes anterior **aprobada**; después manda la cadena mes a mes. No es el saldo eterno de la cuenta 114310 (esa puede servir de control, no de dueña del número).
 
@@ -62,9 +62,9 @@ Ahí se calcula y aprueba cada impuesto del mes (montos a pagar / crédito). Es 
 
 En el liquidador **IVA**, los botones **Créditos** / **Egresos** abren la lista nativa agrupada por categoría (Grouped Tree: No gravada, Gravada, … con facturas debajo). **Saldo** resume totales. En el **2181**, el detalle de facturas está en el smart button **Detalles** y en **Ver facturas** por línea. En **1146**, **Ver agrupado por código DGI**. En la liquidación del mes, **Generar boleto y asientos** queda disponible para usuarios Impuestos UY.
 
-Desde **Liquidación Mensual y Boleto de Pago**, en cada línea del pack usá **Abrir** para ir al liquidador y validarlo. El aviso azul indica el próximo paso. Con la DJ lista, **Generar boleto y asientos** arma las líneas de pago y los asientos. En cada línea cargá el **nº de boleto DGI**, el **PDF del boleto DGI** y, si aplica, el **comprobante bancario**. Sin nº + PDF DGI no se puede **Cerrar / conciliar**.
+Desde **Liquidación Mensual y Boleto de Pago**, en cada línea del pack usá **Abrir** para ir al liquidador y validarlo. El aviso azul indica el próximo paso. Con la DJ lista, **Generar boleto y asientos** arma las líneas de pago y los asientos. **Publicá** esos asientos. En cada línea cargá el **nº de boleto DGI**, el **PDF del boleto DGI** y, si aplica, el **comprobante bancario**. **Cerrar / conciliar** exige asientos publicados + nº + PDF DGI; no se cierra solo con boletos.
 
-En el asiento **IVA**, *DGI a pagar* es el monto del boleto (línea 545). Si hay crédito y el boleto IVA es $0, esa cuenta queda en cero; lo que no cierra de compras/OTT/importación va a **excedente IVA**, no se inventa un a pagar. IRAE, IPAT e ICOSA sí van a DGI a pagar por el monto del boleto.
+En el asiento **IVA**, *DGI a pagar* es el monto del boleto (línea 545). Si hay crédito y el boleto IVA es $0, esa cuenta queda en cero; lo que no cierra de compras/OTT/IVA importación va a **excedente IVA**, no se inventa un a pagar. El **anticipo IRAE importación** (cuenta 114205) se revierte en el asiento **IRAE**, no en el IVA. El certificado de crédito DGI no se revierte solo: si aplica, el asiento va a mano. IRAE, IPAT e ICOSA sí van a DGI a pagar por el monto del boleto. El pack copia el anticipo IRAE del motor a la DJ al marcarla lista.
 
 **TXT para PADI:** en la liquidación del mes (packs **1376, 1146, 1144, 2183**), el botón **TXT DGI (PADI)** prepara los formularios:
 
