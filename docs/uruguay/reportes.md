@@ -26,7 +26,7 @@ En `Contabilidad → Configuración → Ajustes` (compañía fiscal Uruguay), bl
 1. Qué impuestos habilitar (IVA, IRAE, Patrimonio/IPAT, …).
 2. **Diarios para Reportes DGI** — filtro opcional (vacío = todos). Aplica a **TXT y DJ 1376** por igual.
 3. Cuentas y parámetros de liquidación: diario de cierre, DGI a pagar, IVA/excedente/OTT, anticipos IRAE/IP/ICOSA, IRPF, importación. Sin diario de cierre no se pueden generar asientos desde **Liquidación del mes**.
-4. Si **no hay ejercicio fiscal cerrado anterior** en Odoo, Ajustes muestra un aviso y campos para cargar a mano el **% / coeficiente de anticipo IRAE (renta)** y el de **Patrimonio / IPAT** (base anual × coeficiente, p. ej. 1/12 ≈ 0,0833; o importe fijo mensual).
+4. Si **no hay pack 1050 cerrado**, Ajustes y la ficha de compañía muestran un aviso: cargá a mano el **% / coeficiente de anticipo IRAE (renta)** y el de **Patrimonio / IPAT**. La **IRAE anual** se confecciona en **PADI**; un 1376 cerrado o un lock date no la sustituyen.
 
 **Patrimonio (IPAT)** es una sola familia fiscal, no dos impuestos distintos:
 
@@ -34,7 +34,7 @@ En `Contabilidad → Configuración → Ajustes` (compañía fiscal Uruguay), bl
 |-------|-----|
 | Ajustes / compañía | Un bloque: anticipo **mensual** (1376/boleto) + determinación **anual** + DJ **1050** |
 | Liquidadores → **Patrimonio (IPAT)** | Submenú **Anticipo mensual** / **Determinación anual** |
-| Formularios DGI → **1050 — Patrimonio anual** | Pack anual (exige determinación aprobada). «Formulario listo» arma **propuestas en el pack**. Al hub (campos vivos) van con **Aplicar propuestas al hub** (Aprobador) o al **Cerrar ejercicio 1050**. No sustituye la confección PADI del 1050. |
+| Formularios DGI → **1050 — Patrimonio anual** | Pack de **propuestas** al hub (coef/mín IRAE, IPAT, ICOSA). Exige determinación Patrimonio aprobada. **No** liquida IRAE anual ni arma el boleto 1050: eso es PADI. |
 
 **Crédito / excedente IVA inicial (cutover):** en Impuestos UY cargá el L21 de arranque (semilla). Se usa **solo** si no hay DJ 1376 del mes anterior **aprobada**; después manda la cadena mes a mes. No es el saldo eterno de la cuenta 114310 (esa puede servir de control, no de dueña del número).
 
@@ -65,7 +65,7 @@ En el liquidador **IVA**, los botones **Créditos** / **Egresos** abren la lista
 
 Desde **Liquidación Mensual y Boleto de Pago**, en cada línea del pack usá **Abrir** para ir al liquidador y validarlo. El aviso azul indica el próximo paso. Con la DJ lista, **Generar boleto y asientos** arma las líneas de pago y los asientos. **Publicá** esos asientos. En cada línea cargá el **nº de boleto DGI**, el **PDF del boleto DGI** y, si aplica, el **comprobante bancario**. **Cerrar / conciliar** exige asientos publicados + nº + PDF DGI; no se cierra solo con boletos.
 
-En el asiento **IVA**, *DGI a pagar* es el monto del boleto (línea 545). Si hay crédito y el boleto IVA es $0, esa cuenta queda en cero; lo que no cierra de compras/IVA importación va a **excedente IVA**, no se inventa un a pagar. El crédito **OTT** (cuenta 114311, sin diferencia de cambio ni asiento de cierre) se aplica al boleto como en Rubro 7: primero **ICOSA**, el resto **IRAE**. No baja el IVA. El sobrante queda en 114311. El **anticipo IRAE importación** (cuenta 114205) se revierte en el asiento **IRAE**, no en el IVA. El certificado de crédito DGI no se revierte solo: si aplica, el asiento va a mano. IRAE, IPAT e ICOSA sí van a DGI a pagar por el monto del boleto (ICOSA/IRAE ya netos de OTT). El pack copia el anticipo IRAE/ICOSA **bruto** a la DJ al marcarla lista.
+En el asiento **IVA**, *DGI a pagar* es el monto del boleto (línea 545). Si hay crédito y el boleto IVA es $0, esa cuenta queda en cero; lo que no cierra de compras/IVA importación va a **excedente IVA**, no se inventa un a pagar. El crédito **OTT** (cuenta 114311, sin diferencia de cambio ni asiento de cierre) se aplica al boleto como en Rubro 7: primero **ICOSA**, el resto **IRAE**. No baja el IVA. El sobrante queda en 114311. El haber de 114311 en el asiento de cierre lleva el **mismo contacto** que el debe del mes (para conciliar resguardo Handy). Un **crédito IPAT** extra (p. ej. remanente de anticipo IVA importación) se carga a mano en la DJ; no se inventa. El **anticipo IRAE importación** (cuenta 114205) se revierte en el asiento **IRAE**, no en el IVA. El certificado de crédito DGI no se revierte solo: si aplica, el asiento va a mano. IRAE, IPAT e ICOSA sí van a DGI a pagar por el monto del boleto (ICOSA/IRAE ya netos de OTT). El pack copia el anticipo IRAE/ICOSA **bruto** a la DJ al marcarla lista.
 
 **TXT para PADI:** cada pack tiene su botón **TXT DGI (PADI)**. El 1376 no arrastra el 1146.
 
