@@ -5,7 +5,7 @@ Módulo `l10n_uy_tax_reports`. Camino operativo bajo `Contabilidad → Uruguay �
 | Menú | Para qué |
 |------|----------|
 | **Liquidación Mensual y Boleto de Pago** | **Camino principal 1376:** liquidadores → DJ → boleto → asientos (diario de impuestos) → candado; **TXT DGI** arma el 2181 |
-| **Tablero del ejercicio** | Una fila por mes (ventas 22%/0%, IVA, excedente, anticipos, OTT, boleto). Filtro año. No es el mayor: el Acumulado de cuentas es el **Balance de comprobación** nativo |
+| **Tablero del ejercicio** | **Resumen fiscal del año:** una fila por mes (ventas, IVA, excedente, anticipos, OTT, IVA perdido, IVA DC gravada, DC activo/pasivos, IRPF 1146, boleto). El pie suma el ejercicio. Exportar Excel nativo. El mayor por cuenta es el **Balance de comprobación** |
 | **Liquidadores** | Detalle por impuesto (debug / revisión); aprobar exige grupo Aprobador |
 | **Formularios DGI** | Packs **1146 / 1144 / 2183 / 1050** (mismo flujo que la liquidación). **2181** es consulta del TXT ya calculado; no se crea ni se calcula ahí |
 
@@ -15,7 +15,7 @@ El **1376** se arma desde el pack; el detalle del IVA se mira en **Liquidadores 
 
 ![Menú Uruguay: diferencia de cambio y reportes DGI](img/odoo-menu-uruguay.jpg)
 
-El filtro de diarios en Ajustes es **opcional**: vacío = todos. Si se carga, acota **TXT y 1376** a esos diarios. La liquidación sigue dependiendo del mapeo de cuentas e impuestos. La diferencia de cambio **Gravada (IVA)** alimenta el 2181: corré ese cálculo antes del mes.
+El filtro de diarios en Ajustes es **opcional**: vacío = todos. Si se carga, acota **TXT y 1376** a esos diarios (el IVA de **DC gravada** se lee igual, aunque el diario EXCH no esté en la lista). La liquidación sigue dependiendo del mapeo de cuentas e impuestos. Corré **Diferencia de cambio → Gravada (IVA)** y posteá el asiento **antes** de calcular el 1376 / 2181 del mes.
 
 ---
 
@@ -118,6 +118,7 @@ El código de línea del impuesto (`Línea 2181`) es el punto de partida; el rep
 - Instructivo GC/CEDE: el **502/503** es IVA ventas **a contribuyentes**; no se detallan consumidores finales ahí.
 - La pestaña **Exclusiones** lista lo que PADI rechazaría o no se puede informar; corregí el RUT en la ficha y volvé a calcular.
 - **505/506 plaza:** además del campo Línea 2181, entran solos los impuestos de compra con **Tipo IVA compras DJ 1376** directo/indirecto (22 % → 505, 10 % → 506). El 1376 sigue usando ese tipo para el prorrateo.
+- **IVA diferencia de cambio gravada** (asiento EXCH, flag en la línea): entra como **502** (o **501** si el partner no es contribuyente). No hace falta `tax_line_id`.
 - Importes de **ventas** (501/502/503) se guardan/exportan en positivo (como la DJ); las NC quedan negativas. PADI admite ambos signos.
 - La línea **1** (importación) usa la misma cuenta de IVA importación del bloque DJ 1376 en Ajustes.
 
@@ -143,7 +144,7 @@ Declaración jurada mensual DGI (CEDE/GC): paneles de IVA, anticipos de IRAE, IP
 
 El comprobante de pago bancario se adjunta en la misma línea del boleto (además del PDF DGI).
 
-**Tablero del ejercicio:** `Contabilidad → Uruguay → Impuestos → Tablero del ejercicio`. Lista de packs 1376 del año (filtro *Ejercicio actual*). Cada fila es un mes ya liquidado o en curso; el clic abre el pack. Ventas = neto/base (22 % vs 0 %); el % gravada YTD incluye también tasa mínima. No recalcula el plan de cuentas.
+**Tablero del ejercicio:** `Contabilidad → Uruguay → Impuestos → Tablero del ejercicio`. Resumen del año (filtro *Ejercicio actual*): una fila por mes, pie = acumulado. Clic abre el pack. Incluye IVA perdido, IVA de DC gravada e IRPF 1146 del mismo mes; las columnas de revalúo DC (activo gravado / no gravado / pasivos) son informativas para PADI. Ventas = neto/base (22 % vs 0 %); el % gravada YTD incluye también tasa mínima. El mayor cuenta × mes es el Balance de comprobación, no este tablero.
 
 ![Formulario 1376 nuevo (antes de Calcular): bloques IVA, IRAE y anticipos](img/odoo-reporte-1376.jpg)
 
