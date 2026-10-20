@@ -17,8 +17,8 @@ Lo habitual: desde la OC (importación), la OV (exportación) o una factura de g
 3. **Confirmar** (grupo **Administración COMEX**).
 4. **En tránsito.**
 5. Importación: **Recibido**. Exportación: **Entregado**.
-6. Pestaña **Prorrateo**: sincronizar / recalcular hasta que **Dif.** de cada costo capitalizable sea 0.
-7. **Cerrar** — genera el asiento de costo en destino (cuenta puente de Ajustes).
+6. Pestaña **Prorrateo**: se puede armar **antes** de recibir mercadería y con facturas de gasto **en borrador**. La cantidad de la grilla es la comprada (OC/OV). **Dif.** de cada costo capitalizable tiene que quedar en 0.
+7. **Cerrar** (importación en Recibido): todas las facturas de la carpeta tienen que estar **posteadas** o canceladas; el prorrateo se rebasea a lo **realmente recibido**; recién ahí se genera el asiento de costo en destino (cuenta puente de Ajustes).
 8. **Cancelar** solo en borrador o confirmado.
 
 Estados importación: Borrador → Confirmado → En tránsito → Recibido → Cerrado.  
@@ -34,7 +34,9 @@ Una factura de proveedor con costo en destino no se postea sin carpeta (o el che
 
 `COMEX → Facturas sin carpeta` (admin): el pendiente a enganchar. Smart buttons: OC, OV, facturas, recepciones, costo en destino.
 
-Pestaña **Prorrateo**: matriz producto × costo. La base (cantidad recibida vs pedida) se elige en `Ajustes → Inventario → COMEX`.
+Pestaña **Prorrateo**: matriz producto × costo. La columna **Valor FOB** es mercadería; **Costo en Origen** (y otros gastos) van en columnas LC aparte. Mientras la carpeta está abierta usa **cantidad comprada** y suma facturas en borrador (para ver cuánto hay que desembolsar). El **costo en destino** nativo no se crea hasta el cierre, contra lo posteado y lo recibido.
+
+Los productos de gasto LC tienen que facturarse **sobre cantidades pedidas**, no al recibir. Si no, la línea entra en 0 y la grilla muestra Facturado 0. Odoo avisa al postear o vincular esa factura.
 
 Ahí también:
 
