@@ -28,7 +28,16 @@ Si DGI/el conector **rechaza**: corregí el motivo y volvé a confirmar según e
 
 ### Imprimir
 
-Botón **Imprimir** (nativo). Con CFE aceptado, sale la representación impresa / PDF del proveedor, no un QWeb genérico paralelo.
+Botón **Imprimir** (nativo). Un solo PDF.
+
+En compañía, **Reporte de comprobantes**:
+
+- **Reporte genérico**: factura nativa de Odoo. Arriba a la izquierda van el logo y los datos de la compañía. A la derecha, una grilla con el RUT del emisor, el tipo, el número, la fecha de factura, el vencimiento, la moneda y la forma de pago. A la izquierda van los datos del comprador y a la derecha el RUT o la cédula. El fondo es blanco. Bubble y Wave redondean ese recuadro. El cuerpo también sigue el diseño: Bubble pinta el encabezado de las líneas y el total, Striped y Wave rayan las líneas, Bold marca el encabezado con una franja, Boxed enmarca la tabla. No se imprime el segundo total en pesos. La vista previa del asistente de diseño muestra una cotización, no la factura CFE. No se imprime la tira de fecha límite, entrega, origen y referencia. Después de los totales va el recuadro Adenda (el texto de la factura) y, si hay cuentas elegidas, el título Cuentas bancarias. El QR, el código de seguridad, el CAE y el vencimiento del CAE van al pie. El estilo (Light, Bubble, etc.) cambia bordes, color y tipografía.
+- **Proveedor de factura electrónica**: el Print baja el PDF del conector. Queda de respaldo.
+
+El estilo (Light, Bubble, Striped, etc.) es el de **Ajustes → Ajustes generales → Diseño de documentos**. En ese mismo wizard, **Cuentas bancarias** reemplaza el número de cuenta único: elegís una, varias o todas. En el PDF salen banco, número y moneda de cada cuenta.
+
+Los comprobantes **recibidos** (bandeja) siguen usando el PDF del proveedor: es el comprobante del emisor, no una factura nuestra.
 
 ### Enviar
 

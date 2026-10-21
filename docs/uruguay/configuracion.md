@@ -46,6 +46,7 @@ En la misma ficha de compañía, pestaña **CFE** (solo si el país fiscal es Ur
 | **URL Testing / URL Producción** | Web Service del conector. En desarrollo, solo Testing. |
 | **Usuario / contraseña / API key** | Credenciales del **ambiente activo**. Hay slot Testing y slot Producción: no los mezcles. |
 | **Fecha de incorporación al régimen** o **Nº de resolución DGI** | Pie del comprobante (“Fecha emisor”). Si hay resolución, esa pisa a la fecha. |
+| **Reporte de comprobantes** | **Reporte genérico** = factura nativa de Odoo + número/QR/CAE del conector. **Proveedor de factura electrónica** = PDF del conector (respaldo). |
 
 Al activar FE, Odoo exige las credenciales del ambiente que esté seleccionado.
 
