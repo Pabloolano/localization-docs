@@ -44,7 +44,7 @@ Tipos DNIT activos de la compañía alimentan el combo (RG90).
 
 En la compañía (SIFEN → DE recibidos) puede estar el default **Crear factura al recibir XML**. Un rechazo DNIT posterior cancela el borrador o alerta si ya estaba publicado.
 
-Un XML con **iTiDE 8** (Comprobante de Retención Electrónico) **no** crea factura de proveedor: queda en estado **Retención pendiente**. El botón **Cargar retención recibida** de esa ficha todavía avisa que el parseo XML no está listo: hay que cargar el comprobante a mano (ver [Retención IVA recibida](#retencion-iva-recibida)).
+Un XML con **iTiDE 8** o **08** (Comprobante de Retención Electrónico) **no** crea factura de proveedor: queda en estado **Retención pendiente**. El botón **Cargar retención recibida** de esa ficha avisa que el parseo XML todavía no postea: hay que cargar el `CREC/` desde el cobro (ver [Retención IVA recibida](#retencion-iva-recibida)).
 
 Carga manual de XML sigue disponible aunque el IMAP esté apagado.
 

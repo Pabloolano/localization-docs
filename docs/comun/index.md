@@ -26,7 +26,7 @@ Módulos que no son CFE ni SIFEN. Sirven en cualquier compañía (Uruguay, Parag
 
     ---
 
-    Imputación manual y anticipos desde el pedido.
+    Imputación en el pago o el wizard, saldo a favor, y aprobación de salientes.
 
 -   **[Estado de cuenta](estado-cuenta.md)**
 

@@ -28,7 +28,7 @@ Envío **asíncrono** por defecto: SIFEN devuelve ticket de lote; Odoo consulta 
 |--------------|-----------|
 | Enviado | Esperar cron (15 min) o **Consultar lote SIFEN**. |
 | Aprobado | XML + KuDE en el clip / chatter. Imprimir / Enviar. |
-| Rechazado | La factura **vuelve a borrador** (conserva el número). Corregí el motivo y **Confirmá de nuevo** (mismo Nº). No hay botón “Reenviar SIFEN”. |
+| Rechazado | Si el envío falló, vuelve a **borrador** (conserva el número). Corregí y **Confirmá de nuevo**. Si ya se transmitió (enviado / aprobado / cancelado) no hay **Restablecer a borrador**. |
 
 En la lista: columna **Estado SIFEN**. El XML crudo está en el smart button SIFEN.
 

@@ -20,7 +20,13 @@ Localización fiscal Uruguay sobre Odoo 19: **CFE** ante DGI, impuestos, diarios
 
     ---
 
-    Emitir, imprimir, enviar, e-Remito 181 y e-Resguardo 182.
+    Emitir, imprimir, e-Remito, e-Resguardo y pagos electrónicos.
+
+-   **[Cheques](cheques.md)**
+
+    ---
+
+    Propios y de terceros: cartera, depósito y provisión.
 
 -   **[Conciliación DGI](conciliacion.md)**
 
@@ -32,7 +38,7 @@ Localización fiscal Uruguay sobre Odoo 19: **CFE** ante DGI, impuestos, diarios
 
     ---
 
-    Formularios 2181, 1146 y 1376.
+    Liquidación 1376, TXT 2181/1146 y tablero del ejercicio.
 
 -   **[Diferencia de cambio](diferencia-cambio.md)**
 
@@ -53,6 +59,7 @@ Localización fiscal Uruguay sobre Odoo 19: **CFE** ante DGI, impuestos, diarios
 | Conciliación vs listado DGI | `l10n_uy_einvoice_conciliation` |
 | Reportes DGI (detalle / liquidación) | `l10n_uy_tax_reports` |
 | Diferencia de cambio | `l10n_uy_exchange_difference` |
+| Cheques propios y de terceros | `l10n_uy_check` |
 
 No sustituye el [manual nativo de Accounting](https://www.odoo.com/documentation/19.0/applications/finance/accounting.html): solo lo que agrega la localización.
 

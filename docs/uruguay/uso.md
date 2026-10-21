@@ -38,11 +38,12 @@ Botón **Enviar** (asistente nativo `account.move.send`). Usá una **plantilla d
 
 ## Nota de crédito y débito
 
-DGI exige vincular la NC/ND al comprobante original.
+DGI valida el vínculo en el XML (`Referencia` / `IndGlobal`). Creá la NC/ND
+desde la factura original (o cargá el origen a mano en borrador). Odoo **ya
+no corta la firma** si falta origen: si DGI observa, corregís y reenvías.
 
 1. Desde la factura: acción nativa **Nota de crédito** (o débito, si aplica).
-2. No armes una NC suelta “parecida”: el vínculo al origen se pierde y DGI la observa.
-3. Mismo diario / familia de tipo (NC de e-Factura vs NC de e-Ticket).
+2. Mismo diario / familia de tipo (NC de e-Factura vs NC de e-Ticket).
 
     ![Nota de crédito vinculada al comprobante original](img/odoo-nc.jpg)
 
@@ -75,9 +76,27 @@ En el tipo de operación (`Inventario → Configuración → Tipos de operación
 
 ---
 
+## Pagos electrónicos (e-Factura cobranza)
+
+Recibo que el proveedor ya emitió (`IndCobPropia=1`). No es la factura de la mercadería y la compañía no emite otro CFE al aprobarlo.
+
+Menú: `Contabilidad → Proveedores → Pagos electrónicos`.
+
+1. Al bajar el CFE, Odoo pide el PDF y avisa que hay un pago para procesar. Hay una sola línea por serie, tipo y número.
+2. En **Aprobar** se ve el total y, factura por factura, el importe del comprobante. La suma de esa columna es el monto del pago.
+3. Si ya hay un pago confirmado del mismo importe imputado a esas facturas, **Aprobar** lo trae elegido en **Pago ya registrado**. El saldo en cero de esas facturas no es un error. **Conciliar con pago existente** solo vincula el CFE; no vuelve a avisar a Proinfo.
+4. Si no existe, **Crear pago interno** abre el registro de pago nativo (diario, método e imputación por factura con los mismos importes). Al confirmar queda publicado, imputado y vinculado al CFE. El comprobante del medio queda solo en el pago.
+5. **Factura** abre las facturas de proveedor y **Pago** abre el pago. Debajo del nombre del pago figura **Pago electrónico Nº** con serie, tipo y número. El PDF del recibo queda como **adjunto principal en el chatter** de la línea (y se copia al pago interno). La pestaña **XML** muestra el XML. Ya no hay pestaña PDF.
+
+Si falta el PDF, el comprobante del medio, una factura citada, o el monto no coincide con el saldo, no se registra un pago nuevo.
+
+---
+
 ## e-Resguardo (182)
 
 Retenciones en el circuito de pagos. Diario con flag **diario resguardo**.
+En la pestaña **Retenciones** cargá una o más líneas (código DGI + importe),
+como en Biller. Esas líneas alimentan el 1146 / 1144 / 2183.
 
 | Menú | Qué es |
 |------|--------|
@@ -117,6 +136,12 @@ En el contacto: tipo RUT + número → **Consulta RUT**. Sirve antes de facturar
 
 ---
 
+## Cheques
+
+Gestión de cheques propios y de terceros: [Cheques](cheques.md).
+
+---
+
 ## Reportes DGI
 
 El circuito completo (calcular, aprobar, TXT / 1376) está en [Reportes DGI](reportes.md). El menú: `Contabilidad → Uruguay`.
@@ -129,3 +154,4 @@ El circuito completo (calcular, aprobar, TXT / 1376) está en [Reportes DGI](rep
 - [Conciliación DGI](conciliacion.md)
 - [Reportes DGI](reportes.md)
 - [Diferencia de cambio](diferencia-cambio.md)
+- [Cheques](cheques.md)

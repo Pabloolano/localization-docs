@@ -19,6 +19,8 @@ Cuenta corriente por **moneda del comprobante**, separando lado Cliente y Provee
 2. **Actualizar** arma el listado (saldo inicial + movimientos del período).
 3. **PDF** / **Excel** / **Enviar por mail** usan el mismo contenido.
 
+![Estado de cuenta: filtros, PDF y Excel](img/odoo-estado-cuenta.jpg)
+
 Columnas:
 
 | Columna | Contenido |

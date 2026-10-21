@@ -116,4 +116,5 @@ Pasar **Modalidad de conexión** a Producción es una decisión explícita de go
 
 - [Cuentas, diarios e impuestos](cuentas.md)
 - [Uso](uso.md)
+- [Cheques](cheques.md)
 - [Conciliación DGI](conciliacion.md)

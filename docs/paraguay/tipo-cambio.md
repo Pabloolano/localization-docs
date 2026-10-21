@@ -29,11 +29,12 @@ En cada tasa aparecen **TC Vendedor** y **TC Comprador**.
 
 Si la factura no está en PYG:
 
-- **Tipo de TC:** comprador, vendedor o **manual**.
-- El importe del TC se edita solo en modo manual y en borrador.
-- Si DNIT no publicó esa fecha: aviso + enlace al portal.
+- Encima del diario: **1 USD = … PYG** (el importe del TC).
+- **Tipo de TC:** comprador, vendedor o **manual**. El importe se edita solo en manual y en borrador.
+- Si DNIT no publicó esa fecha: aviso + **Ver cotizaciones DNIT**.
 
-Ventas usan vendedor; compras, comprador — salvo que elijas manual.
+Ventas usan vendedor; compras, comprador — salvo que elijas manual. La retención
+emitida convierte el asiento con **tasa vendedor** (Art. 19 inc. d Decreto 6806/05).
 
 ![Factura PY: tipo de TC y cotización DNIT](img/odoo-factura-tc.jpg)
 

@@ -30,7 +30,7 @@ Los reportes DGI leen **líneas de impuesto** y cuentas de IVA/IRPF, no “el di
 |------|----------------|
 | Ventas | Emite CFE. Debe tener tipo de documento DGI y punto de emisión. |
 | Compras | Facturas proveedor / CFE recibidos. Diario específico para recibidos si la compañía lo define. |
-| Banco / caja | Pagos nativos. No mezclar con diarios de un cliente (p. ej. cobranzas bancarias propias). |
+| Banco / caja | Pagos nativos. No mezclar con diarios de un cliente (p. ej. cobranzas bancarias propias). Los métodos de [cheques](cheques.md) se habilitan acá (banco para propios, efectivo de cartera para terceros). |
 | Varios | Ajustes, diferencia de cambio, asientos de impuesto a mano. |
 
 Checklist por diario de **ventas**:

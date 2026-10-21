@@ -1,6 +1,6 @@
 # Reportes DNIT
 
-Módulo `l10n_py_tax_reports`. RG90, Form 120, Form 500, EEFF y Libro IVA son
+Módulo `l10n_py_tax_reports`. RG90, Form 120, Form 500, EEFF, RG 77 y Libro IVA son
 **documentos persistentes** (lista + formulario, un registro por período).
 Ya no son wizards. No mezclan saldos entre empresas.
 
@@ -10,10 +10,11 @@ Ya no son wizards. No mezclan saldos entre empresas.
 - Formulario 120 (IVA)
 - Formulario 500 (IRE)
 - Estados Financieros (RG 49/14)
+- Cuadro depreciación (RG 77)
 - Libro IVA (Ley 125/91)
 - (la retención IVA ya no es un reporte: se emite desde el pago o se carga desde el cobro)
 
-![Menú Paraguay: Reportes DNIT](img/odoo-menu-paraguay.jpg)
+![Menú Paraguay: retenciones y Reportes DNIT](img/odoo-menu-paraguay.jpg)
 
 Estados comunes (salvo RG90): Borrador → Calculado → Aprobado.
 **Calcular** solo en borrador. **Volver a Borrador** solo desde Calculado
@@ -106,6 +107,35 @@ Si falta, el cálculo se corta. Las cuentas hijas se **suman al padre oficial**
 
 ---
 
+## Cuadro de depreciación (RG 77)
+
+`Contabilidad → Paraguay → Reportes DNIT → Cuadro depreciación (RG 77)`.
+
+Anexo oficial de depreciación de bienes del activo fijo (IRE Régimen General,
+RG 77/2020). Informe **paralelo**: el día a día (inventario y depreciación
+mensual) es **Contabilidad → Activos**; este cuadro arma el cálculo del
+Anexo para archivo y cuando auditoría lo pide. Se archiva junto al Balance
+(EEFF RG 49/14) como `RUC_AÑO_EEFF`. **No** es el Anexo 6 de apoyo del EEFF
+(ese solo muestra saldos de cuentas PPE).
+
+Los bienes salen del módulo nativo **Activos** (requiere Assets /
+`account_asset`). En cada activo, pestaña **Fiscal PY (RG 77)**, se cargan
+% residual fiscal, vida útil fiscal y coeficiente de revalúo. Si no hay
+parámetros fiscales, se usan los valores contables. Para forzar residual
+fiscal 0 %, cargá la vida útil fiscal y dejá el % en 0.
+
+La cuota contable del Anexo es la depreciación **contabilizada** del
+ejercicio en el activo (no se recalcula con la fórmula teórica del Anexo).
+
+1. Tener los activos cargados y con depreciación del ejercicio.
+2. Tener el **EEFF** del mismo año calculado (o vincularlo).
+3. **Nuevo** del ejercicio → representante, contador, formulario y N° orden.
+4. **Calcular** (arma una línea por activo, incl. revalúos hijos) → **Aprobar**.
+5. **Archivar histórico** deja `{RUC}_{año}_EEFF.xlsx` (layout Anexo DNIT) y
+   `{RUC}_{año}_EEFF.pdf` (PDF del Balance / EEFF).
+
+---
+
 ## Formulario 500 (IRE General)
 
 `Contabilidad → Paraguay → Reportes DNIT → Formulario 500 (IRE)`.
@@ -154,3 +184,4 @@ pago de proveedor: [Compras — comprobante de retención](compras.md#comprobant
 - [Tipo de cambio y diferencia](tipo-cambio.md)
 - [Cuentas e impuestos](cuentas.md)
 - [Compras](compras.md)
+- [Uso](uso.md)
