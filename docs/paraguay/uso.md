@@ -12,7 +12,7 @@ Día a día con SIFEN en **Testing** (o Producción, solo si esa compañía ya h
 1. `Contabilidad → Clientes → Facturas` → Crear.
 
     ![Lista de facturas: número FE y Estado SIFEN](img/odoo-facturas.jpg)
-2. Diario de ventas, partner con RUC, calle y **número de puerta**, geo DNIT.
+2. Diario de ventas, contacto con tipo de documento, calle y **número de puerta**. Si el país es Paraguay: geo DNIT. Si el país es otro: no hace falta departamento ni ciudad DNIT (la operación sale B2F).
 3. Líneas e IVA (10 / 5 / exento).
 4. En **borrador**, pestaña SIFEN: tipo de DE, condición de venta, presencia, cuotas si aplica, documento asociado si es NC/ND.
 5. **Confirmar.** Odoo publica el número (`FE 001-001-…`) y envía el lote a SIFEN.
@@ -21,6 +21,24 @@ Día a día con SIFEN en **Testing** (o Producción, solo si esa compañía ya h
     ![Factura aprobada: Imprimir, Enviar, SIFEN TEST](img/odoo-factura-form.jpg)
 
     ![Pestaña SIFEN del comprobante: tipo DE, est, punto, estado](img/odoo-factura-sifen.jpg)
+
+### Receptor
+
+El tipo de documento del contacto (catálogo Paraguay, no el de otro país) define qué va en el DE:
+
+| Tipo en el contacto | Qué manda SIFEN |
+|---------------------|-----------------|
+| RUC | B2B, con RUC y DV |
+| RUC + operación **ente público** | B2G |
+| CI | B2C, cédula paraguaya |
+| Pasaporte, cédula extranjera, carnet de residencia, tarjeta diplomática, otro | B2C si el país es Paraguay; **B2F** si el país es otro |
+| Innominado | B2C, nombre `Sin Nombre` y documento `0` |
+
+**Operación SIFEN** en el contacto queda vacía salvo el ente público: Odoo infiere el resto. Un número con guión que no es RUC (un CUIT, por ejemplo) no se manda como RUC.
+
+El número de puerta se carga también cuando el cliente es del exterior, siempre que la compañía activa sea fiscal Paraguay. Departamento y ciudad DNIT solo si el contacto es de Paraguay. El nombre del país que viaja es el del catálogo DNIT, no el texto de la ficha.
+
+La nota de remisión sigue pidiendo departamento y ciudad DNIT del lugar de entrega.
 
 Envío **asíncrono** por defecto: SIFEN devuelve ticket de lote; Odoo consulta el resultado.
 
