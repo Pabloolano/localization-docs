@@ -10,7 +10,7 @@ Módulo `comex`. Una carpeta = una operación de **importación** o **exportaci�
 
 ## Crear y avanzar
 
-Lo habitual: desde la OC (importación), la OV (exportación) o una factura de gasto LC → **Generar carpeta COMEX** (crear nueva o unirse a una existente). También `COMEX → Carpetas` → **Nuevo**.
+La carpeta de importación nace de la orden de compra: **Carpeta COMEX** (crear nueva o unirse a una existente). La de exportación, de la orden de venta. Una factura de gasto ya vinculada a una OC se une a esa carpeta. `COMEX → Carpetas` no tiene **Nuevo**.
 
 1. Tipo importación o exportación, descripción, países, fechas estimadas.
 2. DUA con la máscara del país (`COMEX → Configuración → DUA por país`).
@@ -34,7 +34,21 @@ Una factura de proveedor con costo en destino no se postea sin carpeta (o el che
 
 `COMEX → Facturas sin carpeta` (admin): el pendiente a enganchar. Smart buttons: OC, OV, facturas, recepciones, costo en destino.
 
-Pestaña **Prorrateo**: matriz producto × costo. La columna **Valor FOB** es mercadería; **Costo en Origen** (y otros gastos) van en columnas LC aparte. Mientras la carpeta está abierta usa **cantidad comprada** y suma facturas en borrador (para ver cuánto hay que desembolsar). El **costo en destino** nativo no se crea hasta el cierre, contra lo posteado y lo recibido.
+Pestaña **Prorrateo**: matriz producto × costo. El rótulo de la columna de mercadería sigue el incoterm de la OC (Valor FOB, Valor CIF, …). Si la factura del proveedor parte flete o seguro, esa columna pasa a llamarse **Valor mercadería**. **Costo en Origen** y los demás gastos van en columnas aparte. Mientras la carpeta está abierta usa **cantidad comprada** y suma facturas en borrador (para ver cuánto hay que desembolsar). El **costo en destino** nativo no se crea hasta el cierre, contra lo posteado y lo recibido.
+
+Si la OC ya tiene carpeta, o el proveedor es de otro país, junto al incoterm se listan los costos mínimos que la carpeta va a pedir. Una compra local con incoterm no muestra ese texto. Es una guía: un costo de más se carga igual.
+
+El pedido es un **concepto** (Flete, Seguro, Gastos locales, Despachante, Impuestos), no un producto fijo. En el producto de costo en destino, el campo **Concepto de la guía COMEX** dice cuál cubre. Una factura con otro producto del mismo concepto alcanza: la columna de fábrica deja de decir **Falta factura**. **Flete y seguro** cubre los dos. El IVA u otro impuesto de la factura no cubre el concepto Impuestos: hace falta una línea de producto.
+
+**Despachante** e **Impuestos** no capitalizan al stock. El resto de la guía sí. Se cambia en el producto, campo **Capitaliza al costo (COMEX)**.
+
+En una factura CIF, CIP o CFR vinculada a la carpeta, Odoo indica cómo cargar el flete y el seguro cuando la factura del proveedor los muestra (en una línea o en dos). Si no aparecen, no se agregan.
+
+Pestaña **Documentos**: al elegir el medio de transporte (marítimo, aéreo, carretera, ferroviario, fluvial) pide el documento de ese medio. Carretera pide CRT y MIC/DTA. Cuando la guía tiene sus facturas y esos archivos están cargados, **Enviar al despachante** abre el correo con esos archivos. No lo manda solo.
+
+En la lista, la columna **Guía** dice qué falta para poder cerrar: facturas de la guía, facturas sin postear, recepción, prorrateo o documentos. **Se puede validar** aparece cuando **Cerrar** ya puede seguir y los documentos están cargados. Una factura en borrador alcanza para la guía y para el mail; no alcanza para esa marca.
+
+La guía y los documentos se ajustan en `COMEX → Configuración`.
 
 Los productos de gasto LC tienen que facturarse **sobre cantidades pedidas**, no al recibir. Si no, la línea entra en 0 y la grilla muestra Facturado 0. Odoo avisa al postear o vincular esa factura.
 
