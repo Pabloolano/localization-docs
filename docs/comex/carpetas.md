@@ -12,17 +12,17 @@ Módulo `comex`. Una carpeta = una operación de **importación** o **exportaci�
 
 La carpeta de importación nace de la orden de compra: **Carpeta COMEX** (crear nueva o unirse a una existente). La de exportación, de la orden de venta. Una factura de gasto ya vinculada a una OC se une a esa carpeta. `COMEX → Carpetas` no tiene **Nuevo**.
 
-1. Tipo importación o exportación, descripción, países, fechas estimadas.
+1. Tipo importación o exportación, descripción, países, fechas estimadas. La importación ya nace **En curso**.
 2. DUA con la máscara del país (`COMEX → Configuración → DUA por país`).
-3. **Confirmar** (grupo **Administración COMEX**).
-4. **En tránsito.**
-5. Importación: **Recibido**. Exportación: **Entregado**.
-6. Pestaña **Prorrateo**: se puede armar **antes** de recibir mercadería y con facturas de gasto **en borrador**. La cantidad de la grilla es la comprada (OC/OV). **Dif.** de cada costo capitalizable tiene que quedar en 0.
-7. **Cerrar** (importación en Recibido): todas las facturas de la carpeta tienen que estar **posteadas** o canceladas; el prorrateo se rebasea a lo **realmente recibido**; recién ahí se genera el asiento de costo en destino (cuenta puente de Ajustes).
-8. **Cancelar** solo en borrador o confirmado.
+3. Exportación: **Confirmar**, **En tránsito**, **Entregado**.
+4. Pestaña **Prorrateo**: se puede armar **antes** de recibir mercadería y con facturas de gasto **en borrador**. La cantidad de la grilla es la comprada (OC/OV). **Dif.** de cada costo capitalizable tiene que quedar en 0.
+5. **Validar LC** (importación en curso, grupo **Administración COMEX**): facturas **posteadas**, recepción validada y la guía cubierta. El prorrateo se rebasea a lo recibido y se genera el costo en destino.
+6. Si después llega una factura: **Ajustar**, cargarla, **Aplicar ajuste**. Hace falta que esté posteada y que el prorrateo capitalizable quede en cero. El asiento acredita la cuenta de esa factura por el mismo monto. **Volver a LC validado** sale sin generar el asiento.
+7. **Cancelar** una importación solo en curso, y solo si no tiene facturas posteadas. Una exportación, solo en borrador o confirmado. La barra de estado no cambia el estado: se usan los botones.
 
-Estados importación: Borrador → Confirmado → En tránsito → Recibido → Cerrado.  
-Estados exportación: … → Entregado → Cerrado.
+Estados importación: **En curso** → **LC validado**. **Cancelada** solo desde En curso. Salida, arribo y recepción son fechas y la recepción de inventario, no estados. **Validar LC** genera el costo en destino. Si después llega una factura, **Ajustar** y **Aplicar ajuste**: lo que sigue en stock va a valuación y lo ya vendido se queda en el gasto de esa factura. No se reescribe el costo ya validado.
+
+Estados exportación: Borrador → Confirmado → En tránsito → Entregado → Cerrado.
 
 ![Ficha de carpeta: tipo, DUA y estados](img/odoo-carpeta-form.jpg)
 
@@ -34,7 +34,7 @@ Una factura de proveedor con costo en destino no se postea sin carpeta (o el che
 
 `COMEX → Facturas sin carpeta` (admin): el pendiente a enganchar. Smart buttons: OC, OV, facturas, recepciones, costo en destino.
 
-Pestaña **Prorrateo**: matriz producto × costo. El rótulo de la columna de mercadería sigue el incoterm de la OC (Valor FOB, Valor CIF, …). Si la factura del proveedor parte flete o seguro, esa columna pasa a llamarse **Valor mercadería**. **Costo en Origen** y los demás gastos van en columnas aparte. Mientras la carpeta está abierta usa **cantidad comprada** y suma facturas en borrador (para ver cuánto hay que desembolsar). El **costo en destino** nativo no se crea hasta el cierre, contra lo posteado y lo recibido.
+Pestaña **Prorrateo**: matriz producto × costo. El rótulo de la columna de mercadería sigue el incoterm de la OC (Valor FOB, Valor CIF, …). Si la factura del proveedor parte flete o seguro, esa columna pasa a llamarse **Valor mercadería**. **Costo en Origen** y los demás gastos van en columnas aparte. Mientras la carpeta está abierta usa **cantidad comprada** y suma facturas en borrador (para ver cuánto hay que desembolsar). El **costo en destino** nativo no se crea hasta **Validar LC**, contra lo posteado y lo recibido.
 
 Si la OC ya tiene carpeta, o el proveedor es de otro país, junto al incoterm se listan los costos mínimos que la carpeta va a pedir. Una compra local con incoterm no muestra ese texto. Es una guía: un costo de más se carga igual.
 
@@ -46,7 +46,7 @@ En una factura CIF, CIP o CFR vinculada a la carpeta, Odoo indica cómo cargar e
 
 Pestaña **Documentos**: al elegir el medio de transporte (marítimo, aéreo, carretera, ferroviario, fluvial) pide el documento de ese medio. Carretera pide CRT y MIC/DTA. Cuando la guía tiene sus facturas y esos archivos están cargados, **Enviar al despachante** abre el correo con esos archivos. No lo manda solo.
 
-En la lista, la columna **Guía** dice qué falta para poder cerrar: facturas de la guía, facturas sin postear, recepción, prorrateo o documentos. **Se puede validar** aparece cuando **Cerrar** ya puede seguir y los documentos están cargados. Una factura en borrador alcanza para la guía y para el mail; no alcanza para esa marca.
+En la lista, la columna **Guía** dice qué falta para poder cerrar: facturas de la guía, facturas sin postear, recepción, prorrateo o documentos. **Se puede validar** aparece cuando **Validar LC** ya puede seguir y los documentos están cargados. Una factura en borrador alcanza para la guía y para el mail; no alcanza para esa marca.
 
 La guía y los documentos se ajustan en `COMEX → Configuración`.
 
@@ -55,10 +55,10 @@ Los productos de gasto LC tienen que facturarse **sobre cantidades pedidas**, no
 Ahí también:
 
 - **Faltante en recepción:** pérdida o backorder, según la compañía.
-- **Cuenta puente LC COMEX:** crédito del asiento al cerrar.
+- **Cuenta puente LC COMEX:** crédito del asiento al validar el LC. Un ajuste posterior acredita la cuenta de la factura, no esta puente.
 
 ![Ajustes COMEX en Inventario](img/odoo-comex-ajustes.jpg)
 
-Al cerrar, si el período contable está cerrado, Odoo avisa (wizard). Factura duplicada en la misma carpeta: aviso, no se silencia.
+Al validar el LC, si el período contable está cerrado, Odoo avisa (wizard). Factura duplicada en la misma carpeta: aviso, no se silencia.
 
 No copies la cuenta puente ni el DUA de otra empresa.
