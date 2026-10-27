@@ -6,6 +6,8 @@ App **COMEX Cotizador → Cotizaciones**. Catálogo: **Consulta NCM**.
 
 **Cerrar cotización** pregunta si se crea la orden de compra y si se crea la factura de proveedor en borrador. Si no se marca ninguna, la cotización queda histórica y se guarda el NCM de cada línea de mercadería.
 
+La glosa, la tasa y los documentos son los del país de la compañía. Uruguay muestra la glosa de ocho dígitos y, si el código tiene diez, la hoja nacional. Paraguay muestra la glosa de ocho. La tasa y los documentos de Uruguay no se usan en una compañía paraguaya.
+
 ![Lista de cotizaciones](img/odoo-cotizaciones.jpg)
 
 ---
@@ -16,7 +18,7 @@ App **COMEX Cotizador → Cotizaciones**. Catálogo: **Consulta NCM**.
 2. **Continuar** — wizard de costos (flete, seguro, gastos origen/terminal/línea, flete importación, honorario, despacho). Una línea tipeada, sin PDF, entra por el mismo wizard: guarda los costos y no extrae. Con PDF, **Procesar** extrae las líneas.
 3. La IA extrae líneas y sugiere NCM. Si no hay partner: **Crear proveedor**.
 4. Revisá confianza, documentos exigidos y alerta de prohibido (rojo).
-5. **Reclasificar NCM (IA)** o **Buscar NCM**. **Confirmar al catálogo**. **Crear producto** si no existe.
+5. **Reclasificar NCM (IA)** o **Buscar NCM**. La glosa, la tasa y los documentos son los del país de la compañía. Uruguay muestra la de ocho dígitos y la hoja nacional de diez. Paraguay muestra la glosa de ocho. La tasa uruguaya no entra en una compañía paraguaya. **Confirmar al catálogo**. **Crear producto** si no existe.
 6. Con el NCM elegido, cada línea de mercadería muestra la **liquidación orientativa**: valor en aduana, arancel, TGA, IMESI, IVA, tasa consular, anticipos y el total. El valor en aduana es la mercadería más la parte de flete, seguro, gastos en origen y flete de importación. El reparto se elige en **Prorrateo de costos** (valor, cantidad, peso o volumen). Si la factura ya trae ese costo como línea, manda la línea; si no, manda la columna del cabezal. Terminal, honorarios y gastos de despacho se ven aparte y no entran en esos tributos.
 7. El beneficio es uno solo y arranca en **régimen general** (el arancel de la partida). Si el origen de la mercadería —o, si no está, el país de la factura— es Argentina, Brasil o Paraguay, se puede elegir el **certificado Mercosur**: el arancel queda liberado según el margen DNA. Bolivia, Chile y Venezuela permiten anotar su certificado (ACE 36, ACE 35 o ACE 59) y el arancel no cambia. **Margen ALADI 504** es la otra opción, por país, y no se combina con el certificado. **Liberación** reemplaza a esos dos: en la línea se elige una fila vigente de esa partida (código, porcentajes y fechas; el feed no trae el nombre) y esos porcentajes son exenciones del arancel, la TGA, el IVA y el IMESI. Si las líneas tienen orígenes distintos, la pregunta es por línea. Una factura brasileña de mercadería china no pregunta el certificado. Si la factura está en dólares, se puede usar la tasa DNA en lugar de la tasa de la compañía. En otra moneda se muestra el número DNA y no se convierte.
 
