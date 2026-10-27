@@ -38,6 +38,14 @@ Odoo 19 Enterprise. Textos genéricos: compañía demo, placeholders, sin datos 
 
     [Abrir COMEX](comex/index.md)
 
+-   **Despachante**
+
+    ---
+
+    Carpeta y despacho. La liquidación se carga a mano.
+
+    [Abrir despachante](despachante/carpeta.md)
+
 </div>
 
 ## Cómo leer estas guías
