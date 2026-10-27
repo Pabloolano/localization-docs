@@ -2,7 +2,9 @@
 
 Módulo `comex`. Una carpeta = una operación de **importación** o **exportación**.
 
-`COMEX → Carpetas`.
+`Comex → Embarques` es el tablero de importaciones y tránsitos. El título muestra el **porcentaje recibido a tiempo**. La barra superior desglosa a tiempo / tarde / en tránsito / sin fecha pautada. El arribo pautado es la fecha de la carpeta; la recepción es la última picking de entrada validada. El filtro **Embarques activos** no es el estado En curso de la carpeta.
+
+`Comex → Carpetas`.
 
 ![Lista de carpetas](img/odoo-carpetas.jpg)
 
@@ -16,11 +18,11 @@ La carpeta de importación nace de la orden de compra: **Carpeta COMEX** (crear 
 2. DUA con la máscara del país (`COMEX → Configuración → DUA por país`).
 3. Exportación: **Confirmar**, **En tránsito**, **Entregado**.
 4. Pestaña **Prorrateo**: se puede armar **antes** de recibir mercadería y con facturas de gasto **en borrador**. La cantidad de la grilla es la comprada (OC/OV). **Dif.** de cada costo capitalizable tiene que quedar en 0.
-5. **Validar LC** (importación en curso, grupo **Administración COMEX**): facturas **posteadas**, recepción validada y la guía cubierta. El prorrateo se rebasea a lo recibido y se genera el costo en destino.
+5. **Validar LC** (importación en curso, grupo **Administración COMEX**): facturas **posteadas**, recepción validada, la guía cubierta y los documentos del medio cargados. El prorrateo se rebasea a lo recibido y se genera el costo en destino.
 6. Si después llega una factura: **Ajustar**, cargarla, **Aplicar ajuste**. Hace falta que esté posteada y que el prorrateo capitalizable quede en cero. El asiento acredita la cuenta de esa factura por el mismo monto. **Volver a LC validado** sale sin generar el asiento.
 7. **Cancelar** una importación solo en curso, y solo si no tiene facturas posteadas. Una exportación, solo en borrador o confirmado. La barra de estado no cambia el estado: se usan los botones.
 
-Estados importación: **En curso** → **LC validado**. **Cancelada** solo desde En curso. Salida, arribo y recepción son fechas y la recepción de inventario, no estados. **Validar LC** genera el costo en destino. Si después llega una factura, **Ajustar** y **Aplicar ajuste**: lo que sigue en stock va a valuación y lo ya vendido se queda en el gasto de esa factura. No se reescribe el costo ya validado.
+Estados importación: **En curso** → **LC validado**. **Cancelada** solo desde En curso. Salida, arribo y recepción son fechas y la recepción de inventario, no estados. **Validar LC** genera el costo en destino. Si después llega una factura, **Ajustar** y **Aplicar ajuste**: lo que sigue en stock va a valuación y lo ya vendido se queda en el gasto de esa factura. No se reescribe el costo ya validado. **Volver a LC validado** deja la grilla como estaba al pulsar **Ajustar**. En ajuste no se cambia el incoterm.
 
 Estados exportación: Borrador → Confirmado → En tránsito → Entregado → Cerrado.
 
@@ -46,9 +48,11 @@ En una factura CIF, CIP o CFR vinculada a la carpeta, Odoo indica cómo cargar e
 
 Pestaña **Documentos**: al elegir el medio de transporte (marítimo, aéreo, carretera, ferroviario, fluvial) pide el documento de ese medio. Carretera pide CRT y MIC/DTA. Cuando la guía tiene sus facturas y esos archivos están cargados, **Enviar al despachante** abre el correo con esos archivos. No lo manda solo.
 
-En la lista, la columna **Guía** dice qué falta para poder cerrar: facturas de la guía, facturas sin postear, recepción, prorrateo o documentos. **Se puede validar** aparece cuando **Validar LC** ya puede seguir y los documentos están cargados. Una factura en borrador alcanza para la guía y para el mail; no alcanza para esa marca.
+En la lista, la columna **Guía** dice qué falta para poder cerrar: facturas de la guía, facturas sin postear, recepción, prorrateo o documentos. **Se puede validar** aparece cuando **Validar LC** ya puede seguir. Si falta un documento, el botón no genera el costo en destino. Una factura en borrador alcanza para la guía y para el mail; no alcanza para esa marca.
 
 La guía y los documentos se ajustan en `COMEX → Configuración`.
+
+`Comex → Configuración → Productos por tarjeta` asigna cada producto de costo en destino a una tarjeta del tablero: Fletes, Gastos locales, Recargos, IVA, Anticipo de IVA, Anticipo de IRAE. El honorario del despachante va en Gastos locales. Impuestos va en Recargos. IVA y los anticipos salen de la factura del despachante y no capitalizan. La lista es por compañía. **Cargar desde la guía** toma los productos LC que ya tienen concepto (flete, gastos locales, honorario, impuestos) y los asigna.
 
 Los productos de gasto LC tienen que facturarse **sobre cantidades pedidas**, no al recibir. Si no, la línea entra en 0 y la grilla muestra Facturado 0. Odoo avisa al postear o vincular esa factura.
 
