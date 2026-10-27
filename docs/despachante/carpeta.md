@@ -17,6 +17,26 @@ Sirve para cualquier despachante. No envía el trámite a la aduana: la liquidac
 
 Al guardar, Odoo abre la carpeta y un despacho. En la carpeta, **Nuevo despacho** abre otro de la misma carpeta. El botón **Despachos** abre el formulario si hay uno, y la lista si hay más. `Despachante → Carpetas` muestra esa carpeta. Los archivos van en el chatter. La numeración es de cada compañía.
 
+En un despacho que no es el primero de la carpeta, cada ítem tiene que tener **Ítem de origen**: una línea de otro despacho de la misma carpeta. La cantidad y el peso no pueden pasar el saldo. El NCM tiene que ser el mismo.
+
+---
+
+## Fondos
+
+En la compañía, grupo Despachante:
+
+- **Fondos de terceros:** pasivo corriente.
+- **Adelantos por cuenta de clientes:** activo.
+- **Cuenta de anticipo:** la de Ventas. Tiene que ser un pasivo corriente. Ahí va el anticipo de honorarios, no el tributo.
+
+En la carpeta:
+
+1. **Honorarios** abre un pedido de venta de esa carpeta. Si ese pedido está cancelado, abre uno nuevo. Las líneas quedan en la cuenta analítica de la carpeta, en el plan Despachante. El anticipo y la factura son los botones del pedido. El interés, si se cobra, es otra línea con el importe que cargue el usuario.
+2. **Fondos de terceros** abre un cobro del cliente. No es una factura.
+3. **Pago a la aduana** abre un pago de proveedor. El contacto de la aduana se elige en ese pago.
+
+**Saldo financiado** es lo adelantado a la aduana menos lo cobrado de terceros. La deuda del honorario no entra en ese saldo.
+
 El aviso del formulario lo dice: nada de esto sale hacia la aduana.
 
 ---
