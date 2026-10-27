@@ -34,7 +34,7 @@ Una factura de proveedor con costo en destino no se postea sin carpeta (o el che
 
 `COMEX → Facturas sin carpeta` (admin): el pendiente a enganchar. Smart buttons: OC, OV, facturas, recepciones, costo en destino.
 
-Pestaña **Prorrateo**: matriz producto × costo. El rótulo de la columna de mercadería sigue el incoterm de la OC (Valor FOB, Valor CIF, …). Si la factura del proveedor parte flete o seguro, esa columna pasa a llamarse **Valor mercadería**. **Costo en Origen** y los demás gastos van en columnas aparte. Mientras la carpeta está abierta usa **cantidad comprada** y suma facturas en borrador (para ver cuánto hay que desembolsar). El **costo en destino** nativo no se crea hasta **Validar LC**, contra lo posteado y lo recibido.
+Pestaña **Prorrateo**: matriz producto × costo. **Excel** baja esa misma grilla. El rótulo de la columna de mercadería sigue el incoterm de la OC (Valor FOB, Valor CIF, …). Si la factura del proveedor parte flete o seguro, esa columna pasa a llamarse **Valor mercadería**. **Costo en Origen** y los demás gastos van en columnas aparte. Mientras la carpeta está abierta usa **cantidad comprada** y suma facturas en borrador (para ver cuánto hay que desembolsar). El **costo en destino** nativo no se crea hasta **Validar LC**, contra lo posteado y lo recibido.
 
 Si la OC ya tiene carpeta, o el proveedor es de otro país, junto al incoterm se listan los costos mínimos que la carpeta va a pedir. Una compra local con incoterm no muestra ese texto. Es una guía: un costo de más se carga igual.
 
