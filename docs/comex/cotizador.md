@@ -17,7 +17,7 @@ Hoy, tras procesar, la cotización **sigue en Borrador**. Cotizado / Convertido 
 3. La IA extrae líneas y sugiere NCM. Si no hay partner: **Crear proveedor**.
 4. Revisá confianza, documentos exigidos y alerta de prohibido (rojo).
 5. **Reclasificar NCM (IA)** o **Buscar NCM**. **Confirmar al catálogo**. **Crear producto** si no existe.
-6. Con el NCM elegido, la cotización muestra una **liquidación orientativa**: valor en aduana (mercadería más la parte de flete, seguro, gastos en origen y flete de importación) y tributos de esa partida. El reparto se elige en **Prorrateo de costos** (valor, cantidad, peso o volumen). Terminal, honorarios y gastos de despacho se ven aparte y no entran en esos tributos.
+6. Con el NCM elegido, cada línea de mercadería muestra la **liquidación orientativa**: valor en aduana, arancel, TGA, IMESI, IVA, tasa consular, anticipos y el total. El valor en aduana es la mercadería más la parte de flete, seguro, gastos en origen y flete de importación. El reparto se elige en **Prorrateo de costos** (valor, cantidad, peso o volumen). Si la factura ya trae ese costo como línea, manda la línea; si no, manda la columna del cabezal. Terminal, honorarios y gastos de despacho se ven aparte y no entran en esos tributos.
 
 No hay (aún) “convertir a carpeta” desde este formulario. El cartel de la cotización lo dice: es una estimación. El despachante confirma el NCM.
 
