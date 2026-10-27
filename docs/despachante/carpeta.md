@@ -8,16 +8,19 @@ Sirve para cualquier despachante. No envía el trámite a la aduana: la liquidac
 
 ## Carpeta y despacho
 
-`Despachante → Despachos → Nuevo`.
+`Despachante → Carpetas → Nuevo`. El número que aparece es el **correlativo**. Al oficializar se carga el **número oficial** en esa misma carpeta. Una salida es otra carpeta.
 
-1. Cliente y tipo: importación, exportación o tránsito.
-2. Carátula: destinación, aduana, incoterm, documento de transporte y factura comercial.
-3. Provisorio: referencia, fecha, cotización de la aduana del día y liquidación.
-4. Ítems: descripción, NCM, cantidad, unidad, origen, peso y valor.
+1. Estado **Cotización**. En la pestaña Cotización van el tributo estimado, los gastos y el honorario.
+2. **Documentos.** Una fila por documento, con su imagen. El RADE se ve solo si la compañía es de Uruguay.
+3. Catálogo del cliente: nombre, descripción y NCM. **Armar ítems** exige la factura adjunta y arma las líneas agrupadas por NCM.
+4. **Pasar a provisorio** pide la referencia y la liquidación, en el despacho de esa carpeta.
+5. **Pedir fondos**, después **Oficializar** con el número de aduana.
+6. Canal y fecha de levante, en el despacho. **Registrar levante**.
+7. Pestaña **Stock**: depósito, número de stock, manifiesto, contenedor y precinto. El contenedor tiene que cerrar el dígito. La salida indica la carpeta de ingreso y la cantidad que saca.
 
-Al guardar, Odoo abre la carpeta y un despacho. En la carpeta, **Nuevo despacho** abre otro de la misma carpeta. El botón **Despachos** abre el formulario si hay uno, y la lista si hay más. `Despachante → Carpetas` muestra esa carpeta. Los archivos van en el chatter. La numeración es de cada compañía.
+**Cerrar sin despacho** deja el correlativo ocupado. No pide levante.
 
-En un despacho que no es el primero de la carpeta, cada ítem tiene que tener **Ítem de origen**: una línea de otro despacho de la misma carpeta. La cantidad y el peso no pueden pasar el saldo. El NCM tiene que ser el mismo.
+El despacho (carátula, ítems, canal, provisorio) se abre con el botón **Despachos**. Hay uno por carpeta.
 
 ---
 
@@ -36,6 +39,17 @@ En la carpeta:
 3. **Pago a la aduana** abre un pago de proveedor. El contacto de la aduana se elige en ese pago.
 
 **Saldo financiado** es lo adelantado a la aduana menos lo cobrado de terceros. La deuda del honorario no entra en ese saldo.
+
+---
+
+## Canal y cierres
+
+En el despacho:
+
+- **Canal:** verde, naranja o rojo.
+- **Levante:** la fecha en que la mercadería salió del control.
+- **Cierre operativo.** Exige el levante. Si la carpeta abrió stock, el saldo tiene que estar en cero y cada salida en cierre operativo. No factura.
+- **Cierre administrativo.** Exige el cierre operativo, el saldo financiado en cero y la factura de honorarios publicada. Si hay salidas, cada una tiene que estar cerrada en lo administrativo. No vuelve a pedir el levante.
 
 El aviso del formulario lo dice: nada de esto sale hacia la aduana.
 
