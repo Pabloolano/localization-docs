@@ -2,7 +2,9 @@
 
 Módulo `comex`. Una carpeta = una operación de **importación** o **exportación**.
 
-`Comex → Embarques` es el tablero de importaciones y tránsitos. El título muestra el **porcentaje recibido a tiempo**. La barra superior desglosa a tiempo / tarde / en tránsito / sin fecha pautada. El arribo pautado es la fecha de la carpeta; la recepción es la última picking de entrada validada. El filtro **Embarques activos** no es el estado En curso de la carpeta.
+`Comex → Tablero` es la home. Primero **conteos** (Importaciones, Tránsitos). Después **acumulados** en la **segunda moneda**: Fletes, Otros gastos, Recargos, IVA, Anticipo de IVA, Anticipo de IRAE. El nombre de cada tarjeta se edita en **Configuración → Configuración de tarjetas**. Cada tarjeta desglosa los **últimos seis meses** (columnas y línea, como el tablero de Contabilidad). Si no hay movimiento, las columnas van en 0: no se inventan montos. El título muestra el **porcentaje recibido a tiempo**. Varios productos de la misma tarjeta se suman. Fletes / otros gastos / recargos son productos LC. IVA y anticipos salen de la factura del despachante, aunque la línea no tenga producto y solo diga `I.V.A. IMPORTACION`, `ANTICIPO DE I.V.A.` o `ANTICIPO IRAE`. Clic abre facturas o carpetas. Arriba: Carpetas, Embarques, Cotización. No hay tarjeta NONAC.
+
+`Comex → Embarques` es el kanban de importaciones y tránsitos. La barra superior desglosa a tiempo / tarde / en tránsito / sin fecha pautada. El arribo pautado es la fecha de la carpeta; la recepción es la última picking de entrada validada. El filtro **Embarques activos** no es el estado En curso de la carpeta.
 
 `Comex → Carpetas`.
 
@@ -52,7 +54,7 @@ En la lista, la columna **Guía** dice qué falta para poder cerrar: facturas de
 
 La guía y los documentos se ajustan en `COMEX → Configuración`.
 
-`Comex → Configuración → Productos por tarjeta` asigna cada producto de costo en destino a una tarjeta del tablero: Fletes, Gastos locales, Recargos, IVA, Anticipo de IVA, Anticipo de IRAE. El honorario del despachante va en Gastos locales. Impuestos va en Recargos. IVA y los anticipos salen de la factura del despachante y no capitalizan. La lista es por compañía. **Cargar desde la guía** toma los productos LC que ya tienen concepto (flete, gastos locales, honorario, impuestos) y los asigna.
+`Comex → Configuración → Configuración de tarjetas` cambia el título que se ve en el tablero (por ejemplo Otros gastos). `Comex → Configuración → Productos por tarjeta` asigna cada producto de costo en destino a una tarjeta: Fletes, Otros gastos, Recargos, IVA, Anticipo de IVA, Anticipo de IRAE. El honorario del despachante va en Otros gastos. Impuestos va en Recargos. IVA y los anticipos salen de la factura del despachante y no capitalizan. La lista es por compañía. **Cargar desde la guía** toma los productos LC que ya tienen concepto (flete, gastos locales, honorario, impuestos) y los asigna.
 
 Los productos de gasto LC tienen que facturarse **sobre cantidades pedidas**, no al recibir. Si no, la línea entra en 0 y la grilla muestra Facturado 0. Odoo avisa al postear o vincular esa factura.
 
