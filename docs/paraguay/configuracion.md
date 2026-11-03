@@ -83,7 +83,7 @@ Notebook bajo SIFEN, o `Contabilidad → Paraguay → Facturación electrónica`
 
 Geo del emisor: Many2one DNIT. Sin ciudad/departamento válidos la emisión corta en local.
 
-El correlativo (`dNumDoc`, 7 dígitos) lo asigna **Odoo** al confirmar. No se tipea. Si hay un hueco, hay que **inutilizar** numeración.
+El correlativo (`dNumDoc`, 7 dígitos) lo asigna **Odoo** al confirmar. No se tipea. Cada tipo de documento tiene el suyo en el punto: factura, nota de crédito, nota de débito, autofactura y nota de remisión. En el punto, **Correlativos por tipo de documento**: cargá el próximo número de cada serie. Solo un administrador de contabilidad puede adelantarlo, y no puede quedar por debajo del último ya asignado de esa serie. Si hay un hueco, hay que **inutilizar** numeración de ese tipo.
 
 Formato que ves en el nombre de la factura:
 
