@@ -54,14 +54,14 @@ En la lista, la columna **Guía** dice qué falta para poder cerrar: facturas de
 
 La guía y los documentos se ajustan en `COMEX → Configuración`.
 
-El módulo no crea productos. La guía de costos (`COMEX → Configuración → Guía de costos por incoterm`) se arma eligiendo productos que ya existen. `Comex → Configuración → Configuración de tarjetas` cambia el título que se ve en el tablero. `Comex → Configuración → Productos por tarjeta` asigna productos de la categoría marcada en Inventario → Configuración → COMEX. Fletes, Otros gastos y Recargos piden un producto de costo en destino. IVA y los anticipos salen de la factura del despachante y no capitalizan. **Cargar desde la guía** toma, de esa categoría, los productos que ya tienen concepto (flete, gastos locales, honorario, impuestos).
+El módulo no crea productos. La guía de costos (`COMEX → Configuración → Guía de costos por incoterm`) se arma eligiendo productos que ya existen. `Comex → Configuración → Configuración de tarjetas` cambia el título que se ve en el tablero. `Comex → Configuración → Productos por tarjeta` asigna productos de la categoría marcada en Inventario → Configuración → COMEX. Fletes, Otros gastos y Recargos piden un producto de costo en destino. IVA y los anticipos salen de la factura del despachante y no capitalizan. **Cargar desde la guía** toma, de esa categoría, los productos que ya tienen concepto (flete, gastos locales, honorario, impuestos). Carga solo la compañía activa.
 
 Los productos de gasto LC tienen que facturarse **sobre cantidades pedidas**, no al recibir. Si no, la línea entra en 0 y la grilla muestra Facturado 0. Odoo avisa al postear o vincular esa factura.
 
 Ahí también:
 
 - **Categoría de productos del tablero:** de ahí salen los productos de las tarjetas. Tienen que existir de antes.
-- **Producto de costo en destino:** producto ya existente que usa el asiento al validar el LC.
+- **Producto de costo en destino:** producto ya existente que usa el asiento al validar el LC. Tiene que ser de la compañía o compartido.
 - **Faltante en recepción:** pérdida o backorder, según la compañía.
 - **Cuenta puente LC COMEX:** crédito del asiento al validar el LC. Un ajuste posterior acredita la cuenta de la factura, no esta puente.
 
